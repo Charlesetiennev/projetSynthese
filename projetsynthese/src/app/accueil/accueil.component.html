@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row d-block text-center">
+    <h1 class="">
+      Tu es à la recherche de ton <br />
+      stage de fin d'études?
+    </h1>
+    <br />
+    <p>
+      Pellentesque vehicula fermentum turpis eu cursus. Cras convallis <br />
+      tellus et elit aliquet, vitae dignissim ligula sodales.
+    </p>
+  </div>
+  <!-- Offre de stage petit format -->
+  <div class="container">
+    <div class="row">
+      <div class="col-3" *ngFor="let offreStage of offresStages">
+        <app-mini-offre-stage [offreStage]="offreStage"></app-mini-offre-stage>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center py-5">
+      <a href="#" class="badge-danger rounded px-2 py-1"
+        >Voir toutes les offres de stage</a
+      >
+    </div>
+  </div>
+  <!-- Section pourquoi publiez un stage -->
+  <app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+  <!--  Section des stagiaires -->
+  <div class="container mt-5">
+    <div class="row mt-5 mb-2">
+      <h1 class="mx-auto">Votre furut stagiaire se trouve ici.</h1>
+    </div>
+    <div class="row">
+      <p class="mx-auto">
+        Pellentesque vehicula fermentum turpis eu cursus. Cras convallis
+        <br />tellus et elit aliquet, vitae dignissim ligula sodales.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-3" *ngFor="let stagiaire of stagiaires">
+        <app-mini-stagiaire-carte
+          [stagiaire]="stagiaire"
+        ></app-mini-stagiaire-carte>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center py-5">
+      <a href="#" class="badge-danger rounded px-2 py-1"
+        >Voir toutes les offres de stage</a
+      >
+    </div>
+  </div>
+</div>
+<!-- Section trouvez un stage -->
+<app-section-trouvez-stage></app-section-trouvez-stage>
+<!-- Section des Etapes -->
+<section>
+  <div class="container">
+    <div class="row text-center">
+      <div class="offset-3 col-6">
+        <h1>Facile à utiliser!</h1>
+        <p>
+          Pellentesque vehicula fermentum turpis eu cursus. Cras convallis
+          tellus et elit<br />
+          aliquet, vitae dignissim ligula sodales.
+        </p>
+        <img src="../../assets/img/sectiontest.png" style="width: 75%" />
+        <div class="row d-flex justify-content-center my-5">
+          <a href="#" class="badge-info">Inscrivez-vous maintenant</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

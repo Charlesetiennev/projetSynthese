@@ -1,0 +1,52 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="ml-5 titre">Offres de stage</h1>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <p>Accueil > Offres de stage</p>
+        <div *ngFor="let offreStage of offresStages">
+          <app-offre-stage-moyenne
+            [offreStage]="offreStage"
+          ></app-offre-stage-moyenne>
+        </div>
+        <div class="row">
+          <a href="#" class="badge-danger mx-auto"> Charger plus</a>
+        </div>
+      </div>
+      <div class="col-4">
+        <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
+      </div>
+    </div>
+  </div>
+</section>
+<app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+<!--  Section des stagiaires -->
+<div class="container mt-5">
+  <div class="row mt-5 mb-2">
+    <h1 class="mx-auto">Votre furut stagiaire se trouve ici.</h1>
+  </div>
+  <div class="row">
+    <p class="mx-auto">
+      Pellentesque vehicula fermentum turpis eu cursus. Cras convallis
+      <br />tellus et elit aliquet, vitae dignissim ligula sodales.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-3" *ngFor="let stagiaire of stagiaires">
+      <app-mini-stagiaire-carte
+        [stagiaire]="stagiaire"
+      ></app-mini-stagiaire-carte>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center py-5">
+    <a href="#" class="badge-danger rounded px-2 py-1"
+      >Voir toutes les offres de stage</a
+    >
+  </div>
+</div>
+<!-- Section trouvez un stage -->
+<app-section-trouvez-stage></app-section-trouvez-stage>
+<!-- Annonce -->
+<app-annonce></app-annonce>
