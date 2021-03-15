@@ -2,16 +2,19 @@ import { Stagiaire } from './stagiaire';
 
 export const STAGIAIRES: Stagiaire[] = [
   {
+    id: '1',
     prenom: 'Charles',
     nom: 'Etienne',
     courriel: 'abc@ss.ca',
-    competences: ['HTML', 'Css'],
+    competences: ['HTML ', 'Css '],
     formations: ['Cegep'],
     ville: 'Trois-Ri',
     telephone: '(819)-333-2345',
     messageMotivation: 'Tres motive',
+    dateDebutStage: '2021-01-01',
   },
   {
+    id: '2',
     prenom: 'Charlotte',
     nom: 'Etienne',
     courriel: 'abc@ss.ca',
@@ -20,8 +23,10 @@ export const STAGIAIRES: Stagiaire[] = [
     ville: 'Trois-Ri',
     telephone: '(819)-333-2345',
     messageMotivation: 'Tres motive',
+    dateDebutStage: '2021-01-01',
   },
   {
+    id: '3',
     prenom: 'Charlounne',
     nom: 'Etienne',
     courriel: 'abc@ss.ca',
@@ -30,8 +35,10 @@ export const STAGIAIRES: Stagiaire[] = [
     ville: 'Trois-Ri',
     telephone: '(819)-333-2345',
     messageMotivation: 'Tres motive',
+    dateDebutStage: '2021-01-01',
   },
   {
+    id: '4',
     prenom: 'Charlounne',
     nom: 'Etienne',
     courriel: 'abc@ss.ca',
@@ -40,5 +47,6 @@ export const STAGIAIRES: Stagiaire[] = [
     ville: 'Trois-Ri',
     telephone: '(819)-333-2345',
     messageMotivation: 'Tres motive',
+    dateDebutStage: '2021-01-01',
   },
 ];

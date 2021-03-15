@@ -1,0 +1,27 @@
+<div class="container-fluid mb-5">
+  <div class="row my-5 no-gutters d-block text-center">
+    <h1 class="texteCouleurSecondaire">Votre futur stagiaire se trouve ici.</h1>
+    <br />
+    <p class="text-secondary">
+      Pellentesque vehicula fermentum turpis eu cursus. Cras convallis <br />
+      tellus et elit aliquet, vitae dignissim ligula sodales.
+    </p>
+  </div>
+  <!-- Stagiaire petit format -->
+  <div class="container-fluid">
+    <div class="row w-75 mx-auto mb-3">
+      <div class="col-3" *ngFor="let stagiaire of stagiaires">
+        <app-mini-stagiaire-carte
+          [stagiaire]="stagiaire"
+        ></app-mini-stagiaire-carte>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center py-5">
+      <a
+        routerLink="/trouvezStagiaire"
+        class="badge-danger rounded px-2 py-1 font-weight-bold"
+        >Voir toutes les candidats</a
+      >
+    </div>
+  </div>
+</div>

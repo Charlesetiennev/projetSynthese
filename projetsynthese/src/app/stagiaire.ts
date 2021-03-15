@@ -1,4 +1,5 @@
 export interface Stagiaire {
+  id: string;
   nom: string;
   prenom: string;
   courriel: string;
@@ -7,4 +8,5 @@ export interface Stagiaire {
   competences: string[];
   formations: string[];
   messageMotivation: string;
+  dateDebutStage: string;
 }
