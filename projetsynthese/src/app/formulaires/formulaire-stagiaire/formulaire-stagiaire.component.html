@@ -1,0 +1,106 @@
+<p>formulaire-stagiaire works!</p>
+<form>
+  <div class="form-row">
+    <div class="col">
+      <!-- Prenom -->
+      <label for="prenom">Prenom</label>
+      <input
+        id="prenom"
+        type="text"
+        class="form-control"
+        placeholder="Prenom"
+        minlength="2"
+        maxlength="50"
+        pattern="[A-Za-z]"
+        required
+      />
+    </div>
+    <div class="col">
+      <!-- Nom -->
+      <label>Nom</label>
+      <input
+        id="nom"
+        type="text"
+        class="form-control"
+        placeholder="Nom"
+        minlength="2"
+        maxlength="50"
+        pattern="[A-Za-z]"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <!-- Courriel -->
+      <label for="courriel">Courriel</label>
+      <input
+        id="courriel"
+        type="email"
+        class="form-control"
+        placeholder="Courriel"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <!-- Numero de telephone -->
+      <label for="numeroTelephone">Numero de telephone</label>
+      <input
+        id="numeroTelephone"
+        type="text"
+        class="form-control"
+        placeholder="Numero de telephone"
+        pattern="[0-9]{3}[-][0-9]{3}[-][0-9]{4}"
+        required
+      />
+    </div>
+    <div class="col">
+      <!-- Ville -->
+      <label for="ville">Ville</label>
+      <input
+        id="ville"
+        type="text"
+        class="form-control"
+        placeholder="Ville"
+        minlength="2"
+        maxlength="50"
+        required
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!-- Formation -->
+      <label for="formation">Formation</label>
+      <select id="formation" class="form-control" required>
+        <option selected>AEC</option>
+        <option>BAC</option>
+        <option>DEC</option>
+        <option>Autres</option>
+      </select>
+    </div>
+  </div>
+  <div class="row d-inline-flex">
+    <!-- CV -->
+    <div class="col">
+      <label for="cv">Cv </label>
+      <input type="file" class="form-control-file pl-2" id="cv" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="message">Message de motivation</label>
+      <textarea id="message" class="form-control" rows="3" required></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="submit" class="btn btn-danger">Fini</button>
+    </div>
+  </div>
+</form>
+
+<!-- Competences -->
+<!-- Message motivation -->

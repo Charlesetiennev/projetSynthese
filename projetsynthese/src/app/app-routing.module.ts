@@ -5,6 +5,8 @@ import { TrouvezStagiaireComponent } from './pagesRouter/trouvez-stagiaire/trouv
 import { AccueilComponent } from './pagesRouter/accueil/accueil.component';
 import { AProposComponent } from './pagesRouter/a-propos/a-propos.component';
 import { ConnexionInscriptionComponent } from './pagesRouter/connexion-inscription/connexion-inscription.component';
+import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
+import { OffreStageAdminComponent } from './administration/offre-stage-admin/offre-stage-admin.component';
 import { fromEventPattern } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'trouvezStagiaire', component: TrouvezStagiaireComponent },
   { path: 'a-propos', component: AProposComponent },
   { path: 'connexion-insription', component: ConnexionInscriptionComponent },
+  { path: 'administration/accueil', component: AccueilAdminComponent },
+  { path: 'administration/offreStage', component: OffreStageAdminComponent },
 ];
 
 @NgModule({

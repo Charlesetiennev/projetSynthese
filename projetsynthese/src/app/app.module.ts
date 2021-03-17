@@ -25,7 +25,25 @@ import { TrouvezUnStageComponent } from './sectionLiens/trouvez-un-stage/trouvez
 import { SectionTrouvezStagiairesComponent } from './sectionLiens/section-trouvez-stagiaires/section-trouvez-stagiaires.component';
 import { CarteStagiaireMoyenComponent } from './carteStagiaires/carte-stagiaire-moyen/carte-stagiaire-moyen.component';
 import { RechercheEnteteComponent } from './recherche-entete/recherche-entete.component';
-
+import { FormulaireStagiaireComponent } from './formulaires/formulaire-stagiaire/formulaire-stagiaire.component';
+import { FormulaireEntrepriseComponent } from './formulaires/formulaire-entreprise/formulaire-entreprise.component';
+import { NavigationAdminComponent } from './administration/navigation-admin/navigation-admin.component';
+import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
+import { OffreStageAdminComponent } from './administration/offre-stage-admin/offre-stage-admin.component';
+import { DemandeStageAdminComponent } from './administration/demande-stage-admin/demande-stage-admin.component';
+import { CandidatsAdminComponent } from './administration/candidats-admin/candidats-admin.component';
+import { EntrepriseAdminComponent } from './administration/entreprise-admin/entreprise-admin.component';
+import { AttenteDemandeStageComponent } from './administration/cartes/attente-demande-stage/attente-demande-stage.component';
+import { AttenteOffreStageComponent } from './administration/cartes/attente-offre-stage/attente-offre-stage.component';
+import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
+import { ActionHautAdminComponent } from './administration/action-haut-admin/action-haut-admin.component';
+import { OffreStageDetailComponent } from './administration/cartes/offre-stage-detail/offre-stage-detail.component';
+// MATERIAL
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// HTTP CLIENT
+import { HttpClientModule } from '@angular/common/http';
+import { ApiProjetSyntheseService } from './api-projet-synthese.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,9 +68,29 @@ import { RechercheEnteteComponent } from './recherche-entete/recherche-entete.co
     SectionTrouvezStagiairesComponent,
     CarteStagiaireMoyenComponent,
     RechercheEnteteComponent,
+    FormulaireStagiaireComponent,
+    FormulaireEntrepriseComponent,
+    NavigationAdminComponent,
+    AccueilAdminComponent,
+    OffreStageAdminComponent,
+    DemandeStageAdminComponent,
+    CandidatsAdminComponent,
+    EntrepriseAdminComponent,
+    AttenteDemandeStageComponent,
+    AttenteOffreStageComponent,
+    DemandeStageDetailComponent,
+    ActionHautAdminComponent,
+    OffreStageDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+  ],
+  providers: [ApiProjetSyntheseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

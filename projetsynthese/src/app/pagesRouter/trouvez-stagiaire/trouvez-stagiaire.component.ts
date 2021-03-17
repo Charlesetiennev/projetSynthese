@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Stagiaire
 import { Stagiaire } from '../../stagiaire';
+// import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 import { STAGIAIRES } from '../../mock-stagiaires';
 
 @Component({
@@ -10,7 +11,15 @@ import { STAGIAIRES } from '../../mock-stagiaires';
 })
 export class TrouvezStagiaireComponent implements OnInit {
   stagiaires: Stagiaire[] = STAGIAIRES;
-  constructor() {}
+  constructor() // private apiProjetSyntheseService: ApiProjetSyntheseService
+  {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.getStagiaires();
+  }
+  // getStagiaires(): void {
+  //   this.apiProjetSyntheseService
+  //     .getStagiaires()
+  //     .subscribe((resultat) => (this.stagiaires = resultat));
+  // }
 }
