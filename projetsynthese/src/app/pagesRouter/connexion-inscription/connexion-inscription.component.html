@@ -10,46 +10,58 @@
 <!-- Formulaires -->
 
 <div class="container-fluid">
-  <div class="row">
-    <!-- Formulaire de connexion -->
-    <div class="col-6">
-      <h1>Form Connexion</h1>
+  <div class="row d-flex justify-content-center">
+    <div
+      class="btn pr-5"
+      (click)="
+        formulaireDiv.stagiaire = !formulaireDiv.stagiaire;
+        formulaireDiv.entreprise = false
+      "
+    >
+      Stagiaire
     </div>
-    <!-- Formulaire Inscription -->
-    <div class="col-6">
-      <!-- Selection du formulaire -->
-      <div
-        class="btn"
-        (click)="
-          formulaireDiv.stagiaire = !formulaireDiv.stagiaire;
-          formulaireDiv.entreprise = false
-        "
-      >
-        Stagiaire
-      </div>
-      <div
-        class="btn"
-        (click)="
-          formulaireDiv.entreprise = !formulaireDiv.entreprise;
-          formulaireDiv.stagiaire = false
-        "
-      >
-        Entreprise
-      </div>
+    <div
+      class="btn pl-5"
+      (click)="
+        formulaireDiv.entreprise = !formulaireDiv.entreprise;
+        formulaireDiv.stagiaire = false
+      "
+    >
+      Entreprise
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- Rendu de la section selectionnez -->
+  <div class="row">
+    <!-- Stagiaire -->
+    <div *ngIf="formulaireDiv.stagiaire">
       <div class="row">
-        <!-- Formulaire stagiaire -->
-        <div *ngIf="formulaireDiv.stagiaire">
+        <div class="col-6">
+          <h1>Connexion</h1>
+          <app-connexion-stagiaire></app-connexion-stagiaire>
+        </div>
+        <div class="col-6">
+          <h1>Inscrivez-vous pour trouvez un stage</h1>
           <app-formulaire-stagiaire></app-formulaire-stagiaire>
         </div>
-        <!-- Formulaire Entreprise -->
-        <div *ngIf="formulaireDiv.entreprise">
+      </div>
+    </div>
+    <!-- Entreprise -->
+    <div *ngIf="formulaireDiv.entreprise">
+      <div class="row">
+        <div class="col-6">
+          <h1>Connexion</h1>
+          <app-connexion-entreprise></app-connexion-entreprise>
+        </div>
+        <div class="col-6">
+          <h1>Inscrivez votre entreprise</h1>
           <app-formulaire-entreprise></app-formulaire-entreprise>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <app-annonce-lorem></app-annonce-lorem>
 <div class="container-fluid px-5">
   <app-annonce></app-annonce>

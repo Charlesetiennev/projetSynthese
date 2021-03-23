@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // Stagiaire
 import { Stagiaire } from '../../stagiaire';
-import { STAGIAIRES } from '../../mock-stagiaires';
+import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
+// import { STAGIAIRES } from '../../mock-stagiaires';
 
 @Component({
   selector: 'app-section-trouvez-stagiaires',
@@ -9,8 +10,16 @@ import { STAGIAIRES } from '../../mock-stagiaires';
   styleUrls: ['./section-trouvez-stagiaires.component.sass'],
 })
 export class SectionTrouvezStagiairesComponent implements OnInit {
-  stagiaires: Stagiaire[] = STAGIAIRES;
-  constructor() {}
+  stagiaires: Stagiaire[] 
+  // = STAGIAIRES;
+  constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getStagiaires();
+  }
+  getStagiaires(): void {
+    this.apiProjetSyntheseService
+      .getStagiaires()
+      .subscribe((resultat) => (this.stagiaires = resultat));
+  }
 }

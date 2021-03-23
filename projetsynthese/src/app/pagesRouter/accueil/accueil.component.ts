@@ -10,3 +10,5 @@ export class AccueilComponent implements OnInit {
   connected: boolean;
   ngOnInit(): void {}
 }
+
+// LOCAL STORAGE

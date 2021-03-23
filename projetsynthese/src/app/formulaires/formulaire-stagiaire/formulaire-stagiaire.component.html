@@ -1,106 +1,169 @@
-<p>formulaire-stagiaire works!</p>
-<form>
-  <div class="form-row">
-    <div class="col">
-      <!-- Prenom -->
-      <label for="prenom">Prenom</label>
+<div class="form-container">
+  <form
+    #stagiaireAjoutForm="ngForm"
+    id="stagiaireAjoutForm"
+    (ngSubmit)="formulaireTerminer(stagiaireAjoutForm)"
+  >
+    <!-- Prenom -->
+    <mat-form-field>
       <input
-        id="prenom"
-        type="text"
-        class="form-control"
+        matInput
+        name="prenom"
+        #prenom="ngModel"
         placeholder="Prenom"
         minlength="2"
         maxlength="50"
-        pattern="[A-Za-z]"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.prenom"
         required
       />
-    </div>
-    <div class="col">
-      <!-- Nom -->
-      <label>Nom</label>
+      <mat-error
+        *ngIf="
+          prenom.invalid &&
+          (prenom.dirty || prenom.touched) &&
+          prenom.hasError('required')
+        "
+        >Votre Prenom est obligatoire.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          prenom.invalid &&
+          (prenom.dirty || prenom.touched) &&
+          prenom.hasError('minlength')
+        "
+        >Votre Prenom doit contenir au moins 2 caractères.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          prenom.invalid &&
+          (prenom.dirty || prenom.touched) &&
+          prenom.hasError('maxlength')
+        "
+        >Votre Prenom doit contenir au maximum 50 caractères.</mat-error
+      >
+    </mat-form-field>
+    <!-- Nom -->
+    <mat-form-field>
       <input
-        id="nom"
-        type="text"
-        class="form-control"
+        matInput
+        name="nom"
+        #nom="ngModel"
         placeholder="Nom"
         minlength="2"
         maxlength="50"
-        pattern="[A-Za-z]"
+        pattern="[A-Za-z]*"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.nom"
         required
       />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <!-- Courriel -->
-      <label for="courriel">Courriel</label>
+      <mat-error
+        *ngIf="
+          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('pattern')
+        "
+        >Votre Nom ne doit contenir que des caractères.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')
+        "
+        >Votre Nom est obligatoire.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('minlength')
+        "
+        >Votre Nom doit contenir au moins 2 caractères.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('maxlength')
+        "
+        >Votre Nom doit contenir au maximum 50 caractères.</mat-error
+      >
+    </mat-form-field>
+    <!-- Courriel -->
+    <mat-form-field>
       <input
-        id="courriel"
+        matInput
         type="email"
-        class="form-control"
+        name="courriel"
+        #courriel="ngModel"
         placeholder="Courriel"
+        minlength="5"
+        maxlength="50"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.courriel"
         required
       />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <!-- Numero de telephone -->
-      <label for="numeroTelephone">Numero de telephone</label>
+    </mat-form-field>
+    <!-- Telephone -->
+    <mat-form-field>
       <input
-        id="numeroTelephone"
-        type="text"
-        class="form-control"
+        matInput
+        type="tel"
+        name="telephone"
+        #telephone="ngModel"
         placeholder="Numero de telephone"
-        pattern="[0-9]{3}[-][0-9]{3}[-][0-9]{4}"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.telephone"
         required
       />
-    </div>
-    <div class="col">
-      <!-- Ville -->
-      <label for="ville">Ville</label>
+    </mat-form-field>
+    <!-- Ville -->
+    <mat-form-field>
       <input
-        id="ville"
-        type="text"
-        class="form-control"
+        matInput
+        name="ville"
+        #ville="ngModel"
         placeholder="Ville"
         minlength="2"
         maxlength="50"
+        pattern="[A-Za-z]*"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.ville"
         required
       />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <!-- Formation -->
-      <label for="formation">Formation</label>
-      <select id="formation" class="form-control" required>
-        <option selected>AEC</option>
-        <option>BAC</option>
-        <option>DEC</option>
-        <option>Autres</option>
-      </select>
-    </div>
-  </div>
-  <div class="row d-inline-flex">
-    <!-- CV -->
-    <div class="col">
-      <label for="cv">Cv </label>
-      <input type="file" class="form-control-file pl-2" id="cv" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <label for="message">Message de motivation</label>
-      <textarea id="message" class="form-control" rows="3" required></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <button type="submit" class="btn btn-danger">Fini</button>
-    </div>
-  </div>
-</form>
-
-<!-- Competences -->
-<!-- Message motivation -->
+    </mat-form-field>
+    <!-- Competences -->
+    <mat-form-field>
+      <input
+        matInput
+        name="competences"
+        #competences="ngModel"
+        placeholder="Competences"
+        minlength="10"
+        maxlength="300"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.competences"
+        required
+      />
+    </mat-form-field>
+    <!-- Formations -->
+    <mat-form-field>
+      <mat-label>Formations</mat-label>
+      <mat-select
+        name="formations"
+        #formations="ngModel"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="nouveauStagiaire.formations"
+        required
+      >
+        <mat-option
+          *ngFor="let formation of formationsListe"
+          [value]="formation"
+        >
+          {{ formation }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- Message Motivation -->
+    <mat-form-field>
+      <input matInput placeholder="Message de motivation" required />
+    </mat-form-field>
+    <!-- Debut de stage date -->
+    <mat-form-field>
+      <input matInput placeholder="Date de debut de stage" required />
+    </mat-form-field>
+    <button>Terminer</button>
+  </form>
+</div>

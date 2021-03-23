@@ -1,1 +1,193 @@
-<p>formulaire-entreprise works!</p>
+<h2>Inscrivez votre entreprise.</h2>
+<form
+  #entrepriseAjoutForm="ngForm"
+  id="entrepriseAjoutForm"
+  (ngSubmit)="formulaireTerminer(entrepriseAjoutForm)"
+>
+  <!-- Nom Entreprise -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="nomEntreprise"
+      #nomEntrepise="ngModel"
+      placeholder="Nom de l'entreprise"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [(ngModel)]="nouvelleEntreprise.nomEntreprise"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </mat-form-field>
+  <!-- Adresse -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="adresse"
+      #adresse="ngModel"
+      placeholder="Adresse"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [(ngModel)]="nouvelleEntreprise.adresse"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </mat-form-field>
+  <!-- Secteurs d'avtivite -->
+  <mat-form-field>
+    <mat-label>Secteur d'avtivite</mat-label>
+    <mat-select
+      name="secteurActivites"
+      #secteurActivites="ngModel"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.secteurActivite"
+      required
+      multiple
+    >
+      <mat-option
+        *ngFor="let secteurActivite of secteursActivite"
+        [value]="secteurActivite"
+        >{{ secteurActivite }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <!-- Ville -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="ville"
+      #ville="ngModel"
+      placeholder="Ville"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [(ngModel)]="nouvelleEntreprise.ville"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </mat-form-field>
+  <!-- Site web -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="siteWeb"
+      #siteWeb="ngModel"
+      placeholder="Url du site web"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [(ngModel)]="nouvelleEntreprise.siteWeb"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </mat-form-field>
+  <!-- Logo -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="logo"
+      #logo="ngModel"
+      placeholder="Url du logo de l'entreprise"
+      minlength="2"
+      [(ngModel)]="nouvelleEntreprise.logo"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </mat-form-field>
+  <!-- Description de lentreprise -->
+  <mat-form-field>
+    <textarea
+      matInput
+      name="desription"
+      #description="ngModel"
+      [(ngModel)]="nouvelleEntreprise.aPropos"
+      [ngModelOptions]="{ standalone: true }"
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="4"
+      cdkAutosizeMaxRows="10"
+      placeholder="Description de l'entreprise"
+    ></textarea>
+  </mat-form-field>
+  <!-- Responsable  -->
+  <h2>Responsable du compte</h2>
+  <!-- Prenom -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="prenom"
+      #prenom="ngModel"
+      placeholder="Prenom"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.prenomResponsable"
+      required
+    />
+  </mat-form-field>
+  <!-- Nom -->
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      name="nom"
+      #nom="ngModel"
+      placeholder="Nom"
+      minlength="2"
+      maxlength="50"
+      pattern="[A-Za-z]*"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.nomResponsable"
+      required
+    />
+  </mat-form-field>
+  <!-- Courriel -->
+  <mat-form-field>
+    <input
+      matInput
+      type="email"
+      name="courriel"
+      #courriel="ngModel"
+      placeholder="Courriel"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.courriel"
+      required
+    />
+  </mat-form-field>
+  <!-- Telephone -->
+  <mat-form-field>
+    <input
+      matInput
+      type="tel"
+      name="telephone"
+      #telephone="ngModel"
+      placeholder="Telephone"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.numeroTel"
+      required
+    />
+  </mat-form-field>
+  <!-- Mot de passe -->
+  <h2>Mot de passe</h2>
+  <mat-form-field>
+    <input
+      matInput
+      type="password"
+      name="motDePasse"
+      #motDePasse="ngModel"
+      placeholder="Mot de passe"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="nouvelleEntreprise.motDePasse"
+      required
+    />
+  </mat-form-field>
+  <button>Terminer</button>
+</form>

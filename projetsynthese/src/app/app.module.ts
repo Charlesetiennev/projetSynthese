@@ -41,9 +41,16 @@ import { OffreStageDetailComponent } from './administration/cartes/offre-stage-d
 // MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { TextFieldModule } from '@angular/cdk/text-field';
 // HTTP CLIENT
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProjetSyntheseService } from './api-projet-synthese.service';
+import { ConnexionStagiaireComponent } from './formulaires/connexion-stagiaire/connexion-stagiaire.component';
+import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise/connexion-entreprise.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +88,8 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
     DemandeStageDetailComponent,
     ActionHautAdminComponent,
     OffreStageDetailComponent,
+    ConnexionStagiaireComponent,
+    ConnexionEntrepriseComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +98,12 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    TextFieldModule,
   ],
   providers: [ApiProjetSyntheseService],
   bootstrap: [AppComponent],

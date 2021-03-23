@@ -1,5 +1,5 @@
 export interface Stagiaire {
-  _id: string;
+  _id: string|null;
   nom: string;
   prenom: string;
   courriel: string;
