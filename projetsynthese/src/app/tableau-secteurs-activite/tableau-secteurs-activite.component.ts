@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SECTEURSACTIVITE } from '../mock-secteurs-activite';
+import { SecteursActivites } from '../secteurs-activites';
+import { ApiProjetSyntheseService } from '../api-projet-synthese.service';
 
 @Component({
   selector: 'app-tableau-secteurs-activite',
@@ -7,9 +8,16 @@ import { SECTEURSACTIVITE } from '../mock-secteurs-activite';
   styleUrls: ['./tableau-secteurs-activite.component.sass'],
 })
 export class TableauSecteursActiviteComponent implements OnInit {
-  secteursActivite: string[] = SECTEURSACTIVITE;
+  secteursActivites: SecteursActivites[];
 
-  constructor() {}
+  constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recuperationSecteursActivites();
+  }
+  recuperationSecteursActivites(): void {
+    this.apiProjetSyntheseService
+      .recuperationSecteursActivites()
+      .subscribe((resultat) => (this.secteursActivites = resultat));
+  }
 }

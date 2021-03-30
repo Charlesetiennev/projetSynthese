@@ -16,11 +16,16 @@ import {
   styleUrls: ['./formulaire-stagiaire.component.sass'],
 })
 export class FormulaireStagiaireComponent implements OnInit {
+  //Formaulaire
+  stagiaireAjoutForm: FormGroup;
+
   nouveauStagiaire: Stagiaire;
   stagiaires: Stagiaire[];
   formationsListe: string[] = ['AEC', 'DEC', 'BAC', 'Autres'];
-  constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
-
+  constructor(
+    private apiProjetSyntheseService: ApiProjetSyntheseService,
+    private formBuilder: FormBuilder
+  ) {}
   ngOnInit(): void {
     this.nouveauStagiaire = {
       _id: null,
@@ -33,6 +38,7 @@ export class FormulaireStagiaireComponent implements OnInit {
       competences: [],
       dateDebutStage: '',
       messageMotivation: '',
+      accepter: false,
     };
   }
 
@@ -40,7 +46,6 @@ export class FormulaireStagiaireComponent implements OnInit {
     this.apiProjetSyntheseService
       .ajoutStagiaire(this.nouveauStagiaire)
       .subscribe((nouveauStagiaire) => {
-        stagiaireAjoutForm.resetForm();
         this.nouveauStagiaire._id = null;
       });
   }

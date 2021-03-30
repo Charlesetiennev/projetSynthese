@@ -1,6 +1,6 @@
-<div class="card carteAttente rounded-0">
+<div class="card rounded-0">
   <div class="card-body">
-    <div class="card-title bordureTitreCarte">
+    <div class="card-title bordureTitreCarte d-flex">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="31.5"
@@ -14,21 +14,32 @@
         />
       </svg>
 
-      {{ offreStage.titre }}
+      <h3 class="font-weight-bold mb-0 pl-2">{{ offreStage.titre }}</h3>
     </div>
     <div class="card-subtitle text-secondary"></div>
     <div class="card-text">
-      Ville :<span>{{ offreStage.entreprise.ville }}</span>
+      Ville : <span class="text-secondary"> {{ offreStage.ville }}</span>
     </div>
     <div class="card-text">
-      Entreprise : <span>{{ offreStage.entreprise.nom }}</span>
+      Entreprise :
+      <span class="text-secondary">
+        {{ offreStage.entreprise.nomEntreprise }}</span
+      >
     </div>
-    <div class="card-text">{{ offreStage.description }}</div>
-    <div class="row d-flex justify-content-between">
-      <div class="card-body d-flex">
+    <div class="card-text text-secondary">
+      {{
+        offreStage.description.length > 100
+          ? (offreStage.description | slice: 0:100) + "..."
+          : offreStage.description
+      }}
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row d-flex justify-content-between pt-2 mx-2">
+      <div class="d-flex">
         <a href="#" class="badge-info px-3 py-2">Details</a>
       </div>
-      <div class="card-body d-flex justify-content-end">
+      <div class="d-flex justify-content-end">
         <a href="#" class="badge-danger px-3 py-2 mr-2">Refuser</a>
         <a href="#" class="badge-success px-3 py-2">Accepter</a>
       </div>

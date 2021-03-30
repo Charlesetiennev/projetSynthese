@@ -17,11 +17,38 @@ import { Entreprise } from 'src/app/entreprise';
   styleUrls: ['./formulaire-entreprise.component.sass'],
 })
 export class FormulaireEntrepriseComponent implements OnInit {
+  //
+  form: FormGroup;
+  //
+
   nouvelleEntreprise: Entreprise;
   secteursActivite: string[] = SECTEURSACTIVITE;
-  constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
+  constructor(
+    private apiProjetSyntheseService: ApiProjetSyntheseService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    //
+    this.form = this.formBuilder.group({
+      nomEntreprise: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(50),
+        ],
+      ],
+      adresse: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(50),
+        ],
+      ],
+    });
+    //
     this.nouvelleEntreprise = {
       _id: null,
       nom: '',

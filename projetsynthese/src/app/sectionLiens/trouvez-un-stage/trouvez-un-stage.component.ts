@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Stage
 import { OffreStage } from '../../offre-stage';
-import { OFFRESSTAGE } from '../../mock-offres-stages';
+import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 
 @Component({
   selector: 'app-trouvez-un-stage',
@@ -9,8 +9,15 @@ import { OFFRESSTAGE } from '../../mock-offres-stages';
   styleUrls: ['./trouvez-un-stage.component.sass'],
 })
 export class TrouvezUnStageComponent implements OnInit {
-  offresStages: OffreStage[] = OFFRESSTAGE;
-  constructor() {}
+  offresStages: OffreStage[];
+  constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recuperationOffreStage();
+  }
+  recuperationOffreStage() {
+    this.apiProjetSyntheseService
+      .recuperationOffresStages()
+      .subscribe((resultat) => (this.offresStages = resultat));
+  }
 }

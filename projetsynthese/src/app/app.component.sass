@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap')
+$policeTitre : 'Oswald', sans-serif
 $couleurPrincipal : #5C4CF9
 $couleurSecondaire : #4F4F6F 
-
+$CouleurTitreCarte: #584CF9
 .imageHautDePage
     width: 100%
     height: 100%
     object-fit: cover
     overflow: hidden
 .titre
-    transform: translateY(-90%)    
+    transform: translateY(-120%) 
+    font-family: $policeTitre   
+    margin-left: 5rem
+.titreCarte
+    color: $CouleurTitreCarte
 .header
     height: 50vh    
     background-position: center
@@ -18,3 +24,7 @@ $couleurSecondaire : #4F4F6F
 .carteAttente
     height: 35vh
     box-shadow:  0px 3px 4px 0px rgba(50, 50, 50, 0.2), 0px 3px 4px 0px rgba(50, 50, 50, 0.2), 0px 3px 4px 0px rgba(50, 50, 50, 0.2)
+.boutonGradiant
+    border: none
+    background-image: linear-gradient(to right, #544CF9 , #814CF9)
+    

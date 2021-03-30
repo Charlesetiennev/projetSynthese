@@ -16,7 +16,6 @@ import { SectionTrouvezStageComponent } from './sectionLiens/section-trouvez-sta
 import { OffreStageMoyenneComponent } from './carteStage/offre-stage-moyenne/offre-stage-moyenne.component';
 import { TableauSecteursActiviteComponent } from './tableau-secteurs-activite/tableau-secteurs-activite.component';
 import { AnnonceComponent } from './annonces/annonce/annonce.component';
-import { OffreStageCompletComponent } from './carteStage/offre-stage-complet/offre-stage-complet.component';
 import { AProposComponent } from './pagesRouter/a-propos/a-propos.component';
 import { AnnonceLoremComponent } from './annonces/annonce-lorem/annonce-lorem.component';
 import { ConnexionInscriptionComponent } from './pagesRouter/connexion-inscription/connexion-inscription.component';
@@ -38,6 +37,14 @@ import { AttenteOffreStageComponent } from './administration/cartes/attente-offr
 import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
 import { ActionHautAdminComponent } from './administration/action-haut-admin/action-haut-admin.component';
 import { OffreStageDetailComponent } from './administration/cartes/offre-stage-detail/offre-stage-detail.component';
+import { ConnexionStagiaireComponent } from './formulaires/connexion-stagiaire/connexion-stagiaire.component';
+import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise/connexion-entreprise.component';
+import { FicheCandidatAdminComponent } from './administration/fiche-candidat-admin/fiche-candidat-admin.component';
+import { ListeCandidatsAdminComponent } from './administration/liste-candidats-admin/liste-candidats-admin.component';
+import { PetiteCarteStagiairesAdminComponent } from './administration/cartes/petite-carte-stagiaires-admin/petite-carte-stagiaires-admin.component';
+import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
+import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
+import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
 // MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,11 +53,13 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 // HTTP CLIENT
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProjetSyntheseService } from './api-projet-synthese.service';
-import { ConnexionStagiaireComponent } from './formulaires/connexion-stagiaire/connexion-stagiaire.component';
-import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise/connexion-entreprise.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +75,6 @@ import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise
     OffreStageMoyenneComponent,
     TableauSecteursActiviteComponent,
     AnnonceComponent,
-    OffreStageCompletComponent,
     AProposComponent,
     AnnonceLoremComponent,
     ConnexionInscriptionComponent,
@@ -90,6 +98,12 @@ import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise
     OffreStageDetailComponent,
     ConnexionStagiaireComponent,
     ConnexionEntrepriseComponent,
+    FicheCandidatAdminComponent,
+    ListeCandidatsAdminComponent,
+    PetiteCarteStagiairesAdminComponent,
+    FormulaireOffreStageAdminComponent,
+    OffreStageCompleteComponent,
+    FormulaireDemandeStageAdmninistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +118,9 @@ import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise
     ReactiveFormsModule,
     MatSelectModule,
     TextFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
   ],
   providers: [ApiProjetSyntheseService],
   bootstrap: [AppComponent],

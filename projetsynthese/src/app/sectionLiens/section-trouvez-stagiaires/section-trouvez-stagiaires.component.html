@@ -1,16 +1,24 @@
-<div class="container-fluid mb-5">
+<!-- Section-trouvez-stagiaires -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 25 Mars 2021 -->
+<!-- Validation W3 Effectuez -->
+
+<div class="container-fluid mb-5 pt-3">
   <div class="row my-5 no-gutters d-block text-center">
-    <h1 class="texteCouleurSecondaire">Votre futur stagiaire se trouve ici.</h1>
+    <p class="texteCouleurSecondaire titreDeLannonce">
+      Votre futur stagiaire se trouve ici.
+    </p>
     <br />
     <p class="text-secondary">
       Pellentesque vehicula fermentum turpis eu cursus. Cras convallis <br />
       tellus et elit aliquet, vitae dignissim ligula sodales.
     </p>
   </div>
-  <!-- Stagiaire petit format -->
+  <!-- Section affichage Stagiaires -->
   <div class="container-fluid">
-    <div class="row w-75 mx-auto mb-3">
-      <div class="col-3" *ngFor="let stagiaire of stagiaires">
+    <div class="row mx-4 mb-3">
+      <!-- Stagiaire petit format -->
+      <div class="col-3" *ngFor="let stagiaire of stagiaires | slice: 0:4">
         <app-mini-stagiaire-carte
           [stagiaire]="stagiaire"
         ></app-mini-stagiaire-carte>

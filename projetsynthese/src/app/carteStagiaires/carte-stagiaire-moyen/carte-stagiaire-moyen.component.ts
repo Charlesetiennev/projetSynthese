@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DemandeStage } from '../../demande-stage';
 import { Stagiaire } from '../../stagiaire';
 
 @Component({
@@ -8,6 +9,7 @@ import { Stagiaire } from '../../stagiaire';
 })
 export class CarteStagiaireMoyenComponent implements OnInit {
   @Input() stagiaire: Stagiaire;
+  @Input() demandeStage: DemandeStage;
   constructor() {}
 
   ngOnInit(): void {}

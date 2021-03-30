@@ -1,0 +1,184 @@
+<div class="conteneur pl-0">
+  <div class="row m-0" style="margin-right: 0 !important">
+    <!-- Navigation Gauche -->
+    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
+    <!-- Action au de page -->
+    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+    <!-- Contenue -->
+    <div class="offset-2 col-10 px-5">
+      <!-- FORMULAIRE -->
+      <form
+        #offreStageAjoutForm="ngForm"
+        id="offreStageAjoutForm"
+        (ngSubmit)="formulaireTerminer(offreStageAjoutForm)"
+        class="ml-4"
+      >
+        <div class="row">
+          <!-- Titre -->
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              name="titreOffreStage"
+              #titreOffreStage="ngModel"
+              placeholder="Titre de l'offre"
+              minlength="2"
+              maxlength="50"
+              [(ngModel)]="nouvelleOffreStage.titre"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </mat-form-field>
+          <!-- ville -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="text"
+              name="villeStage"
+              #villeStage="ngModel"
+              placeholder="Ville du stage"
+              minlength="2"
+              maxlength="50"
+              [(ngModel)]="nouvelleOffreStage.ville"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Date de debut -->
+          <mat-form-field>
+            <mat-label>Date Debut du stage</mat-label>
+            <input
+              matInput
+              required
+              [matDatepicker]="picker"
+              name="dateDebutStage"
+              #dateDebutStage="ngModel"
+              [(ngModel)]="nouvelleOffreStage.dateDebut"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- Date de fin -->
+          <mat-form-field>
+            <mat-label>Date de fin du stage</mat-label>
+            <input
+              matInput
+              required
+              [matDatepicker]="picker2"
+              name="dateFinStage"
+              #dateFinStage="ngModel"
+              [(ngModel)]="nouvelleOffreStage.dateFin"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- NombreheuresSemaine -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="number"
+              name="nombreheuresSemaine"
+              #nombreheuresSemaine="ngModel"
+              placeholder="Nombre d'heures par semaine"
+              min="1"
+              max="50"
+              [(ngModel)]="nouvelleOffreStage.nombreHeuresSemaine"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </mat-form-field>
+          <!-- Remuneration -->
+          <mat-form-field>
+            <mat-label>Remuneration : </mat-label>
+            <select
+              matNativeControl
+              required
+              [(ngModel)]="nouvelleOffreStage.remuneration"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option [ngValue]="true">Oui</option>
+              <option [ngValue]="false">Non</option>
+            </select>
+          </mat-form-field>
+          <!-- Emploie ApresStage -->
+          <mat-form-field>
+            <mat-label>Emploi apres stage : </mat-label>
+            <select
+              matNativeControl
+              required
+              [(ngModel)]="nouvelleOffreStage.emploieApresStage"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option [ngValue]="true">Oui</option>
+              <option [ngValue]="false">Non</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Description -->
+          <mat-form-field>
+            <mat-label>Description du stage</mat-label>
+            <textarea
+              matInput
+              name="descriptionStage"
+              #descriptionStage="ngModel"
+              required
+              [(ngModel)]="nouvelleOffreStage.description"
+              [ngModelOptions]="{ standalone: true }"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="4"
+              cdkAutosizeMaxRows="10"
+            ></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="ml-2">
+            <mat-label>Competences recherches</mat-label>
+            <textarea
+              matInput
+              name="competences"
+              #competences="ngModel"
+              [(ngModel)]="nouvelleOffreStage.competencesRechercher"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="4"
+              cdkAutosizeMaxRows="10"
+            ></textarea>
+          </mat-form-field>
+          <!-- Informatios supplementaires -->
+          <mat-form-field class="ml-2">
+            <mat-label>Information supplementaires</mat-label>
+            <textarea
+              matInput
+              name="informationsSupplementaire"
+              #informationsSupplementaire="ngModel"
+              [(ngModel)]="nouvelleOffreStage.informationSupplementaire"
+              [ngModelOptions]="{ standalone: true }"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="4"
+              cdkAutosizeMaxRows="10"
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <button>Terminer</button>
+      </form>
+      <!-- FIN FORM -->
+    </div>
+  </div>
+</div>

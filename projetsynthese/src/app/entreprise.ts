@@ -12,5 +12,5 @@ export interface Entreprise {
   prenomResponsable: string;
   nomResponsable: string;
   nom: string;
-  motDePasse: string;
+  motDePasse?: string;
 }

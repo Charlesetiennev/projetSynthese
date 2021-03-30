@@ -5,6 +5,9 @@
   (ngSubmit)="formulaireTerminer(entrepriseAjoutForm)"
 >
   <!-- Nom Entreprise -->
+  <p class="text-danger">
+    Form Status: test {{ this.entrepriseAjoutForm.status }}
+  </p>
   <mat-form-field>
     <input
       matInput
@@ -189,5 +192,40 @@
       required
     />
   </mat-form-field>
-  <button>Terminer</button>
+  <button [disabled]="!form.valid">Terminer</button>
+</form>
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<form class="form-horizontal" [formGroup]="form">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="nomEntreprise" class="control-label">Nom Entreprise</label>
+      <input
+        type="text"
+        id="nomEntreprise"
+        class="form-control"
+        formControlName="nomEntreprise"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="adresse" class="control-label">Adresse</label>
+      <input
+        type="text"
+        id="adresse"
+        class="form-control"
+        formControlName="adresse"
+      />
+    </div>
+  </div>
+
+  <p>{{ this.form.status }} test</p>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+    Submit
+  </button>
 </form>

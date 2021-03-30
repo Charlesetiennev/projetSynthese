@@ -15,9 +15,9 @@
     <div class="row mx-5">
       <div class="col-7">
         <p>Accueil > Candidats</p>
-        <div *ngFor="let stagiaire of stagiaires">
+        <div *ngFor="let demandeStage of demandesStages">
           <app-carte-stagiaire-moyen
-            [stagiaire]="stagiaire"
+            [demandeStage]="demandeStage"
           ></app-carte-stagiaire-moyen>
         </div>
         <div class="row">

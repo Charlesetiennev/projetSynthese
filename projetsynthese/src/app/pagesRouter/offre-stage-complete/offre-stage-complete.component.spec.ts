@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OffreStageCompletComponent } from './offre-stage-complet.component';
+import { OffreStageCompleteComponent } from './offre-stage-complete.component';
 
-describe('OffreStageCompletComponent', () => {
-  let component: OffreStageCompletComponent;
-  let fixture: ComponentFixture<OffreStageCompletComponent>;
+describe('OffreStageCompleteComponent', () => {
+  let component: OffreStageCompleteComponent;
+  let fixture: ComponentFixture<OffreStageCompleteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OffreStageCompletComponent ]
+      declarations: [ OffreStageCompleteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OffreStageCompletComponent);
+    fixture = TestBed.createComponent(OffreStageCompleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

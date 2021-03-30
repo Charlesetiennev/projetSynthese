@@ -1,1 +1,22 @@
-<p>demande-stage-admin works!</p>
+<div class="conteneur pl-0">
+  <div class="row m-0" style="margin-right: 0 !important">
+    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
+
+    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+
+    <div class="offset-2 col-10 px-5">
+      <!-- Content -->
+
+      <div class="row">
+        <div *ngFor="let demandeStage of demandesStages" class="col-12">
+          <!-- DEMANDE DE STAGE -->
+
+          <app-attente-demande-stage
+            [demandeStage]="demandeStage"
+          ></app-attente-demande-stage>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+</div>

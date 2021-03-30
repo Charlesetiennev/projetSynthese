@@ -1,0 +1,238 @@
+<div class="conteneur pl-0">
+  <div class="row m-0" style="margin-right: 0 !important">
+    <!-- Navigation Gauche -->
+    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
+    <!-- Action au de page -->
+    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+    <!-- Contenue -->
+    <div class="offset-2 col-10 px-5">
+      <!-- FORMULAIRE -->
+      <form
+        #demandeStageAjoutForm="ngForm"
+        id="demandeStageAjoutForm"
+        (ngSubmit)="formulaireTerminer(demandeStageAjoutForm)"
+      >
+        <div class="row">
+          <!-- Titre -->
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              name="titre"
+              #titre="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.titre"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Titre"
+              minlength="2"
+              maxlength="50"
+              required
+            />
+          </mat-form-field>
+          <!-- Programme suivi -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="text"
+              name="programmeSuivi"
+              #programmeSuivi="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.programmeSuivi"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Programme suivi pour le stage"
+              minlength="2"
+              maxlength="50"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- type de stage -->
+          <mat-form-field>
+            <mat-label>Type de stage</mat-label>
+            <mat-select
+              name="typeDeStage"
+              #typeDeStage="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.typeDeStage"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            >
+              <mat-option
+                *ngFor="let typeDeStage of typesDeStageListe"
+                [value]="typeDeStage"
+              >
+                {{ typeDeStage }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Ville -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="text"
+              name="ville"
+              #ville="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.ville"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Ville"
+              minlength="2"
+              maxlength="50"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Date de debut -->
+          <mat-form-field>
+            <mat-label>Date Debut du stage</mat-label>
+            <input
+              matInput
+              name="dateDebut"
+              #dateDebut="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.dateDebut"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              [matDatepicker]="picker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- Date de fin -->
+          <mat-form-field class="ml-2">
+            <mat-label>Date de fin du stage</mat-label>
+            <input
+              matInput
+              name="dateFin"
+              #dateFin="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.dateFin"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              [matDatepicker]="picker2"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <!-- Nombres d'heures semaine -->
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              min="1"
+              max="50"
+              name="nombreheuresSemaine"
+              #nombreheuresSemaine="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.nombreHeuresSemaine"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              placeholder="Nombres d'heures par semaine"
+            />
+          </mat-form-field>
+          <!-- Nombres de semaines -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="number"
+              min="1"
+              max="50"
+              name="dureeStageSemaine"
+              #dureeStageSemaine="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.dureeStageSemaine"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              placeholder="Nombres de semaines de stage"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Remuneration -->
+          <mat-form-field>
+            <mat-label>Remuneration : </mat-label>
+            <mat-select
+              name="remuneration"
+              #remuneration="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.remuneration"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            >
+              <mat-option
+                *ngFor="let remunerationsChoix of remunerationChoix"
+                [value]="remunerationsChoix"
+              >
+                {{ remunerationsChoix }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Autres formations -->
+          <mat-form-field class="ml-2">
+            <input
+              matInput
+              type="text"
+              name="autreFormation"
+              #autreFormation="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.autreFormation"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Autres formations"
+              minlength="2"
+              maxlength="500"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Competences Acquices -->
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              name="competencesAcquises"
+              #competencesAcquises="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.competencesAcquises"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Competences acquises"
+              minlength="2"
+              maxlength="500"
+              required
+            />
+          </mat-form-field>
+          <!-- Autres informations -->
+          <mat-form-field class="ml-2">
+            <!-- ngModel non present -->
+            <input
+              matInput
+              type="text"
+              name="autresInfo"
+              placeholder="Autres informations"
+              minlength="2"
+              maxlength="500"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <!-- Description -->
+          <mat-form-field class="w-50">
+            <mat-label>Description du stage demander</mat-label>
+            <textarea
+              matInput
+              name="description"
+              #description="ngModel"
+              [(ngModel)]="nouvelleDemandeStage.description"
+              [ngModelOptions]="{ standalone: true }"
+              required
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="4"
+              cdkAutosizeMaxRows="10"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <button>Terminer</button>
+      </form>
+    </div>
+  </div>
+</div>

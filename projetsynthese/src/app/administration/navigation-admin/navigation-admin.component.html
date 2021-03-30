@@ -1,4 +1,4 @@
-<div class="container-fluid navigation bg-info pl-5">
+<div class="container-fluid navigation pl-5">
   <!-- Logo -->
   <div class="row d-flex text-white">
     <svg
@@ -16,12 +16,15 @@
     <h1>eStage</h1>
   </div>
   <!-- Accueil -->
-  <div class="row align-items-end py-3">
+  <div
+    class="row align-items-end py-3"
+    *ngIf="env.statusDeConnexion === 'administrateur'"
+  >
     <mat-icon class="text-white">home</mat-icon>
     <a routerLink="/administration/accueil" class="text-white pl-4">Accueil</a>
   </div>
   <!-- Offre de stage -->
-  <div class="row py-3">
+  <div class="row py-3" *ngIf="env.statusDeConnexion === 'stagiaire'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -41,7 +44,13 @@
     >
   </div>
   <!-- Demande de stage -->
-  <div class="row py-3">
+  <div
+    class="row py-3"
+    *ngIf="
+      env.statusDeConnexion === 'entreprise' ||
+      env.statusDeConnexion === 'administrateur'
+    "
+  >
     <svg
       style="transform: rotate(180deg)"
       xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +66,12 @@
         fill="#fff"
       />
     </svg>
-    <a routerLink="" class="text-white pl-4">Demande de stage</a>
+    <a routerLink="/administration/demandeStage" class="text-white pl-4"
+      >Demande de stage</a
+    >
   </div>
   <!-- Candidats -->
-  <div class="row py-3">
+  <div class="row py-3" *ngIf="env.statusDeConnexion === 'entreprise'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -76,10 +87,31 @@
       />
     </svg>
 
-    <a routerLink="" class="text-white pl-4">Candidats</a>
+    <a routerLink="/administration/listeCandidats" class="text-white pl-4">
+      Candidats</a
+    >
   </div>
   <!-- Entreprise -->
-  <div class="row pt-3 pb-5">Entreprise</div>
+  <div class="row pt-3 pb-5" *ngIf="env.statusDeConnexion === 'stagiaire'">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 31.5 36"
+    >
+      <path
+        id="Icon_awesome-user-tie"
+        data-name="Icon awesome-user-tie"
+        d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
+        fill="#fff"
+      />
+    </svg>
+
+    <a routerLink="/administration/" class="text-white pl-4"> Entreprises</a>
+  </div>
   <!-- Deconnexion -->
-  <div class="row pt-5">Deconnexion</div>
+  <div class="row pt-5 text-white">
+    <mat-icon>logout</mat-icon>
+    <button class="pl-4" (click)="deconnexion()">Deconnexion</button>
+  </div>
 </div>

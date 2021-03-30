@@ -7,8 +7,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
   constructor() {}
-  connected: boolean;
   ngOnInit(): void {}
 }
-
-// LOCAL STORAGE

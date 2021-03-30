@@ -1,8 +1,10 @@
+// Section-trouvez-stagiaires.ts
+// Par Charles-Etienne Villemure
+// Le 25 Mars 2021
 import { Component, OnInit } from '@angular/core';
 // Stagiaire
 import { Stagiaire } from '../../stagiaire';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-// import { STAGIAIRES } from '../../mock-stagiaires';
 
 @Component({
   selector: 'app-section-trouvez-stagiaires',
@@ -10,8 +12,7 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
   styleUrls: ['./section-trouvez-stagiaires.component.sass'],
 })
 export class SectionTrouvezStagiairesComponent implements OnInit {
-  stagiaires: Stagiaire[] 
-  // = STAGIAIRES;
+  stagiaires: Stagiaire[];
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
   ngOnInit(): void {

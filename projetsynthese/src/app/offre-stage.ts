@@ -1,15 +1,19 @@
 import { Entreprise } from './entreprise';
 export interface OffreStage {
-  id: string;
+  _id: string | null;
   titre: string;
-  entreprise: Entreprise;
+  ville: string;
   dateDebut: string;
   dateFin: string;
   description: string;
   nombreHeuresSemaine: number;
-  competencesRechercher: string[];
-  remuneration: boolean;
+  competencesRechercher: string;
   emploieApresStage: boolean;
-  dateDeParution: string;
   informationSupplementaire?: string;
+  typeDeStage: string;
+  dureeStageSemaine: number;
+  remuneration: string;
+  dateDeParution: String;
+  entreprise: Entreprise;
+  accepter: boolean;
 }

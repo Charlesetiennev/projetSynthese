@@ -1,0 +1,54 @@
+<div class="container-fluid bg-light">
+  <div class="row">
+    <div class="col-2 p-0">
+      <app-navigation-admin></app-navigation-admin>
+    </div>
+
+    <div class="col-10">
+      <app-action-haut-admin></app-action-haut-admin>
+      <div class="row pl-4">
+        <h1>Liste des Candidats</h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="27.621"
+          height="27"
+          viewBox="0 0 27.621 27"
+        >
+          <g
+            id="Icon_feather-corner-right-down"
+            data-name="Icon feather-corner-right-down"
+            transform="translate(-4.5 -4.5)"
+          >
+            <path
+              id="Path_83"
+              data-name="Path 83"
+              d="M15,22.5,22.5,30,30,22.5"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+            />
+            <path
+              id="Path_84"
+              data-name="Path 84"
+              d="M6,6H16.5a6,6,0,0,1,6,6V30"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+            />
+          </g>
+        </svg>
+      </div>
+      <div class="row w-75 pl-5">
+        <div class="col-4" *ngFor="let stagiaire of stagiaires">
+          <app-petite-carte-stagiaires-admin
+            [stagiaire]="stagiaire"
+          ></app-petite-carte-stagiaires-admin>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

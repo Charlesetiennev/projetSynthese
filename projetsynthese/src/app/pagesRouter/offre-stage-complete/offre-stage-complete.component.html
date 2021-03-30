@@ -1,0 +1,105 @@
+<!-- Offre stage complete.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 26 Mars 2021 -->
+<!-- Validation W3 fait -->
+<section>
+  <div
+    class="header container-fluid d-flex justify-content-center align-items-center"
+    style="
+      background-image: url('../../../assets/img/entete/stages-candidats.png');
+    "
+  >
+    <!-- Composant de recherche -->
+    <app-recherche-entete style="width: 100%"></app-recherche-entete>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <p class="titre text-white" style="font-size: 2.4rem">Offres de stage</p>
+    </div>
+    <div class="row mx-5">
+      <div class="col-9">
+        <p>Accueil > Offres de stage > {{ offreStage.titre }}</p>
+        <div class="row ml-0">
+          <div class="col-3 text-center bordure pb-5 pr-3">
+            <img
+              class="img-fluid my-auto mx-auto pt-4 px-2"
+              src="https://picsum.photos/150/100"
+              alt="Image generer automatique pas picsum"
+            />
+            <p class="mb-0 mt-3">{{ offreStage.entreprise.nomEntreprise }}</p>
+            <p class="mb-0">{{ offreStage.entreprise.adresse }}</p>
+            <p>{{ offreStage.ville }}</p>
+          </div>
+          <div class="ml-4 pr-3 col-8 bordure">
+            <div class="row m-2">
+              <h2>{{ offreStage.titre }}</h2>
+            </div>
+            <div class="row m-2">
+              <div class="col-6">
+                <div class="row d-block">
+                  <p>Date de debut:{{ offreStage.dateDebut | date }}</p>
+                  <p>Date de fin: {{ offreStage.dateFin | date }}</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row d-block">
+                  <p>Horaire:{{ offreStage.nombreHeuresSemaine }}h semaine</p>
+                  <p>
+                    Possibilite d'emploie:
+                    <span *ngIf="offreStage.emploieApresStage === true"
+                      >Oui</span
+                    >
+                    <span *ngIf="offreStage.emploieApresStage === false"
+                      >Non</span
+                    >
+                  </p>
+                  <p>
+                    Remuneration:
+                    <span>Oui</span>
+                    <span>Non</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex mt-2 mb-4">
+              <button class="text-white boutonGradiant w-100 mx-2 py-2">
+                Postuler
+              </button>
+            </div>
+          </div>
+          <div class="row ml-0 mt-4 d-block mr-4">
+            <h2 class="font-weight-bolder text-uppercase">
+              candidat recherche
+            </h2>
+            <p>{{ offreStage.competencesRechercher }}</p>
+            <h2 class="font-weight-bolder text-uppercase pt-3">
+              description du stage
+            </h2>
+            <p>{{ offreStage.description }}</p>
+            <h2 class="font-weight-bolder text-uppercase pt-3">
+              a propos de l'entreprise
+            </h2>
+            <p>{{ offreStage.entreprise.aPropos }}</p>
+          </div>
+          <div *ngIf="offreStage.informationSupplementaire != ''">
+            <h2 class="font-weight-bolder text-uppercase pt-3">
+              informations supplementaire
+            </h2>
+            <p>{{ offreStage.informationSupplementaire }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
+      </div>
+    </div>
+  </div>
+</section>
+<app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+<app-trouvez-un-stage></app-trouvez-un-stage>
+<!-- Section trouvez un stage -->
+<app-section-trouvez-stage></app-section-trouvez-stage>
+<!-- Annonce -->
+<div class="container-fluid px-5">
+  <app-annonce></app-annonce>
+</div>

@@ -1,11 +1,19 @@
+<!-- Pourquoi-publier-stage.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 25 Mars 2021 -->
+<!-- Validation W3 Effectuez -->
+
 <div class="row no-gutters">
   <div class="col-6">
-    <img src="../../assets/img/pourquoiPublierStage.png" />
+    <img
+      src="../../assets/img/pourquoiPublierStage.png"
+      alt="Etudiant dans un millieu d'etudes."
+    />
   </div>
   <div
     class="col-6 d-flex flex-column align-items-start px-6 justify-content-center bg-light"
   >
-    <h1>Pourquoi publier<br />une offre de stage?</h1>
+    <h1 class="font-weight-bold">Pourquoi publier<br />une offre de stage?</h1>
 
     <p class="text-secondary">
       Pellentesque vehicula fermentum turpis eu cursus. Cras convallis tellus et
@@ -19,7 +27,16 @@
       <li>Morbi sodales risus quis orci hendrerit semper</li>
     </ul>
 
-    <a href="#" class="card-link badge-danger couleurPrincipale px-2 py-2"
+    <a
+      *ngIf="env.connecter === false"
+      routerLink="/connexion-insription"
+      class="card-link badge-danger couleurPrincipale px-2 py-2"
+      >Publier une offre de stage maintenant!</a
+    >
+    <a
+      *ngIf="env.connecter === true"
+      routerLink="/administration/offreStageFormulaire"
+      class="card-link badge-danger couleurPrincipale px-2 py-2"
       >Publier une offre de stage maintenant!</a
     >
   </div>

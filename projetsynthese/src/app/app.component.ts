@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environement } from './environement';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-  nonConnecter = true;
+  env = environement;
   constructor() {}
+
+  ngOnInit() {}
 }

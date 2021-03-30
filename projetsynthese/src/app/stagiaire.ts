@@ -1,5 +1,5 @@
 export interface Stagiaire {
-  _id: string|null;
+  _id: string | null;
   nom: string;
   prenom: string;
   courriel: string;
@@ -9,4 +9,5 @@ export interface Stagiaire {
   formations: string;
   messageMotivation: string;
   dateDebutStage: string;
+  accepter: boolean;
 }

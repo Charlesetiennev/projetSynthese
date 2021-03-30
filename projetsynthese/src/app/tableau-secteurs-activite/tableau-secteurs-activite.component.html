@@ -1,11 +1,13 @@
+<!-- Tableau-secteurs-activites.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 25 Mars 2021 -->
 <h4><span class="pr-3">Secteurs d'activité</span></h4>
 
 <ul class="list-group list-group-flush mb-4">
   <li
-    *ngFor="let secteurActivite of secteursActivite"
+    *ngFor="let secteurActivite of secteursActivites"
     class="list-group-item bg-light"
   >
-    {{ secteurActivite }}
+    {{ secteurActivite.titre }}
   </li>
 </ul>
-<!-- BORDER SPACING -->

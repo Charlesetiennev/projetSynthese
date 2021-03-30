@@ -1,12 +1,12 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-2 p-0">
-      <app-navigation-admin></app-navigation-admin>
-    </div>
+<div class="conteneur pl-0">
+  <div class="row m-0" style="margin-right: 0 !important">
+    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
 
-    <div class="col-9">
-      <app-action-haut-admin></app-action-haut-admin>
+    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+
+    <div class="offset-2 col-10 px-5">
       <!-- Content -->
+
       <div class="row">
         <h1>En attente de valitadion</h1>
       </div>
@@ -51,9 +51,9 @@
             </svg>
           </div>
 
-          <div *ngFor="let stagiaire of stagiaires" class="pb-3">
+          <div *ngFor="let demandeStage of demandesStages" class="pb-3">
             <app-attente-demande-stage
-              [stagiaire]="stagiaire"
+              [demandeStage]="demandeStage"
             ></app-attente-demande-stage>
           </div>
         </div>

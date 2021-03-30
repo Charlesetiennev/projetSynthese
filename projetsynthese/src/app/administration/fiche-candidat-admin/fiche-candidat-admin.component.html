@@ -1,0 +1,228 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <app-navigation-admin></app-navigation-admin>
+    </div>
+    <div class="col-10">
+      <app-action-haut-admin></app-action-haut-admin>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-2 col-9">
+      <!-- Contenue de la page -->
+
+      <div class="container-fluid">
+        <div class="row bordureBasBleu pb-3">
+          <div class="col-6">
+            <h1>Fiche du candidat</h1>
+            <button class="btn btn-secondary">Retour a la liste</button>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="27.621"
+                height="27"
+                viewBox="0 0 27.621 27"
+              >
+                <g
+                  id="Icon_feather-corner-right-down"
+                  data-name="Icon feather-corner-right-down"
+                  transform="translate(-4.5 -4.5)"
+                >
+                  <path
+                    id="Path_83"
+                    data-name="Path 83"
+                    d="M15,22.5,22.5,30,30,22.5"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                  <path
+                    id="Path_84"
+                    data-name="Path 84"
+                    d="M6,6H16.5a6,6,0,0,1,6,6V30"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end align-items-end">
+            <button
+              href="#"
+              class="mr-2 text-dark bordureLiens btn-light"
+              (click)="modification = !modification"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14.219"
+                viewBox="0 0 16 14.219"
+              >
+                <path
+                  id="Icon_awesome-edit"
+                  data-name="Icon awesome-edit"
+                  d="M11.183,2.315l2.506,2.506a.272.272,0,0,1,0,.383L7.622,11.271l-2.578.286a.54.54,0,0,1-.6-.6l.286-2.578L10.8,2.315A.272.272,0,0,1,11.183,2.315Zm4.5-.636L14.328.324a1.086,1.086,0,0,0-1.533,0l-.983.983a.272.272,0,0,0,0,.383L14.317,4.2a.272.272,0,0,0,.383,0l.983-.983a1.086,1.086,0,0,0,0-1.533ZM10.667,9.621v2.828H1.778V3.56H8.161a.342.342,0,0,0,.236-.1L9.508,2.351a.333.333,0,0,0-.236-.569H1.333A1.334,1.334,0,0,0,0,3.115v9.778a1.334,1.334,0,0,0,1.333,1.333h9.778a1.334,1.334,0,0,0,1.333-1.333V8.51a.334.334,0,0,0-.569-.236L10.764,9.385A.342.342,0,0,0,10.667,9.621Z"
+                  transform="translate(0 -0.007)"
+                  fill="#206d2f"
+                />
+              </svg>
+              Modifier
+            </button>
+            <button
+              href="#"
+              class="text-dark bordureLiens btn-light"
+              *ngIf="env.statusDeConnexion === 'administrateur'"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+              >
+                <path
+                  id="Icon_awesome-window-close"
+                  data-name="Icon awesome-window-close"
+                  d="M14.5,2.25H1.5A1.5,1.5,0,0,0,0,3.75v11a1.5,1.5,0,0,0,1.5,1.5h13a1.5,1.5,0,0,0,1.5-1.5v-11A1.5,1.5,0,0,0,14.5,2.25Zm-2.612,9.078a.385.385,0,0,1,0,.544l-1.266,1.266a.385.385,0,0,1-.544,0L8,11.041l-2.078,2.1a.385.385,0,0,1-.544,0L4.113,11.872a.385.385,0,0,1,0-.544l2.1-2.078-2.1-2.078a.385.385,0,0,1,0-.544L5.378,5.363a.385.385,0,0,1,.544,0L8,7.459l2.078-2.1a.385.385,0,0,1,.544,0l1.266,1.266a.385.385,0,0,1,0,.544L9.791,9.25Z"
+                  transform="translate(0 -2.25)"
+                  fill="#b10000"
+                />
+              </svg>
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Fiche -->
+      <div class="container-fluid pt-4">
+        <div class="row bordure">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="31.5"
+            height="36.002"
+            viewBox="0 0 31.5 36.002"
+            class="ml-1"
+          >
+            <path
+              id="Icon_awesome-user-graduate"
+              data-name="Icon awesome-user-graduate"
+              d="M22.458,22.542,15.75,29.25,9.042,22.542A9.429,9.429,0,0,0,0,31.95v.675A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V31.95a9.429,9.429,0,0,0-9.042-9.408ZM.956,5.611l.45.105V9.823a1.624,1.624,0,0,0-.063,2.813l-1.1,4.38C.127,17.5.394,18,.78,18H3.72c.387,0,.654-.5.534-.984l-1.1-4.38a1.624,1.624,0,0,0-.063-2.813v-3.7L7.734,7.242A8.984,8.984,0,1,0,24.75,11.25a8.84,8.84,0,0,0-.984-4.008l6.771-1.631a1.119,1.119,0,0,0,0-2.215L17.149.162a6.04,6.04,0,0,0-2.791,0L.956,3.389a1.124,1.124,0,0,0,0,2.222Z"
+              transform="translate(0 0.002)"
+            />
+          </svg>
+          <h2 class="mb-0 pl-3">
+            {{ stagiaireSelectionner.prenom }} {{ stagiaireSelectionner.nom }}
+          </h2>
+        </div>
+        <form id="formulaireEditionStagiaire" (ngSubmit)="onSubmit()">
+          <div class="row pt-4">
+            <div class="col-6 tableauStagiaire">
+              <h2>Nom et prenom du stagiaire :</h2>
+            </div>
+            <!-- Nom et Prenom -->
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ stagiaireSelectionner.nom }}
+                {{ stagiaireSelectionner.prenom }}
+              </p>
+              <input
+                *ngIf="modification"
+                value="{{ stagiaire.prenom }}"
+                [(ngModel)]="stagiaire.prenom"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <input *ngIf="modification" matInput placeholder="Nom" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Ville :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ stagiaireSelectionner.ville }}</p>
+              <input *ngIf="modification" matInput placeholder="Ville" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Courriel :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ stagiaireSelectionner.courriel }}</p>
+              <input *ngIf="modification" matInput placeholder="Courriel" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Telephone :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ stagiaireSelectionner.telephone }}</p>
+              <input *ngIf="modification" matInput placeholder="Telephone" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Progamme de formation :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ stagiaireSelectionner.formations }}
+              </p>
+              <input *ngIf="modification" matInput placeholder="Formations" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Competences :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ stagiaireSelectionner.competences }}
+              </p>
+              <input *ngIf="modification" matInput placeholder="Competences" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Date de disponibilite :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ stagiaireSelectionner.dateDebutStage }}
+              </p>
+              <input
+                *ngIf="modification"
+                matInput
+                placeholder="Date de disponibilite"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Resumer :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ stagiaireSelectionner.messageMotivation }}
+              </p>
+              <input *ngIf="modification" matInput placeholder="Resumer" />
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <button class="py-2 px-2 my-3 btn btn-success">Modifier</button>
+          </div>
+        </form>
+      </div>
+
+      <!--  -->
+    </div>
+  </div>
+</div>

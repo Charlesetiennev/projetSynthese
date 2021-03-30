@@ -1,3 +1,7 @@
+<!-- Section-trouvez-un-stage-->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 25 Mars 2021 -->
+<!-- Validation W3 Effectuez -->
 <div class="container-fluid mb-5">
   <div class="row my-5 no-gutters d-block text-center">
     <h1 class="texteCouleurSecondaire">
@@ -10,10 +14,11 @@
       tellus et elit aliquet, vitae dignissim ligula sodales.
     </p>
   </div>
-  <!-- Offre de stage petit format -->
+  <!-- Section affichage Offres de stages -->
   <div class="container-fluid">
     <div class="row w-75 mx-auto mb-3">
-      <div class="col-3" *ngFor="let offreStage of offresStages">
+      <!-- Stage petit format -->
+      <div class="col-3" *ngFor="let offreStage of offresStages | slice: 0:4">
         <app-mini-offre-stage [offreStage]="offreStage"></app-mini-offre-stage>
       </div>
     </div>
