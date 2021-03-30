@@ -37,6 +37,7 @@
             <div class="row m-2">
               <div class="col-6">
                 <div class="row d-block">
+                  <p>Paru le : {{ offreStage.dateDeParution | date }}</p>
                   <p>Date de debut:{{ offreStage.dateDebut | date }}</p>
                   <p>Date de fin: {{ offreStage.dateFin | date }}</p>
                 </div>
@@ -55,8 +56,8 @@
                   </p>
                   <p>
                     Remuneration:
-                    <span>Oui</span>
-                    <span>Non</span>
+                    <span *ngIf="offreStage.remuneration === true">Oui</span>
+                    <span *ngIf="offreStage.remuneration === false">Non</span>
                   </p>
                 </div>
               </div>

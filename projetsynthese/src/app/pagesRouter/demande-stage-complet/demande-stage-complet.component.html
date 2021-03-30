@@ -1,0 +1,142 @@
+<section>
+  <!-- BG A CHANGER -->
+  <div
+    class="header container-fluid d-flex justify-content-center align-items-center"
+    style="
+      background-image: url('../../../assets/img/entete/stages-candidats.png');
+    "
+  >
+    <!-- Composant de recherche -->
+    <app-recherche-entete style="width: 100%"></app-recherche-entete>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <p class="titre text-white" style="font-size: 2.4rem">Demande de stage</p>
+    </div>
+    <div class="row mx-5">
+      <div class="col-9">
+        <p>Accueil > Demandes de stage > {{ demandeStage.titre }}</p>
+        <div class="row ml-0">
+          <div
+            class="col-3 d-flex flex-column justify-content-between text-center bordure pb-5 pr-3"
+          >
+            <img
+              class="img-fluid mx-auto pt-4 px-2"
+              src="https://picsum.photos/150/100"
+              alt="Image generer automatique pas picsum"
+            />
+
+            <p class="mb-3 font-weight-bolder">
+              Formation:<br /><span class="font-weight-normal">{{
+                demandeStage.programmeSuivi
+              }}</span>
+            </p>
+          </div>
+          <div class="ml-4 pr-3 col-8 bordure">
+            <div class="row m-2">
+              <h2>{{ demandeStage.titre }}</h2>
+            </div>
+            <div class="row m-2">
+              <div class="col-6">
+                <div class="row d-block">
+                  <p class="font-weight-bolder">
+                    Date de parution
+                    <span class="font-weight-normal">{{
+                      demandeStage.dateDeParution | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Date de debut:
+                    <span class="font-weight-normal">{{
+                      demandeStage.dateDebut | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Date de fin:
+                    <span class="font-weight-normal">{{
+                      demandeStage.dateFin | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Duree du stage:<span class="font-weight-normal"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row d-block">
+                  <p class="font-weight-bolder">
+                    Ville:
+                    <span class="font-weight-normal">{{
+                      demandeStage.ville
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Horaire:
+                    <span class="font-weight-normal">{{
+                      demandeStage.typeDeStage
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Nombres d'heures semaine:
+                    <span class="font-weight-normal"
+                      >{{ demandeStage.nombreHeuresSemaine }} heures</span
+                    >
+                  </p>
+                  <p class="font-weight-bolder">
+                    Remuneration:
+                    <span class="font-weight-normal">{{
+                      demandeStage.remuneration
+                    }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex mt-2 mb-4">
+              <button class="text-white boutonGradiant w-100 mx-2 py-2">
+                Postuler
+              </button>
+            </div>
+          </div>
+          <div class="row ml-0 mt-4 d-block mr-4">
+            <h2 class="font-weight-bolder text-uppercase">
+              Type de stage recherché
+            </h2>
+            <p>{{ demandeStage.description }}</p>
+            <h2 class="font-weight-bolder text-uppercase pt-3">
+              COMPÉTENCES AQCUISES
+            </h2>
+            <p>{{ demandeStage.competencesAcquises }}</p>
+          </div>
+          <!-- Sections pour les conditions -->
+          <div>
+            <!-- Sil y a dautre formations -->
+            <div *ngIf="demandeStage.autreFormation !== ''">
+              <h2 class="font-weight-bolder text-uppercase pt-3">
+                Autres Formations
+              </h2>
+              <p>{{ demandeStage.autreFormation }}</p>
+            </div>
+            <!-- Sil y a dautre information Supplementaire -->
+            <div *ngIf="demandeStage.informationSupplementaire != ''">
+              <h2 class="font-weight-bolder text-uppercase pt-3">
+                informationSupplementaire
+              </h2>
+              <p>{{ demandeStage.informationSupplementaire }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
+      </div>
+    </div>
+  </div>
+</section>
+<app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+<app-trouvez-un-stage></app-trouvez-un-stage>
+<!-- Section trouvez un stage -->
+<app-section-trouvez-stage></app-section-trouvez-stage>
+<!-- Annonce -->
+<div class="container-fluid px-5">
+  <app-annonce></app-annonce>
+</div>

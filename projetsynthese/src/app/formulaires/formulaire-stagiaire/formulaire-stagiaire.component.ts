@@ -32,21 +32,22 @@ export class FormulaireStagiaireComponent implements OnInit {
       prenom: '',
       nom: '',
       courriel: '',
-      ville: '',
       telephone: '',
+      ville: '',
+      competences: '',
       formations: '',
-      competences: [],
-      dateDebutStage: '',
       messageMotivation: '',
       accepter: false,
     };
   }
 
-  formulaireTerminer(stagiaireAjoutForm: NgForm) {
-    this.apiProjetSyntheseService
-      .ajoutStagiaire(this.nouveauStagiaire)
-      .subscribe((nouveauStagiaire) => {
-        this.nouveauStagiaire._id = null;
-      });
+  formulaireTerminer(stagiaireAjoutForm: NgForm): void {
+    if (stagiaireAjoutForm.valid) {
+      this.apiProjetSyntheseService
+        .ajoutStagiaire(this.nouveauStagiaire)
+        .subscribe((nouveauStagiaire) => {
+          this.nouveauStagiaire._id = null;
+        });
+    }
   }
 }

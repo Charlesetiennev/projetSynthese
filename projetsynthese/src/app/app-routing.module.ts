@@ -12,6 +12,7 @@ import { ListeCandidatsAdminComponent } from './administration/liste-candidats-a
 import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
 
 import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
+import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
 import { DemandeStageAdminComponent } from './administration/demande-stage-admin/demande-stage-admin.component';
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
 import { fromEventPattern } from 'rxjs';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'trouvezStage', component: TrouvezStageComponent },
   { path: 'offreStageComplet/:id', component: OffreStageCompleteComponent },
+  { path: 'demandeStageComplet/:id', component: DemandeStageCompletComponent },
   { path: 'trouvezStagiaire', component: TrouvezStagiaireComponent },
   { path: 'a-propos', component: AProposComponent },
   { path: 'connexion-insription', component: ConnexionInscriptionComponent },

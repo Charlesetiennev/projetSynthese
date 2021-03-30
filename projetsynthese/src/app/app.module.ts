@@ -59,6 +59,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 // HTTP CLIENT
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProjetSyntheseService } from './api-projet-synthese.service';
+import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
+import { OffreStageAccepterPipe } from './pipes/offre-stage-accepter.pipe';
+import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
 
 @NgModule({
   declarations: [
@@ -104,6 +107,9 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
     FormulaireOffreStageAdminComponent,
     OffreStageCompleteComponent,
     FormulaireDemandeStageAdmninistrationComponent,
+    DemandeStageCompletComponent,
+    OffreStageAccepterPipe,
+    DemandeStageAccepterPipe,
   ],
   imports: [
     BrowserModule,

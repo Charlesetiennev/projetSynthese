@@ -52,9 +52,8 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
         prenom: 'Charles',
         ville: 'Shawinigan',
         courriel: 'Charles@etienne.ca',
-        dateDebutStage: '',
         telephone: '819-701-7918',
-        competences: ['VueJs', 'Angular', 'React'],
+        competences: 'VueJs Angular React',
         formations: 'AEC',
         messageMotivation:
           'Voyez ce jeu exquis wallon, de graphie en kit mais bref. Portez ce vieux whisky au juge blond qui fume sur son île intérieure, à côté de l"alcôve ovoïde, où les bûches se consument dans l"âtre, ce qui lui permet de penser à la cænogenèse de l"être dont il est question dans la cause ambiguë entendue à Moÿ, dans un capharnaüm qui, pense-t-il.',

@@ -15,7 +15,13 @@
     <div class="row mx-5">
       <div class="col-7">
         <p>Accueil > Candidats</p>
-        <div *ngFor="let demandeStage of demandesStages">
+        <div
+          *ngFor="
+            let demandeStage of demandesStages
+              | demandeStageAccepter
+              | slice: 0:5
+          "
+        >
           <app-carte-stagiaire-moyen
             [demandeStage]="demandeStage"
           ></app-carte-stagiaire-moyen>

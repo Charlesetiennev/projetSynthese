@@ -4,6 +4,7 @@
     id="stagiaireAjoutForm"
     (ngSubmit)="formulaireTerminer(stagiaireAjoutForm)"
   >
+    Form Status: {{ this.stagiaireAjoutForm.status }}<br />
     <!-- Prenom -->
     <mat-form-field>
       <input
@@ -159,10 +160,6 @@
     <!-- Message Motivation -->
     <mat-form-field>
       <input matInput placeholder="Message de motivation" required />
-    </mat-form-field>
-    <!-- Debut de stage date -->
-    <mat-form-field>
-      <input matInput placeholder="Date de debut de stage" required />
     </mat-form-field>
     <div class="row d-flex justify-content-center">
       <button class="btn btn-success">Terminer</button>

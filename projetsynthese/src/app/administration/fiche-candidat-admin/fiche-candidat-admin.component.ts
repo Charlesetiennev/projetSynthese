@@ -40,9 +40,8 @@ export class FicheCandidatAdminComponent implements OnInit {
     this.stagiaireSelectionner = {
       _id: this._id,
       nom: 'Charles-Etienne',
-      competences: ['asdad', 'fadsdfa'],
+      competences: 'asdad fadsdfa',
       courriel: 'Charles_##',
-      dateDebutStage: '123231',
       formations: 'asdfasdf',
       messageMotivation: 'asdfasdfasdf',
       telephone: 'asdfasdf',

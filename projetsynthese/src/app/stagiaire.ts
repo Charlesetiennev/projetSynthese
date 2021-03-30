@@ -5,9 +5,8 @@ export interface Stagiaire {
   courriel: string;
   telephone: string;
   ville: string;
-  competences: string[];
+  competences: string;
   formations: string;
   messageMotivation: string;
-  dateDebutStage: string;
   accepter: boolean;
 }

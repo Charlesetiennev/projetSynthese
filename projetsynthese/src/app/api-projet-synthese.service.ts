@@ -114,4 +114,12 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
+  // Recuperation Demande de stage par ID
+  recuperationDemandeStagesId(_id: string | null): Observable<DemandeStage> {
+    return this.http.get<DemandeStage>(
+      this.demandesStagesUrl + _id,
+      httpOptions
+    );
+  }
+  //
 }

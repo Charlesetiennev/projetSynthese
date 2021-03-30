@@ -3,6 +3,7 @@ export interface OffreStage {
   _id: string | null;
   titre: string;
   ville: string;
+  secteursActivites: string[];
   dateDebut: string;
   dateFin: string;
   description: string;
@@ -12,8 +13,8 @@ export interface OffreStage {
   informationSupplementaire?: string;
   typeDeStage: string;
   dureeStageSemaine: number;
-  remuneration: string;
-  dateDeParution: String;
+  remuneration: boolean;
+  dateDeParution: string;
   entreprise: Entreprise;
   accepter: boolean;
 }

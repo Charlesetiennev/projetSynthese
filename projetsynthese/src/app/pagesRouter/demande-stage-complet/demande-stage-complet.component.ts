@@ -1,18 +1,17 @@
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-import { OffreStage } from '../../offre-stage';
+import { DemandeStage } from '../../demande-stage';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-offre-stage-complete',
-  templateUrl: './offre-stage-complete.component.html',
-  styleUrls: ['./offre-stage-complete.component.sass'],
+  selector: 'app-demande-stage-complet',
+  templateUrl: './demande-stage-complet.component.html',
+  styleUrls: ['./demande-stage-complet.component.sass'],
 })
-export class OffreStageCompleteComponent implements OnInit {
+export class DemandeStageCompletComponent implements OnInit {
   _id: string | null;
-  offreStage: OffreStage;
-
+  demandeStage: DemandeStage;
   constructor(
     private route: ActivatedRoute,
     private apiProjetSyntheseService: ApiProjetSyntheseService
@@ -22,11 +21,11 @@ export class OffreStageCompleteComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this._id = params.get('id');
     });
-    this.offreStageAvecId();
+    this.recuperationDemandeStagesId();
   }
-  offreStageAvecId(): void {
+  recuperationDemandeStagesId(): void {
     this.apiProjetSyntheseService
-      .recuperationOffreStagesId(this._id)
-      .subscribe((resultat) => (this.offreStage = resultat));
+      .recuperationDemandeStagesId(this._id)
+      .subscribe((resultat) => (this.demandeStage = resultat));
   }
 }

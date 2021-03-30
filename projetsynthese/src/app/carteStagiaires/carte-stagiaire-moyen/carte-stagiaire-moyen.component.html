@@ -8,10 +8,10 @@
         </p>
         <p>{{ demandeStage.programmeSuivi }}</p>
         <p class="text-dark">
-          {{
-            demandeStage.description.length > 75
+          {{ demandeStage.description.length
+          <!-- > 75
               ? (demandeStage.description | slice: 0:75) + "..."
-              : demandeStage.description
+              : demandeStage.description -->
           }}
         </p>
       </div>
@@ -23,7 +23,11 @@
           <p class="">{{ demandeStage.dateDebut }}</p>
         </div>
         <div class="d-flex">
-          <a href="#" class="btn btn-primary">Details</a>
+          <a
+            [routerLink]="['/demandeStageComplet', demandeStage._id]"
+            class="btn btn-primary"
+            >Details</a
+          >
           <!-- Le lien a la classe badge-danger seulement pour avoir le  -->
           <!-- memes attributs badges bootstrap, la classe couleurPrincipale a priorite sur la couleur de fond  -->
           <a href="#" class="btn btn-primary ml-4">Contactez</a>
