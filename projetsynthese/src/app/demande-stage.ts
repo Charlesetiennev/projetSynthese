@@ -3,8 +3,8 @@ export interface DemandeStage {
   _id: string | null;
   titre: string;
   ville: string;
-  dateDebut: string;
-  dateFin: string;
+  dateDebut: string | Date;
+  dateFin: string | Date;
   description: string;
   nombreHeuresSemaine: number;
   informationSupplementaire?: string;

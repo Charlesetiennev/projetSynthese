@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// Stagiaire
-import { Stagiaire } from '../../stagiaire';
+
 import { DemandeStage } from '../../demande-stage';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-// import { STAGIAIRES } from '../../mock-stagiaires';
 
 @Component({
   selector: 'app-trouvez-stagiaire',
@@ -12,22 +10,17 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 })
 export class TrouvezStagiaireComponent implements OnInit {
   demandesStages: DemandeStage[];
-  stagiaires: Stagiaire[];
-  // = STAGIAIRES;
+  // Gestion du bouton pour charger plus de demandes
+  chargerPlus: boolean = false;
+  afficher: boolean = true;
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
   ngOnInit(): void {
-    this.getStagiaires();
     this.recuperationDemandesStages();
   }
   recuperationDemandesStages(): void {
     this.apiProjetSyntheseService
       .recuperationDemandesStages()
       .subscribe((resultat) => (this.demandesStages = resultat));
-  }
-  getStagiaires(): void {
-    this.apiProjetSyntheseService
-      .getStagiaires()
-      .subscribe((resultat) => (this.stagiaires = resultat));
   }
 }

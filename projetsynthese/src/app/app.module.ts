@@ -45,6 +45,7 @@ import { PetiteCarteStagiairesAdminComponent } from './administration/cartes/pet
 import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
 import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
+import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
 // MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -59,9 +60,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 // HTTP CLIENT
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProjetSyntheseService } from './api-projet-synthese.service';
-import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
+// Pipes
 import { OffreStageAccepterPipe } from './pipes/offre-stage-accepter.pipe';
 import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
+// Francais
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -128,7 +134,10 @@ import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
     MatNativeDateModule,
     MatDialogModule,
   ],
-  providers: [ApiProjetSyntheseService],
+  providers: [
+    ApiProjetSyntheseService,
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

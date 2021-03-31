@@ -15,17 +15,26 @@
     <div class="row mx-5">
       <div class="col-7">
         <p>Accueil > Offres de stage</p>
-        <div
-          *ngFor="
-            let offreStage of offresStages | offreStageAccepter | slice: 0:5
-          "
-        >
+        <div *ngFor="let offreStage of offresStages | slice: 0:5">
           <app-offre-stage-moyenne
             [offreStage]="offreStage"
           ></app-offre-stage-moyenne>
         </div>
+        <div *ngIf="chargerPlus">
+          <div *ngFor="let offreStage of offresStages | slice: 5">
+            <app-offre-stage-moyenne
+              [offreStage]="offreStage"
+            ></app-offre-stage-moyenne>
+          </div>
+        </div>
         <div class="row">
-          <a href="#" class="badge-danger mx-auto"> Charger plus</a>
+          <button
+            *ngIf="afficher"
+            class="badge-danger mx-auto p-2 border-0 rounded"
+            (click)="chargerPlus = true; afficher = false"
+          >
+            Charger plus
+          </button>
         </div>
       </div>
       <div class="offset-1 col-4">

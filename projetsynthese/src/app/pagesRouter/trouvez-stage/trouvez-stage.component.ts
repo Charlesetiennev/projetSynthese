@@ -10,6 +10,9 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 })
 export class TrouvezStageComponent implements OnInit {
   offresStages: OffreStage[];
+  // Gestion du bouton pour charger plus d'offre
+  chargerPlus: boolean = false;
+  afficher: boolean = true;
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
   ngOnInit(): void {

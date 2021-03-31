@@ -58,7 +58,15 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Duree du stage:<span class="font-weight-normal"></span>
+                    Duree du stage:<span class="font-weight-normal"
+                      >{{
+                        dureeDuStage(
+                          demandeStage.dateFin,
+                          demandeStage.dateDebut
+                        )
+                      }}
+                      semaines</span
+                    >
                   </p>
                 </div>
               </div>
@@ -106,9 +114,9 @@
               COMPÉTENCES AQCUISES
             </h2>
             <p>{{ demandeStage.competencesAcquises }}</p>
-          </div>
-          <!-- Sections pour les conditions -->
-          <div>
+
+            <!-- Sections pour les conditions -->
+
             <!-- Sil y a dautre formations -->
             <div *ngIf="demandeStage.autreFormation !== ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">

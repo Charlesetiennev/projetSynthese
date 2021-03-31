@@ -8,10 +8,10 @@
         </p>
         <p>{{ demandeStage.programmeSuivi }}</p>
         <p class="text-dark">
-          {{ demandeStage.description.length
-          <!-- > 75
+          {{
+            demandeStage.description.length > 75
               ? (demandeStage.description | slice: 0:75) + "..."
-              : demandeStage.description -->
+              : demandeStage.description
           }}
         </p>
       </div>
@@ -20,7 +20,7 @@
       >
         <div class="card-text d-block text-center">
           <p class="pr-2 mb-0">Disponible a partir du :</p>
-          <p class="">{{ demandeStage.dateDebut }}</p>
+          <p class="">{{ demandeStage.dateDebut | date }}</p>
         </div>
         <div class="d-flex">
           <a

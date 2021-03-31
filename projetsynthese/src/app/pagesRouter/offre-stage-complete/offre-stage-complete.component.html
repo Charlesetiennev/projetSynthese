@@ -37,27 +37,68 @@
             <div class="row m-2">
               <div class="col-6">
                 <div class="row d-block">
-                  <p>Paru le : {{ offreStage.dateDeParution | date }}</p>
-                  <p>Date de debut:{{ offreStage.dateDebut | date }}</p>
-                  <p>Date de fin: {{ offreStage.dateFin | date }}</p>
+                  <p class="font-weight-bolder">
+                    Paru le :
+                    <span class="font-weight-normal">{{
+                      offreStage.dateDeParution | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Date de debut:
+                    <span class="font-weight-normal">{{
+                      offreStage.dateDebut | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Date de fin:
+                    <span class="font-weight-normal">{{
+                      offreStage.dateFin | date
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bolder">
+                    Duree du stage:
+                    <span class="font-weight-normal"
+                      >{{
+                        dureeDuStage(offreStage.dateFin, offreStage.dateDebut)
+                      }}
+                      semaines</span
+                    >
+                  </p>
                 </div>
               </div>
               <div class="col-6">
                 <div class="row d-block">
-                  <p>Horaire:{{ offreStage.nombreHeuresSemaine }}h semaine</p>
-                  <p>
+                  <p class="font-weight-bolder">
+                    Horaire:
+                    <span class="font-weight-normal"
+                      >{{ offreStage.nombreHeuresSemaine }}h semaine</span
+                    >
+                  </p>
+                  <p class="font-weight-bolder">
                     Possibilite d'emploie:
-                    <span *ngIf="offreStage.emploieApresStage === true"
+                    <span
+                      class="font-weight-normal"
+                      *ngIf="offreStage.emploieApresStage === true"
                       >Oui</span
                     >
-                    <span *ngIf="offreStage.emploieApresStage === false"
+                    <span
+                      class="font-weight-normal"
+                      *ngIf="offreStage.emploieApresStage === false"
                       >Non</span
                     >
                   </p>
-                  <p>
+                  <p class="font-weight-bolder">
                     Remuneration:
-                    <span *ngIf="offreStage.remuneration === true">Oui</span>
-                    <span *ngIf="offreStage.remuneration === false">Non</span>
+                    <span
+                      class="font-weight-normal"
+                      *ngIf="offreStage.remuneration === true"
+                      >Oui</span
+                    >
+                    <span
+                      class="font-weight-normal"
+                      *ngIf="offreStage.remuneration === false"
+                      >Non</span
+                    >
                   </p>
                 </div>
               </div>
