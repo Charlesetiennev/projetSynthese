@@ -1,11 +1,11 @@
 // Section-trouvez-stagiaires.ts
 // Par Charles-Etienne Villemure
-// Le 25 Mars 2021
+//
 import { Component, OnInit } from '@angular/core';
 // Stagiaire
 import { Stagiaire } from '../../stagiaire';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-
+import { DemandeStage } from '../../demande-stage';
 @Component({
   selector: 'app-section-trouvez-stagiaires',
   templateUrl: './section-trouvez-stagiaires.component.html',
@@ -13,10 +13,17 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 })
 export class SectionTrouvezStagiairesComponent implements OnInit {
   stagiaires: Stagiaire[];
+  demandesStages: DemandeStage[];
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
   ngOnInit(): void {
     this.getStagiaires();
+    this.recuperationDemandesStages();
+  }
+  recuperationDemandesStages(): void {
+    this.apiProjetSyntheseService
+      .recuperationDemandesStages()
+      .subscribe((resultat) => (this.demandesStages = resultat));
   }
   getStagiaires(): void {
     this.apiProjetSyntheseService

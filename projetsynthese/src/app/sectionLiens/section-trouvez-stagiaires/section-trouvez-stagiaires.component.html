@@ -18,9 +18,12 @@
   <div class="container-fluid">
     <div class="row mx-4 mb-3">
       <!-- Stagiaire petit format -->
-      <div class="col-3" *ngFor="let stagiaire of stagiaires | slice: 0:4">
+      <div
+        class="col-3"
+        *ngFor="let demandeStage of demandesStages | slice: 0:4"
+      >
         <app-mini-stagiaire-carte
-          [stagiaire]="stagiaire"
+          [demandeStage]="demandeStage"
         ></app-mini-stagiaire-carte>
       </div>
     </div>

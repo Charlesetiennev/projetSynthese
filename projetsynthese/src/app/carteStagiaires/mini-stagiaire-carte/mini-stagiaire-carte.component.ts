@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stagiaire } from '../../stagiaire';
+import { DemandeStage } from '../../demande-stage';
 
 @Component({
   selector: 'app-mini-stagiaire-carte',
@@ -7,7 +7,7 @@ import { Stagiaire } from '../../stagiaire';
   styleUrls: ['./mini-stagiaire-carte.component.sass'],
 })
 export class MiniStagiaireCarteComponent implements OnInit {
-  @Input() stagiaire: Stagiaire;
+  @Input() demandeStage: DemandeStage;
   constructor() {}
 
   ngOnInit(): void {}
