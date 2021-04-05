@@ -48,6 +48,7 @@ export class FicheCandidatAdminComponent implements OnInit {
       ville: 'asdfasdf',
       prenom: 'asdfasdf',
       accepter: true,
+      motDePasse: '',
     };
     console.log(this.stagiaireSelectionner);
   }

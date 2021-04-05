@@ -1,168 +1,190 @@
-<div class="form-container">
-  <form
-    #stagiaireAjoutForm="ngForm"
-    id="stagiaireAjoutForm"
-    (ngSubmit)="formulaireTerminer(stagiaireAjoutForm)"
-  >
-    Form Status: {{ this.stagiaireAjoutForm.status }}<br />
-    <!-- Prenom -->
-    <mat-form-field>
-      <input
-        matInput
-        name="prenom"
-        #prenom="ngModel"
-        placeholder="Prenom"
-        minlength="2"
-        maxlength="50"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.prenom"
-        required
-      />
-      <mat-error
-        *ngIf="
-          prenom.invalid &&
-          (prenom.dirty || prenom.touched) &&
-          prenom.hasError('required')
-        "
-        >Votre Prenom est obligatoire.</mat-error
-      >
-      <mat-error
-        *ngIf="
-          prenom.invalid &&
-          (prenom.dirty || prenom.touched) &&
-          prenom.hasError('minlength')
-        "
-        >Votre Prenom doit contenir au moins 2 caractères.</mat-error
-      >
-      <mat-error
-        *ngIf="
-          prenom.invalid &&
-          (prenom.dirty || prenom.touched) &&
-          prenom.hasError('maxlength')
-        "
-        >Votre Prenom doit contenir au maximum 50 caractères.</mat-error
-      >
-    </mat-form-field>
-    <!-- Nom -->
-    <mat-form-field>
-      <input
-        matInput
-        name="nom"
-        #nom="ngModel"
-        placeholder="Nom"
-        minlength="2"
-        maxlength="50"
-        pattern="[A-Za-z]*"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.nom"
-        required
-      />
-      <mat-error
-        *ngIf="
-          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('pattern')
-        "
-        >Votre Nom ne doit contenir que des caractères.</mat-error
-      >
-      <mat-error
-        *ngIf="
-          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')
-        "
-        >Votre Nom est obligatoire.</mat-error
-      >
-      <mat-error
-        *ngIf="
-          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('minlength')
-        "
-        >Votre Nom doit contenir au moins 2 caractères.</mat-error
-      >
-      <mat-error
-        *ngIf="
-          nom.invalid && (nom.dirty || nom.touched) && nom.hasError('maxlength')
-        "
-        >Votre Nom doit contenir au maximum 50 caractères.</mat-error
-      >
-    </mat-form-field>
-    <!-- Courriel -->
-    <mat-form-field>
-      <input
-        matInput
-        type="email"
-        name="courriel"
-        #courriel="ngModel"
-        placeholder="Courriel"
-        minlength="5"
-        maxlength="50"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.courriel"
-        required
-      />
-    </mat-form-field>
-    <!-- Telephone -->
-    <mat-form-field>
-      <input
-        matInput
-        type="tel"
-        name="telephone"
-        #telephone="ngModel"
-        placeholder="Numero de telephone"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.telephone"
-        required
-      />
-    </mat-form-field>
-    <!-- Ville -->
-    <mat-form-field>
-      <input
-        matInput
-        name="ville"
-        #ville="ngModel"
-        placeholder="Ville"
-        minlength="2"
-        maxlength="50"
-        pattern="[A-Za-z]*"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.ville"
-        required
-      />
-    </mat-form-field>
-    <!-- Competences -->
-    <mat-form-field>
-      <input
-        matInput
-        name="competences"
-        #competences="ngModel"
-        placeholder="Competences"
-        minlength="10"
-        maxlength="300"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.competences"
-        required
-      />
-    </mat-form-field>
-    <!-- Formations -->
-    <mat-form-field>
-      <mat-label>Formations</mat-label>
-      <mat-select
-        name="formations"
-        #formations="ngModel"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="nouveauStagiaire.formations"
-        required
-      >
-        <mat-option
-          *ngFor="let formation of formationsListe"
-          [value]="formation"
-        >
-          {{ formation }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <!-- Message Motivation -->
-    <mat-form-field>
-      <input matInput placeholder="Message de motivation" required />
-    </mat-form-field>
-    <div class="row d-flex justify-content-center">
-      <button class="btn btn-success">Terminer</button>
+<!-- main app container -->
+
+<form [formGroup]="stagiaireAjoutForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <select
+      formControlName="formations"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.formations.errors }"
+    >
+      <option selected disabled value="">Formation</option>
+      <option value="AEC">AEC</option>
+      <option value="DEC">DEC</option>
+      <option value="BAC">BAC</option>
+      <option value="autres">Autres</option>
+    </select>
+    <div *ngIf="soumission && f.formations.errors" class="invalid-feedback">
+      <div *ngIf="f.formations.errors.required">
+        Selectionnez un niveau de formation.
+      </div>
     </div>
-  </form>
-</div>
+  </div>
+  <div class="form-group">
+    <input
+      placeholder="Prenom"
+      type="text"
+      formControlName="prenom"
+      class="form-control"
+      minlength="2"
+      maxlength="50"
+      pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      [ngClass]="{ 'is-invalid': soumission && f.prenom.errors }"
+    />
+    <div *ngIf="soumission && f.prenom.errors" class="invalid-feedback">
+      <div *ngIf="f.prenom.errors.required">Votre prenom est requis</div>
+      <div *ngIf="f.prenom.errors.minlength || f.prenom.errors.maxlength">
+        Votre prenom doit comporter entre 2 et 50 caracteres
+      </div>
+      <div *ngIf="f.prenom.errors.pattern">
+        Votre prenom ne doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      placeholder="Nom"
+      type="text"
+      formControlName="nom"
+      minlength="2"
+      maxlength="50"
+      pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.nom.errors }"
+    />
+    <div *ngIf="soumission && f.nom.errors" class="invalid-feedback">
+      <div *ngIf="f.nom.errors.required">Votre nom est requis</div>
+      <div *ngIf="f.nom.errors.minlength || f.nom.errors.maxlength">
+        Votre nom doit comporter entre 2 et 50 caracteres
+      </div>
+      <div *ngIf="f.nom.errors.pattern">
+        Votre nom ne doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      placeholder="Ville"
+      type="text"
+      minlength="2"
+      maxlength="100"
+      pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      formControlName="ville"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
+    />
+    <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
+      <div *ngIf="f.ville.errors.required">Votre ville est requis</div>
+      <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
+        Le champs doit comporter entre 2 et 100 caracteres
+      </div>
+      <div *ngIf="f.ville.errors.pattern">
+        Votre ville ne doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea
+      placeholder="competences"
+      rows="3"
+      type="text"
+      minlength="20"
+      maxlength="1500"
+      formControlName="competences"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.competences.errors }"
+    ></textarea>
+    <div *ngIf="soumission && f.competences.errors" class="invalid-feedback">
+      <div *ngIf="f.competences.errors.required">
+        Vos champs de competences sont requis.
+      </div>
+      <div
+        *ngIf="f.competences.errors.minlength || f.competences.errors.maxlength"
+      >
+        Vos champs de competences doivent comprendre entre 20 et 1500 caracteres
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea
+      placeholder="messageMotivation"
+      rows="4"
+      minlength="20"
+      maxlength="1500"
+      type="text"
+      formControlName="messageMotivation"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': soumission && f.messageMotivation.errors
+      }"
+    ></textarea>
+    <div
+      *ngIf="soumission && f.messageMotivation.errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f.messageMotivation.errors.required">
+        Vous devez entrer un resumer de vous.
+      </div>
+      <div
+        *ngIf="
+          f.messageMotivation.errors.minlength ||
+          f.messageMotivation.errors.maxlength
+        "
+      >
+        Votre resumer doit comprendre entre 20 et 1500 caracteres
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      placeholder="Telephone"
+      type="text"
+      formControlName="telephone"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.telephone.errors }"
+    />
+    <div *ngIf="soumission && f.telephone.errors" class="invalid-feedback">
+      <div *ngIf="f.telephone.errors.required">Last Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      placeholder="Courriel"
+      type="text"
+      formControlName="courriel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
+    />
+    <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.email">
+        L'adresse courriel doit etre valide.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      placeholder="Mot de passe"
+      type="password"
+      formControlName="motDePasse"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.motDePasse.errors }"
+    />
+    <div *ngIf="soumission && f.motDePasse.errors" class="invalid-feedback">
+      <div *ngIf="f.motDePasse.errors.required">
+        Le mot de passe est requis.
+      </div>
+      <div *ngIf="f.motDePasse.errors.minlength">
+        Votre mot de passe doit contenir au moins six(6) caracteres.
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-primary mr-1">S'inscrire</button>
+    <button class="btn btn-secondary" type="reset" (click)="redemarrer()">
+      Annuler
+    </button>
+  </div>
+</form>

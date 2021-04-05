@@ -1,231 +1,247 @@
-<h2>Inscrivez votre entreprise.</h2>
-<form
-  #entrepriseAjoutForm="ngForm"
-  id="entrepriseAjoutForm"
-  (ngSubmit)="formulaireTerminer(entrepriseAjoutForm)"
->
-  <!-- Nom Entreprise -->
-  <p class="text-danger">
-    Form Status: test {{ this.entrepriseAjoutForm.status }}
-  </p>
-  <mat-form-field>
+<form [formGroup]="entrepriseAjoutForm" (ngSubmit)="onSubmit()">
+  <!-- Nom de L'entreprise -->
+  <div class="form-group">
     <input
-      matInput
-      type="text"
-      name="nomEntreprise"
-      #nomEntrepise="ngModel"
       placeholder="Nom de l'entreprise"
-      minlength="2"
-      maxlength="50"
-      pattern="[A-Za-z]*"
-      [(ngModel)]="nouvelleEntreprise.nomEntreprise"
-      [ngModelOptions]="{ standalone: true }"
-      required
-    />
-  </mat-form-field>
-  <!-- Adresse -->
-  <mat-form-field>
-    <input
-      matInput
       type="text"
-      name="adresse"
-      #adresse="ngModel"
-      placeholder="Adresse"
+      formControlName="nomEntreprise"
+      class="form-control"
       minlength="2"
       maxlength="50"
-      pattern="[A-Za-z]*"
-      [(ngModel)]="nouvelleEntreprise.adresse"
-      [ngModelOptions]="{ standalone: true }"
-      required
+      [ngClass]="{ 'is-invalid': soumission && f.nomEntreprise.errors }"
     />
-  </mat-form-field>
-  <!-- Secteurs d'avtivite -->
-  <mat-form-field>
-    <mat-label>Secteur d'avtivite</mat-label>
-    <mat-select
-      name="secteurActivites"
-      #secteurActivites="ngModel"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.secteurActivite"
-      required
-      multiple
-    >
-      <mat-option
-        *ngFor="let secteurActivite of secteursActivite"
-        [value]="secteurActivite"
-        >{{ secteurActivite }}</mat-option
+    <div *ngIf="soumission && f.nomEntreprise.errors" class="invalid-feedback">
+      <div *ngIf="f.nomEntreprise.errors.required">
+        Le nom de l'entreprise est requis
+      </div>
+      <div
+        *ngIf="
+          f.nomEntreprise.errors.minlength || f.nomEntreprise.errors.maxlength
+        "
       >
-    </mat-select>
-  </mat-form-field>
-  <!-- Ville -->
-  <mat-form-field>
+        Le nom de l'entreprise doit comporter entre 2 et 50 caracteres
+      </div>
+    </div>
+  </div>
+  <!-- adresse de L'entreprise -->
+  <div class="form-group">
     <input
-      matInput
+      placeholder="adresse de l'entreprise"
       type="text"
-      name="ville"
-      #ville="ngModel"
-      placeholder="Ville"
+      formControlName="adresse"
+      class="form-control"
       minlength="2"
       maxlength="50"
-      pattern="[A-Za-z]*"
-      [(ngModel)]="nouvelleEntreprise.ville"
-      [ngModelOptions]="{ standalone: true }"
-      required
+      [ngClass]="{ 'is-invalid': soumission && f.adresse.errors }"
     />
-  </mat-form-field>
-  <!-- Site web -->
-  <mat-form-field>
+    <div *ngIf="soumission && f.adresse.errors" class="invalid-feedback">
+      <div *ngIf="f.adresse.errors.required">
+        adresse de l'entreprise est requis
+      </div>
+      <div *ngIf="f.adresse.errors.minlength || f.adresse.errors.maxlength">
+        adresse de l'entreprise doit comporter entre 2 et 50 caracteres
+      </div>
+    </div>
+  </div>
+  <!-- ville de L'entreprise -->
+  <div class="form-group">
     <input
-      matInput
+      placeholder="ville de l'entreprise"
       type="text"
-      name="siteWeb"
-      #siteWeb="ngModel"
-      placeholder="Url du site web"
+      formControlName="ville"
+      class="form-control"
       minlength="2"
-      maxlength="50"
-      pattern="[A-Za-z]*"
-      [(ngModel)]="nouvelleEntreprise.siteWeb"
-      [ngModelOptions]="{ standalone: true }"
-      required
+      maxlength="100"
+      pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
     />
-  </mat-form-field>
-  <!-- Logo -->
-  <mat-form-field>
-    <input
-      matInput
-      type="text"
-      name="logo"
-      #logo="ngModel"
-      placeholder="Url du logo de l'entreprise"
-      minlength="2"
-      [(ngModel)]="nouvelleEntreprise.logo"
-      [ngModelOptions]="{ standalone: true }"
-      required
-    />
-  </mat-form-field>
-  <!-- Description de lentreprise -->
-  <mat-form-field>
-    <textarea
-      matInput
-      name="desription"
-      #description="ngModel"
-      [(ngModel)]="nouvelleEntreprise.aPropos"
-      [ngModelOptions]="{ standalone: true }"
-      cdkTextareaAutosize
-      #autosize="cdkTextareaAutosize"
-      cdkAutosizeMinRows="4"
-      cdkAutosizeMaxRows="10"
-      placeholder="Description de l'entreprise"
-    ></textarea>
-  </mat-form-field>
-  <!-- Responsable  -->
-  <h2>Responsable du compte</h2>
-  <!-- Prenom -->
-  <mat-form-field>
-    <input
-      matInput
-      type="text"
-      name="prenom"
-      #prenom="ngModel"
-      placeholder="Prenom"
-      minlength="2"
-      maxlength="50"
-      pattern="[A-Za-z]*"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.prenomResponsable"
-      required
-    />
-  </mat-form-field>
-  <!-- Nom -->
-  <mat-form-field>
-    <input
-      matInput
-      type="text"
-      name="nom"
-      #nom="ngModel"
-      placeholder="Nom"
-      minlength="2"
-      maxlength="50"
-      pattern="[A-Za-z]*"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.nomResponsable"
-      required
-    />
-  </mat-form-field>
+    <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
+      <div *ngIf="f.ville.errors.required">
+        ville de l'entreprise est requis
+      </div>
+      <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
+        ville de l'entreprise doit comporter entre 2 et 50 caracteres
+      </div>
+      <div *ngIf="f.ville.errors.pattern">
+        ville doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
   <!-- Courriel -->
-  <mat-form-field>
+  <div class="form-group">
     <input
-      matInput
-      type="email"
-      name="courriel"
-      #courriel="ngModel"
       placeholder="Courriel"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.courriel"
-      required
+      type="text"
+      formControlName="courriel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
     />
-  </mat-form-field>
+    <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.email">
+        L'adresse courriel doit etre valide.
+      </div>
+    </div>
+  </div>
   <!-- Telephone -->
-  <mat-form-field>
+  <div class="form-group">
     <input
-      matInput
-      type="tel"
-      name="telephone"
-      #telephone="ngModel"
       placeholder="Telephone"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.numeroTel"
-      required
+      type="text"
+      formControlName="numeroTel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.numeroTel.errors }"
     />
-  </mat-form-field>
-  <!-- Mot de passe -->
-  <h2>Mot de passe</h2>
-  <mat-form-field>
+    <div *ngIf="soumission && f.numeroTel.errors" class="invalid-feedback">
+      <div *ngIf="f.numeroTel.errors.required">Le telephone est requis</div>
+    </div>
+  </div>
+  <!-- Url logo d'entreprise -->
+  <div class="form-group">
     <input
-      matInput
-      type="password"
-      name="motDePasse"
-      #motDePasse="ngModel"
-      placeholder="Mot de passe"
-      [ngModelOptions]="{ standalone: true }"
-      [(ngModel)]="nouvelleEntreprise.motDePasse"
-      required
+      placeholder="Url du logo de l'entreprise"
+      type="text"
+      formControlName="logo"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.logo.errors }"
     />
-  </mat-form-field>
-  <button [disabled]="!form.valid">Terminer</button>
-</form>
-
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<form class="form-horizontal" [formGroup]="form">
-  <div class="form-group">
-    <div class="col-sm-12">
-      <label for="nomEntreprise" class="control-label">Nom Entreprise</label>
-      <input
-        type="text"
-        id="nomEntreprise"
-        class="form-control"
-        formControlName="nomEntreprise"
-      />
+    <div *ngIf="soumission && f.logo.errors" class="invalid-feedback">
+      <div *ngIf="f.logo.errors.required">
+        L'url du logo de lentreprise est requis
+      </div>
     </div>
   </div>
+  <!-- Site web -->
   <div class="form-group">
-    <div class="col-sm-12">
-      <label for="adresse" class="control-label">Adresse</label>
-      <input
-        type="text"
-        id="adresse"
-        class="form-control"
-        formControlName="adresse"
-      />
+    <input
+      placeholder="Url du site Web de l'entreprise"
+      type="text"
+      formControlName="siteWeb"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.siteWeb.errors }"
+    />
+    <div *ngIf="soumission && f.siteWeb.errors" class="invalid-feedback">
+      <div *ngIf="f.siteWeb.errors.required">
+        L'url du site Web de lentreprise est requis
+      </div>
     </div>
   </div>
-
-  <p>{{ this.form.status }} test</p>
-  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
-    Submit
+  <!-- Description de l'entreprise -->
+  <div class="form-group">
+    <textarea
+      placeholder="A propos de l'entreprise"
+      rows="4"
+      minlength="20"
+      maxlength="1500"
+      type="text"
+      formControlName="aPropos"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': soumission && f.aPropos.errors
+      }"
+    ></textarea>
+    <div *ngIf="soumission && f.aPropos.errors" class="invalid-feedback">
+      <div *ngIf="f.aPropos.errors.required">
+        Vous devez entrer une presentation de l'entreprise
+      </div>
+      <div *ngIf="f.aPropos.errors.minlength || f.aPropos.errors.maxlength">
+        Votre resumer doit comprendre entre 20 et 1500 caracteres
+      </div>
+    </div>
+  </div>
+  <!-- Secteurs activites -->
+  <div>
+    <mat-form-field>
+      <label>Secteurs d'avtivites de l'entreprise</label>
+      <mat-select multiple formControlName="secteurActivite" required>
+        <mat-option
+          *ngFor="let secteurActivite of secteursActivites"
+          [value]="secteurActivite.titre"
+          >{{ secteurActivite.titre }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <!-- Prenom personne contact -->
+  <div class="form-group">
+    <input
+      placeholder="Prenom de la personne de contact"
+      type="text"
+      formControlName="prenomResponsable"
+      class="form-control"
+      minlength="2"
+      maxlength="100"
+      pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      [ngClass]="{ 'is-invalid': soumission && f.prenomResponsable.errors }"
+    />
+    <div
+      *ngIf="soumission && f.prenomResponsable.errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f.prenomResponsable.errors.required">
+        Le prenom est requis
+      </div>
+      <div
+        *ngIf="
+          f.prenomResponsable.errors.minlength ||
+          f.prenomResponsable.errors.maxlength
+        "
+      >
+        Le prenom comporter entre 2 et 50 caracteres
+      </div>
+      <div *ngIf="f.prenomResponsable.errors.pattern">
+        Le prenom doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <!-- Nom personne contact -->
+  <div class="form-group">
+    <input
+      placeholder="Nom de la personne de contact"
+      type="text"
+      formControlName="nomResponsable"
+      class="form-control"
+      minlength="2"
+      maxlength="100"
+      pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+      [ngClass]="{ 'is-invalid': soumission && f.nomResponsable.errors }"
+    />
+    <div *ngIf="soumission && f.nomResponsable.errors" class="invalid-feedback">
+      <div *ngIf="f.nomResponsable.errors.required">Le nom est requis</div>
+      <div
+        *ngIf="
+          f.nomResponsable.errors.minlength || f.nomResponsable.errors.maxlength
+        "
+      >
+        Le nom comporter entre 2 et 50 caracteres
+      </div>
+      <div *ngIf="f.nomResponsable.errors.pattern">
+        Le nom doit etre compose que de lettres
+      </div>
+    </div>
+  </div>
+  <!-- Mot de passe -->
+  <div class="form-group">
+    <input
+      placeholder="Mot de passe"
+      type="password"
+      formControlName="motDePasse"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': soumission && f.motDePasse.errors }"
+    />
+    <div *ngIf="soumission && f.motDePasse.errors" class="invalid-feedback">
+      <div *ngIf="f.motDePasse.errors.required">
+        Le mot de passe est requis.
+      </div>
+      <div *ngIf="f.motDePasse.errors.minlength">
+        Votre mot de passe doit contenir au moins six(6) caracteres.
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <button class="btn btn-primary mr-1">S'inscrire</button>
+  <button class="btn btn-secondary" type="reset" (click)="redemarrer()">
+    Annuler
   </button>
 </form>

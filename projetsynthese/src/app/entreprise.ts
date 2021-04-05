@@ -11,6 +11,6 @@ export interface Entreprise {
   courriel: string;
   prenomResponsable: string;
   nomResponsable: string;
-  nom: string;
   motDePasse?: string;
+  accepter: boolean;
 }

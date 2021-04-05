@@ -16,54 +16,53 @@
         Accéder à votre compte
       </p>
     </div>
-    <div class="row d-flex justify-content-center">
+
+    <div class="row d-flex justify-content-center align-items-center">
+      <h2 class="mb-0 mr-2">Je suis :</h2>
       <div
-        class="btn pr-5"
+        class="btn mr-2 btn-success"
         (click)="
           formulaireDiv.stagiaire = !formulaireDiv.stagiaire;
           formulaireDiv.entreprise = false
         "
       >
-        Stagiaire
+        Un stagiaire
       </div>
       <div
-        class="btn pl-5"
+        class="btn ml-2 btn-warning text-white"
         (click)="
           formulaireDiv.entreprise = !formulaireDiv.entreprise;
           formulaireDiv.stagiaire = false
         "
       >
-        Entreprise
+        Une entreprise
       </div>
     </div>
   </div>
   <div class="container">
     <!-- Rendu de la section selectionnez -->
-    <div class="row mb-5">
-      <!-- Stagiaire -->
-      <div *ngIf="formulaireDiv.stagiaire">
-        <div class="row">
-          <div class="col-6">
-            <h1>Connexion</h1>
-            <app-connexion-stagiaire></app-connexion-stagiaire>
-          </div>
-          <div class="col-6">
-            <h1>Inscrivez-vous pour trouvez un stage</h1>
-            <app-formulaire-stagiaire></app-formulaire-stagiaire>
-          </div>
-        </div>
+
+    <!-- Stagiaire -->
+    <div *ngIf="formulaireDiv.stagiaire" class="row">
+      <div class="col-6">
+        <h1>Connexion</h1>
+        <app-connexion-stagiaire></app-connexion-stagiaire>
       </div>
-      <!-- Entreprise -->
-      <div *ngIf="formulaireDiv.entreprise">
-        <div class="row">
-          <div class="col-6">
-            <h1>Connexion</h1>
-            <app-connexion-entreprise></app-connexion-entreprise>
-          </div>
-          <div class="col-6">
-            <h1>Inscrivez votre entreprise</h1>
-            <app-formulaire-entreprise></app-formulaire-entreprise>
-          </div>
+      <div class="col-6">
+        <h1>Inscrivez-vous pour trouvez un stage</h1>
+        <app-formulaire-stagiaire></app-formulaire-stagiaire>
+      </div>
+    </div>
+    <!-- Entreprise -->
+    <div *ngIf="formulaireDiv.entreprise">
+      <div class="row">
+        <div class="col-6">
+          <h1>Connexion</h1>
+          <app-connexion-entreprise></app-connexion-entreprise>
+        </div>
+        <div class="col-6">
+          <h1>Inscrivez votre entreprise</h1>
+          <app-formulaire-entreprise></app-formulaire-entreprise>
         </div>
       </div>
     </div>

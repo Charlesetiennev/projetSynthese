@@ -9,4 +9,5 @@ export interface Stagiaire {
   formations: string;
   messageMotivation: string;
   accepter: boolean;
+  motDePasse: string;
 }
