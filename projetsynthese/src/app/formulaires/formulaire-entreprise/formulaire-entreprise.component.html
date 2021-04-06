@@ -23,50 +23,54 @@
       </div>
     </div>
   </div>
-  <!-- adresse de L'entreprise -->
-  <div class="form-group">
-    <input
-      placeholder="adresse de l'entreprise"
-      type="text"
-      formControlName="adresse"
-      class="form-control"
-      minlength="2"
-      maxlength="50"
-      [ngClass]="{ 'is-invalid': soumission && f.adresse.errors }"
-    />
-    <div *ngIf="soumission && f.adresse.errors" class="invalid-feedback">
-      <div *ngIf="f.adresse.errors.required">
-        adresse de l'entreprise est requis
+
+  <div>
+    <!-- adresse de L'entreprise -->
+    <div class="form-group">
+      <input
+        placeholder="adresse de l'entreprise"
+        type="text"
+        formControlName="adresse"
+        class="form-control"
+        minlength="2"
+        maxlength="50"
+        [ngClass]="{ 'is-invalid': soumission && f.adresse.errors }"
+      />
+      <div *ngIf="soumission && f.adresse.errors" class="invalid-feedback">
+        <div *ngIf="f.adresse.errors.required">
+          adresse de l'entreprise est requis
+        </div>
+        <div *ngIf="f.adresse.errors.minlength || f.adresse.errors.maxlength">
+          adresse de l'entreprise doit comporter entre 2 et 50 caracteres
+        </div>
       </div>
-      <div *ngIf="f.adresse.errors.minlength || f.adresse.errors.maxlength">
-        adresse de l'entreprise doit comporter entre 2 et 50 caracteres
+    </div>
+    <!-- ville de L'entreprise -->
+    <div class="form-group">
+      <input
+        placeholder="ville de l'entreprise"
+        type="text"
+        formControlName="ville"
+        class="form-control"
+        minlength="2"
+        maxlength="100"
+        pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+        [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
+      />
+      <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
+        <div *ngIf="f.ville.errors.required">
+          ville de l'entreprise est requis
+        </div>
+        <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
+          ville de l'entreprise doit comporter entre 2 et 100 caracteres
+        </div>
+        <div *ngIf="f.ville.errors.pattern">
+          ville doit etre compose que de lettres
+        </div>
       </div>
     </div>
   </div>
-  <!-- ville de L'entreprise -->
-  <div class="form-group">
-    <input
-      placeholder="ville de l'entreprise"
-      type="text"
-      formControlName="ville"
-      class="form-control"
-      minlength="2"
-      maxlength="100"
-      pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-      [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
-    />
-    <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
-      <div *ngIf="f.ville.errors.required">
-        ville de l'entreprise est requis
-      </div>
-      <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
-        ville de l'entreprise doit comporter entre 2 et 50 caracteres
-      </div>
-      <div *ngIf="f.ville.errors.pattern">
-        ville doit etre compose que de lettres
-      </div>
-    </div>
-  </div>
+
   <!-- Courriel -->
   <div class="form-group">
     <input
@@ -151,8 +155,8 @@
   </div>
   <!-- Secteurs activites -->
   <div>
-    <mat-form-field>
-      <label>Secteurs d'avtivites de l'entreprise</label>
+    <mat-form-field class="w-100">
+      <label class="text-secondary">Secteurs d'avtivites de l'entreprise</label>
       <mat-select multiple formControlName="secteurActivite" required>
         <mat-option
           *ngFor="let secteurActivite of secteursActivites"

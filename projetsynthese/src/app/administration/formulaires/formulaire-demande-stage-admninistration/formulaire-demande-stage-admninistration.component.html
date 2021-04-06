@@ -8,9 +8,9 @@
     <div class="offset-2 col-10 px-5">
       <!-- FORMULAIRE -->
       <form
-        #demandeStageAjoutForm="ngForm"
         id="demandeStageAjoutForm"
-        (ngSubmit)="formulaireTerminer(demandeStageAjoutForm)"
+        [formGroup]="demandeStageAjoutForm"
+        (ngSubmit)="onSubmit()"
       >
         <div class="row">
           <!-- Titre -->
@@ -18,30 +18,19 @@
             <input
               matInput
               type="text"
-              name="titre"
-              #titre="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.titre"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Titre"
+              formControlName="titre"
+              placeholder="Titre de la demande"
               minlength="2"
               maxlength="50"
               required
+              [ngClass]="{ 'is-invalid': soumission && f.titre.errors }"
             />
-          </mat-form-field>
-          <!-- Programme suivi -->
-          <mat-form-field class="ml-2">
-            <input
-              matInput
-              type="text"
-              name="programmeSuivi"
-              #programmeSuivi="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.programmeSuivi"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Programme suivi pour le stage"
-              minlength="2"
-              maxlength="50"
-              required
-            />
+            <div *ngIf="soumission && f.titre.errors" class="invalid-feedback">
+              <div *ngIf="f.titre.errors.required">Le titre est requis</div>
+              <div *ngIf="f.titre.errors.minlength || f.titre.errors.maxlength">
+                Le titre doit comporter entre 2 et 50 caracteres
+              </div>
+            </div>
           </mat-form-field>
         </div>
         <div class="row">
@@ -49,11 +38,11 @@
           <mat-form-field>
             <mat-label>Type de stage</mat-label>
             <mat-select
-              name="typeDeStage"
-              #typeDeStage="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.typeDeStage"
-              [ngModelOptions]="{ standalone: true }"
+              formControlName="typeDeStage"
               required
+              [ngClass]="{
+                'is-invalid': soumission && f.typeDeStage.errors
+              }"
             >
               <mat-option
                 *ngFor="let typeDeStage of typesDeStageListe"
@@ -62,21 +51,37 @@
                 {{ typeDeStage }}
               </mat-option>
             </mat-select>
+            <div
+              *ngIf="soumission && f.typeDeStage.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.typeDeStage.errors.required">
+                Le type de stage est requis
+              </div>
+            </div>
           </mat-form-field>
           <!-- Ville -->
           <mat-form-field class="ml-2">
             <input
               matInput
               type="text"
-              name="ville"
-              #ville="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.ville"
-              [ngModelOptions]="{ standalone: true }"
-              placeholder="Ville"
+              formControlName="ville"
+              placeholder="Ville du stage"
               minlength="2"
               maxlength="50"
+              pattern="[a-zA-Z- àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
               required
+              [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
             />
+            <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
+              <div *ngIf="f.ville.errors.required">La ville est requis</div>
+              <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
+                La ville doit comporter entre 2 et 50 caracteres
+              </div>
+              <div *ngIf="f.ville.errors.pattern">
+                La ville doit etre compose que de lettres
+              </div>
+            </div>
           </mat-form-field>
         </div>
         <div class="row">
@@ -85,36 +90,48 @@
             <mat-label>Date Debut du stage</mat-label>
             <input
               matInput
-              name="dateDebut"
-              #dateDebut="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.dateDebut"
-              [ngModelOptions]="{ standalone: true }"
               required
               [matDatepicker]="picker"
+              formControlName="dateDebut"
+              [ngClass]="{ 'is-invalid': soumission && f.dateDebut.errors }"
             />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <div
+              *ngIf="soumission && f.dateDebut.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.dateDebut.errors.required">
+                La date de debut est requis
+              </div>
+            </div>
           </mat-form-field>
           <!-- Date de fin -->
           <mat-form-field class="ml-2">
             <mat-label>Date de fin du stage</mat-label>
             <input
               matInput
-              name="dateFin"
-              #dateFin="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.dateFin"
-              [ngModelOptions]="{ standalone: true }"
               required
               [matDatepicker]="picker2"
+              formControlName="dateFin"
+              [ngClass]="{ 'is-invalid': soumission && f.dateFin.errors }"
             />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker2"
             ></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
+            <div
+              *ngIf="soumission && f.dateFin.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.dateFin.errors.required">
+                La date de fin est requis
+              </div>
+            </div>
           </mat-form-field>
         </div>
 
@@ -124,43 +141,69 @@
             <input
               matInput
               type="number"
+              placeholder="Nombre d'heures par semaine"
               min="1"
               max="50"
-              name="nombreheuresSemaine"
-              #nombreheuresSemaine="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.nombreHeuresSemaine"
-              [ngModelOptions]="{ standalone: true }"
               required
-              placeholder="Nombres d'heures par semaine"
+              formControlName="nombreHeuresSemaine"
+              [ngClass]="{
+                'is-invalid': soumission && f.nombreHeuresSemaine.errors
+              }"
             />
+            <div
+              *ngIf="soumission && f.nombreHeuresSemaine.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.nombreHeuresSemaine.errors.required">
+                Le nombres d'heure par semaine est requis.
+              </div>
+              <div
+                *ngIf="
+                  f.nombreHeuresSemaine.errors.min ||
+                  f.nombreHeuresSemaine.errors.max
+                "
+              >
+                Le nombres d'heures doit etre entre 1 et 50 heures semaine.
+              </div>
+            </div>
           </mat-form-field>
-          <!-- Nombres de semaines -->
+          <!-- Programme suivi -->
           <mat-form-field class="ml-2">
             <input
               matInput
-              type="number"
-              min="1"
-              max="50"
-              name="dureeStageSemaine"
-              #dureeStageSemaine="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.dureeStageSemaine"
-              [ngModelOptions]="{ standalone: true }"
+              type="text"
+              formControlName="programmeSuivi"
+              placeholder="Programme suivi pour le stage"
+              minlength="2"
+              maxlength="50"
               required
-              placeholder="Nombres de semaines de stage"
+              [ngClass]="{
+                'is-invalid': soumission && f.programmeSuivi.errors
+              }"
             />
+            <div
+              *ngIf="soumission && f.programmeSuivi.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.programmeSuivi.errors.required">
+                Le programme suivi est requis
+              </div>
+              <div
+                *ngIf="
+                  f.programmeSuivi.errors.minlength ||
+                  f.programmeSuivi.errors.maxlength
+                "
+              >
+                Le programme suivi doit comporter entre 2 et 50 caracteres
+              </div>
+            </div>
           </mat-form-field>
         </div>
         <div class="row">
           <!-- Remuneration -->
           <mat-form-field>
             <mat-label>Remuneration : </mat-label>
-            <mat-select
-              name="remuneration"
-              #remuneration="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.remuneration"
-              [ngModelOptions]="{ standalone: true }"
-              required
-            >
+            <mat-select required formControlName="remuneration">
               <mat-option
                 *ngFor="let remunerationsChoix of remunerationChoix"
                 [value]="remunerationsChoix"
@@ -174,13 +217,10 @@
             <input
               matInput
               type="text"
-              name="autreFormation"
-              #autreFormation="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.autreFormation"
-              [ngModelOptions]="{ standalone: true }"
               placeholder="Autres formations"
               minlength="2"
               maxlength="500"
+              formControlName="autreFormation"
             />
           </mat-form-field>
         </div>
@@ -190,24 +230,40 @@
             <input
               matInput
               type="text"
-              name="competencesAcquises"
-              #competencesAcquises="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.competencesAcquises"
-              [ngModelOptions]="{ standalone: true }"
               placeholder="Competences acquises"
               minlength="2"
               maxlength="500"
               required
+              formControlName="competencesAcquises"
+              [ngClass]="{
+                'is-invalid': soumission && f.competencesAcquises.errors
+              }"
             />
+            <div
+              *ngIf="soumission && f.competencesAcquises.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.competencesAcquises.errors.required">
+                Vos competences acquises sont requis
+              </div>
+              <div
+                *ngIf="
+                  f.competencesAcquises.errors.minlength ||
+                  f.competencesAcquises.errors.maxlength
+                "
+              >
+                Vos competences acquises doit comprendre entre 2 et 500
+                caracteres
+              </div>
+            </div>
           </mat-form-field>
           <!-- Autres informations -->
           <mat-form-field class="ml-2">
-            <!-- ngModel non present -->
             <input
               matInput
               type="text"
-              name="autresInfo"
-              placeholder="Autres informations"
+              formControlName="informationSupplementaire"
+              placeholder="Informations supplementaires"
               minlength="2"
               maxlength="500"
             />
@@ -219,19 +275,37 @@
             <mat-label>Description du stage demander</mat-label>
             <textarea
               matInput
-              name="description"
-              #description="ngModel"
-              [(ngModel)]="nouvelleDemandeStage.description"
-              [ngModelOptions]="{ standalone: true }"
+              minlength="20"
+              maxlength="1500"
+              formControlName="description"
+              [ngClass]="{
+                'is-invalid': soumission && f.description.errors
+              }"
               required
               cdkTextareaAutosize
               #autosize="cdkTextareaAutosize"
               cdkAutosizeMinRows="4"
               cdkAutosizeMaxRows="10"
             ></textarea>
+            <div
+              *ngIf="soumission && f.description.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.description.errors.required">
+                Vous devez entrer une description du stage recherches
+              </div>
+              <div
+                *ngIf="
+                  f.description.errors.minlength ||
+                  f.description.errors.maxlength
+                "
+              >
+                Votre description doit comprendre entre 20 et 1500 caracteres
+              </div>
+            </div>
           </mat-form-field>
         </div>
-        <button>Terminer</button>
+        <button class="btn btn-success">Terminer</button>
       </form>
     </div>
   </div>

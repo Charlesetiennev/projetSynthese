@@ -2,14 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SecteursActivites } from '../../secteurs-activites';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validator,
-  Validators,
-  NgForm,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Entreprise } from 'src/app/entreprise';
 
 @Component({
@@ -18,11 +11,8 @@ import { Entreprise } from 'src/app/entreprise';
   styleUrls: ['./formulaire-entreprise.component.sass'],
 })
 export class FormulaireEntrepriseComponent implements OnInit {
-  //
   entrepriseAjoutForm: FormGroup;
   soumission = false;
-  //
-
   nouvelleEntreprise: Entreprise;
   secteursActivites: SecteursActivites[];
   constructor(

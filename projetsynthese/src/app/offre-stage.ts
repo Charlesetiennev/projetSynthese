@@ -11,7 +11,6 @@ export interface OffreStage {
   competencesRechercher: string;
   emploieApresStage: boolean;
   informationSupplementaire?: string;
-  typeDeStage: string;
   dureeStageSemaine: number;
   remuneration: boolean;
   dateDeParution: string;
