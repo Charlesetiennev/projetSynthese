@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stagiaire } from 'src/app/stagiaire';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validator,
-  Validators,
-  NgForm,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaire-stagiaire',
@@ -20,7 +13,7 @@ export class FormulaireStagiaireComponent implements OnInit {
   soumission = false;
   nouveauStagiaire: Stagiaire;
   stagiaires: Stagiaire[];
-  formationsListe: string[] = ['AEC', 'DEC', 'BAC', 'Autres'];
+
   constructor(
     private apiProjetSyntheseService: ApiProjetSyntheseService,
     private formBuilder: FormBuilder
@@ -99,6 +92,7 @@ export class FormulaireStagiaireComponent implements OnInit {
           ?.value,
         accepter: false,
         motDePasse: this.stagiaireAjoutForm.get('motDePasse')?.value,
+        niveauAcces: 111,
       };
       console.log('valide');
       this.apiProjetSyntheseService

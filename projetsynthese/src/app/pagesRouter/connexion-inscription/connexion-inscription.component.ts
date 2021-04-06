@@ -12,6 +12,6 @@ export class ConnexionInscriptionComponent implements OnInit {
 
   formulaireDiv = {
     stagiaire: false,
-    entreprise: true,
+    entreprise: false,
   };
 }

@@ -13,4 +13,5 @@ export interface Entreprise {
   nomResponsable: string;
   motDePasse?: string;
   accepter: boolean;
+  niveauAcces: number;
 }

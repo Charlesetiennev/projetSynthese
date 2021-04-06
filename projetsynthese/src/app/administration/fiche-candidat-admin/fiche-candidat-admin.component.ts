@@ -1,17 +1,10 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Stagiaire } from '../../stagiaire';
 import { environement } from '../../environement';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validator,
-  Validators,
-  NgForm,
-} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-fiche-candidat-admin',
@@ -24,9 +17,11 @@ export class FicheCandidatAdminComponent implements OnInit {
   // Modification
   modification = false;
   _id: string | null;
+  formationsListe: string[] = ['AEC', 'DEC', 'BAC', 'Autres'];
   formulaireEdition: NgForm;
-  stagiaire: Stagiaire;
-  stagiaireSelectionner: Stagiaire;
+  soumission = false;
+  stagiaire: any;
+  stagiaireModifier: Stagiaire;
 
   private sub: any;
   constructor(
@@ -35,39 +30,29 @@ export class FicheCandidatAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._id = '605a31da6caff70015917aa4';
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this._id = params.get('id');
+    });
     this.stagiaireAvecId();
-    this.stagiaireSelectionner = {
-      _id: this._id,
-      nom: 'Charles-Etienne',
-      competences: 'asdad fadsdfa',
-      courriel: 'Charles_##',
-      formations: 'asdfasdf',
-      messageMotivation: 'asdfasdfasdf',
-      telephone: 'asdfasdf',
-      ville: 'asdfasdf',
-      prenom: 'asdfasdf',
-      accepter: true,
-      motDePasse: '',
-    };
-    console.log(this.stagiaireSelectionner);
   }
+
+  get f() {
+    return this.formulaireEdition.controls;
+  }
+
   stagiaireAvecId(): void {
     this.apiProjetSyntheseService
       .getStagiaireavecId(this._id)
-      .subscribe((resultat) => (this.stagiaire = resultat));
+      .subscribe((resultat) => console.log((this.stagiaire = resultat)));
   }
-  modificationForm(): void {
-    if (this.modification === true) {
-      // this.apiProjetSyntheseService
-      // .majStagiaire(this.stagiaire)
-      // .subscribe(() => console.log(this.stagiaire));
-    }
+  ouvrirFormulaire(): void {
+    this.modification = true;
   }
   onSubmit() {
     this.apiProjetSyntheseService
       .majStagiaire(this.stagiaire)
-      .subscribe(() => this.stagiaire);
+      .subscribe(() => (this.stagiaire = null));
+
     console.log(this.stagiaire);
   }
 }

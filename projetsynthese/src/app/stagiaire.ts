@@ -10,4 +10,5 @@ export interface Stagiaire {
   messageMotivation: string;
   accepter: boolean;
   motDePasse: string;
+  niveauAcces: number;
 }

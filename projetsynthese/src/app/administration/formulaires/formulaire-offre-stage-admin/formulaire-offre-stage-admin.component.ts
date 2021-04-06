@@ -119,6 +119,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
           ville: 'Sherbrooke',
           accepter: true,
           motDePasse: 'asdasd',
+          niveauAcces: 333,
         },
         accepter: false,
         dateDeParution: Date(),

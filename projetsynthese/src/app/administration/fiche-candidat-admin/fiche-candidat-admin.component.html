@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="conteneur">
   <div class="row">
     <div class="col-2">
       <app-navigation-admin></app-navigation-admin>
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="offset-2 col-9">
+    <div class="offset-3 col-8">
       <!-- Contenue de la page -->
 
       <div class="container-fluid">
@@ -58,7 +58,7 @@
             <button
               href="#"
               class="mr-2 text-dark bordureLiens btn-light"
-              (click)="modification = !modification"
+              (click)="ouvrirFormulaire()"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -117,11 +117,13 @@
               transform="translate(0 0.002)"
             />
           </svg>
-          <h2 class="mb-0 pl-3">
-            {{ stagiaireSelectionner.prenom }} {{ stagiaireSelectionner.nom }}
-          </h2>
+          <h2 class="mb-0 pl-3">{{ stagiaire.prenom }} {{ stagiaire.nom }}</h2>
         </div>
-        <form id="formulaireEditionStagiaire" (ngSubmit)="onSubmit()">
+        <form
+          id="formulaireEdition"
+          #formulaireEdition="ngForm"
+          (ngSubmit)="onSubmit()"
+        >
           <div class="row pt-4">
             <div class="col-6 tableauStagiaire">
               <h2>Nom et prenom du stagiaire :</h2>
@@ -129,16 +131,35 @@
             <!-- Nom et Prenom -->
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaireSelectionner.nom }}
-                {{ stagiaireSelectionner.prenom }}
+                {{ stagiaire.nom }}
+                {{ stagiaire.prenom }}
               </p>
-              <input
-                *ngIf="modification"
-                value="{{ stagiaire.prenom }}"
-                [(ngModel)]="stagiaire.prenom"
-                [ngModelOptions]="{ standalone: true }"
-              />
-              <input *ngIf="modification" matInput placeholder="Nom" />
+              <!-- Prenom -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="stagiaire.prenom"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value="{{ stagiaire.prenom }}"
+                />
+              </mat-form-field>
+              <!-- Nom -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="stagiaire.nom"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value="{{ stagiaire.nom }}"
+                />
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -146,8 +167,19 @@
               <h2>Ville :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaireSelectionner.ville }}</p>
-              <input *ngIf="modification" matInput placeholder="Ville" />
+              <p *ngIf="!modification">{{ stagiaire.ville }}</p>
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="stagiaire.ville"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value="{{ stagiaire.ville }}"
+                />
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -155,8 +187,19 @@
               <h2>Courriel :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaireSelectionner.courriel }}</p>
-              <input *ngIf="modification" matInput placeholder="Courriel" />
+              <p *ngIf="!modification">{{ stagiaire.courriel }}</p>
+              <!-- Courriel -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="email"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="stagiaire.courriel"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ stagiaire.courriel }}"
+                />
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -164,8 +207,19 @@
               <h2>Telephone :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaireSelectionner.telephone }}</p>
-              <input *ngIf="modification" matInput placeholder="Telephone" />
+              <p *ngIf="!modification">{{ stagiaire.telephone }}</p>
+              <!-- Telephone -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="stagiaire.telephone"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ stagiaire.telephone }}"
+                />
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -174,9 +228,20 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaireSelectionner.formations }}
+                {{ stagiaire.formations }}
               </p>
-              <input *ngIf="modification" matInput placeholder="Formations" />
+              <!-- formations -->
+              <mat-form-field *ngIf="modification">
+                <mat-select
+                  [(ngModel)]="stagiaire.formations"
+                  [ngModelOptions]="{ standalone: true }"
+                  ><mat-option
+                    *ngFor="let formation of formationsListe"
+                    [value]="formation"
+                    >{{ formation }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -185,9 +250,20 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaireSelectionner.competences }}
+                {{ stagiaire.competences }}
               </p>
-              <input *ngIf="modification" matInput placeholder="Competences" />
+              <!-- Nom -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="20"
+                  maxlength="1500"
+                  [(ngModel)]="stagiaire.competences"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ stagiaire.competences }}"
+                />
+              </mat-form-field>
             </div>
           </div>
           <div class="row">
@@ -196,9 +272,21 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaireSelectionner.messageMotivation }}
+                {{ stagiaire.messageMotivation }}
               </p>
-              <input *ngIf="modification" matInput placeholder="Resumer" />
+              <mat-form-field *ngIf="modification">
+                <textarea
+                  matInput
+                  minlength="20"
+                  maxlength="1500"
+                  [(ngModel)]="stagiaire.messageMotivation"
+                  [ngModelOptions]="{ standalone: true }"
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"
+                ></textarea>
+              </mat-form-field>
             </div>
           </div>
           <div class="row d-flex justify-content-center">

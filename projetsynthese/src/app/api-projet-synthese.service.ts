@@ -51,8 +51,8 @@ export class ApiProjetSyntheseService {
     );
   }
   // Modification Stagiaire
-  majStagiaire(stagiaire: Stagiaire): Observable<any> {
-    const id = '605a31da6caff70015917aa4';
+  majStagiaire(stagiaire: any): Observable<any> {
+    const id = stagiaire._id;
     return this.http.put<Stagiaire>(
       this.stagiairesUrl + id,
       stagiaire,

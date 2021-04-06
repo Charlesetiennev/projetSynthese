@@ -110,6 +110,7 @@ export class FormulaireEntrepriseComponent implements OnInit {
         ville: this.entrepriseAjoutForm.get('ville')?.value,
         motDePasse: this.entrepriseAjoutForm.get('motDePasse')?.value,
         accepter: false,
+        niveauAcces: 333,
       };
       this.entrepriseAjoutForm.reset();
       console.log(this.nouvelleEntreprise);
