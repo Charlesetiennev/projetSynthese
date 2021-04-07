@@ -1,3 +1,6 @@
+<!-- Trouvez-stage.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 7 Avril 2021 -->
 <section>
   <div
     class="header container-fluid d-flex justify-content-center align-items-center"
@@ -20,6 +23,7 @@
             [offreStage]="offreStage"
           ></app-offre-stage-moyenne>
         </div>
+        <!-- Apres la cinquieme offre -->
         <div *ngIf="chargerPlus">
           <div *ngFor="let offreStage of offresStages | slice: 5">
             <app-offre-stage-moyenne
@@ -28,9 +32,10 @@
           </div>
         </div>
         <div class="row">
+          <!-- Le bouton permet de d'afficher tout les offres -->
           <button
             *ngIf="afficher"
-            class="badge-danger mx-auto p-2 border-0 rounded"
+            class="badge-danger mx-auto p-2 border-0 rounded mb-4"
             (click)="chargerPlus = true; afficher = false"
           >
             Charger plus
@@ -38,11 +43,13 @@
         </div>
       </div>
       <div class="offset-1 col-4">
+        <!-- Tableau secteurs activites -->
         <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
       </div>
     </div>
   </div>
 </section>
+<!-- Section publier-stage -->
 <app-pourquoi-publier-stage></app-pourquoi-publier-stage>
 <!--  Section des stagiaires -->
 <app-section-trouvez-stagiaires></app-section-trouvez-stagiaires>

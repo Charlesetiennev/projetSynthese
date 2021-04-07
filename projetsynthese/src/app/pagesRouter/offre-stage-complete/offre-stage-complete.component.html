@@ -44,7 +44,7 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Date de debut:
+                    Date de début:
                     <span class="font-weight-normal">{{
                       offreStage.dateDebut | date
                     }}</span>
@@ -56,7 +56,7 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Duree du stage:
+                    Durée du stage:
                     <span class="font-weight-normal"
                       >{{
                         dureeDuStage(offreStage.dateFin, offreStage.dateDebut)
@@ -71,11 +71,11 @@
                   <p class="font-weight-bolder">
                     Horaire:
                     <span class="font-weight-normal"
-                      >{{ offreStage.nombreHeuresSemaine }}h semaine</span
+                      >{{ offreStage.nombreHeuresSemaine }}heures semaine</span
                     >
                   </p>
                   <p class="font-weight-bolder">
-                    Possibilite d'emploie:
+                    Possibilité d'emploi:
                     <span
                       class="font-weight-normal"
                       *ngIf="offreStage.emploieApresStage === true"
@@ -88,7 +88,7 @@
                     >
                   </p>
                   <p class="font-weight-bolder">
-                    Remuneration:
+                    Rémunération:
                     <span
                       class="font-weight-normal"
                       *ngIf="offreStage.remuneration === true"
@@ -122,13 +122,13 @@
             </h2>
             <p>{{ offreStage.description }}</p>
             <h2 class="font-weight-bolder text-uppercase pt-3">
-              a propos de l'entreprise
+              à propos de l'entreprise
             </h2>
             <p>{{ offreStage.entreprise.aPropos }}</p>
           </div>
           <div *ngIf="offreStage.informationSupplementaire != ''">
             <h2 class="font-weight-bolder text-uppercase pt-3">
-              informations supplementaire
+              informations supplémentaires
             </h2>
             <p>{{ offreStage.informationSupplementaire }}</p>
           </div>
@@ -140,7 +140,9 @@
     </div>
   </div>
 </section>
+<!-- Section avec bouton pour redirection publication de stage -->
 <app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+<!-- Section avec 4 offres de stage (petit format) -->
 <app-trouvez-un-stage></app-trouvez-un-stage>
 <!-- Section trouvez un stage -->
 <app-section-trouvez-stage></app-section-trouvez-stage>

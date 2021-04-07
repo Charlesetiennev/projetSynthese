@@ -1,3 +1,6 @@
+// tableau-secteurs-activites.ts
+// Par Charles-Etienne Villemure
+// Le 7 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { SecteursActivites } from '../secteurs-activites';
 import { ApiProjetSyntheseService } from '../api-projet-synthese.service';

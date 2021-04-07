@@ -1,3 +1,6 @@
+// api-projet-synthese.service.ts
+// Par Charles-Etienne Villemure
+// Le 7 Avril 2021
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SecteursActivites } from './secteurs-activites';

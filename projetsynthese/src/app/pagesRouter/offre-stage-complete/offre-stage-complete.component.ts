@@ -29,7 +29,6 @@ export class OffreStageCompleteComponent implements OnInit {
     this.apiProjetSyntheseService
       .recuperationOffreStagesId(this._id)
       .subscribe((resultat) => (this.offreStage = resultat));
-    console.log('a;;o');
   }
   // Calucul nombres semaines de stage
   dureeDuStage(

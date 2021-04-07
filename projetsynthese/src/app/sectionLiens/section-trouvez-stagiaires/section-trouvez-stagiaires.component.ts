@@ -1,6 +1,6 @@
 // Section-trouvez-stagiaires.ts
 // Par Charles-Etienne Villemure
-//
+// Le 7 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 import { DemandeStage } from '../../demande-stage';

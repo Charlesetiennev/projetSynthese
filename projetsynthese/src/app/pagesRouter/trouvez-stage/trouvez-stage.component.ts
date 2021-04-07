@@ -1,5 +1,7 @@
+// trouvez-stage.ts
+// Par Charles-Etienne Villemure
+// Le 7 Avril 2021
 import { Component, OnInit } from '@angular/core';
-// Stage
 import { OffreStage } from '../../offre-stage';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 

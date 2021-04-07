@@ -1,5 +1,7 @@
+// Trouvez-stagaire.ts
+// Par Charles-Etiene Villemure
+// Le 7 Avril 2021
 import { Component, OnInit } from '@angular/core';
-
 import { DemandeStage } from '../../demande-stage';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 
