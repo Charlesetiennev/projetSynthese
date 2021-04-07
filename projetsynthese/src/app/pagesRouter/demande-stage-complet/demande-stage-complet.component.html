@@ -1,5 +1,7 @@
+<!-- demandeStageComplet.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 6 Avril 2021 -->
 <section>
-  <!-- BG A CHANGER -->
   <div
     class="header container-fluid d-flex justify-content-center align-items-center"
     style="
@@ -46,7 +48,7 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Date de debut:
+                    Date de début:
                     <span class="font-weight-normal">{{
                       demandeStage.dateDebut | date
                     }}</span>
@@ -58,7 +60,7 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Duree du stage:<span class="font-weight-normal"
+                    Durée du stage:<span class="font-weight-normal"
                       >{{
                         dureeDuStage(
                           demandeStage.dateFin,
@@ -85,13 +87,13 @@
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
-                    Nombres d'heures semaine:
+                    Nombres d'heures par semaine:
                     <span class="font-weight-normal"
                       >{{ demandeStage.nombreHeuresSemaine }} heures</span
                     >
                   </p>
                   <p class="font-weight-bolder">
-                    Remuneration:
+                    Rémunération:
                     <span class="font-weight-normal">{{
                       demandeStage.remuneration
                     }}</span>
@@ -100,9 +102,12 @@
               </div>
             </div>
             <div class="row d-flex mt-2 mb-4">
-              <button class="text-white boutonGradiant w-100 mx-2 py-2">
-                Postuler
-              </button>
+              <a
+                class="text-white text-center boutonGradiant w-100 mx-2 py-2"
+                href="mailto:{{ demandeStage.stagiaire.courriel }}"
+              >
+                Contactez
+              </a>
             </div>
           </div>
           <div class="row ml-0 mt-4 d-block mr-4">
@@ -115,8 +120,7 @@
             </h2>
             <p>{{ demandeStage.competencesAcquises }}</p>
 
-            <!-- Sections pour les conditions -->
-
+            <!-- Sections avec les conditions -->
             <!-- Sil y a dautre formations -->
             <div *ngIf="demandeStage.autreFormation !== ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
@@ -127,7 +131,7 @@
             <!-- Sil y a dautre information Supplementaire -->
             <div *ngIf="demandeStage.informationSupplementaire != ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
-                informationSupplementaire
+                informations Supplémentaire
               </h2>
               <p>{{ demandeStage.informationSupplementaire }}</p>
             </div>
@@ -135,12 +139,15 @@
         </div>
       </div>
       <div class="col-3">
+        <!-- Tables secteur activites -->
         <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
       </div>
     </div>
   </div>
 </section>
+<!-- Section publiez un stage -->
 <app-pourquoi-publier-stage></app-pourquoi-publier-stage>
+<!-- Section trouvez un stage -->
 <app-trouvez-un-stage></app-trouvez-un-stage>
 <!-- Section trouvez un stage -->
 <app-section-trouvez-stage></app-section-trouvez-stage>

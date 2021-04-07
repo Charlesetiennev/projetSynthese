@@ -1,4 +1,6 @@
-import { HttpParams } from '@angular/common/http';
+// demande-stage-complet.ts
+// Par Charles-Etienne Villemure
+// Le 6 Avril 2021
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 import { DemandeStage } from '../../demande-stage';

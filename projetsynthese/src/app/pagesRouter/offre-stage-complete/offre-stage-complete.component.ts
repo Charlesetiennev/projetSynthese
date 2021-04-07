@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffreStageCompleteComponent implements OnInit {
   _id: string | null;
+  envoieCourriel: string;
   offreStage: OffreStage;
 
   constructor(
@@ -28,6 +29,7 @@ export class OffreStageCompleteComponent implements OnInit {
     this.apiProjetSyntheseService
       .recuperationOffreStagesId(this._id)
       .subscribe((resultat) => (this.offreStage = resultat));
+    console.log('a;;o');
   }
   // Calucul nombres semaines de stage
   dureeDuStage(

@@ -1,3 +1,6 @@
+// Connexion-inscription.ts
+// Par Charles-Etienne Villemure
+// Le 6 Avril 2021
 import { Component, OnInit } from '@angular/core';
 
 @Component({
