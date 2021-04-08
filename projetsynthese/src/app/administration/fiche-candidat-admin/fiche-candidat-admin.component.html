@@ -15,6 +15,7 @@
         <div class="row bordureBasBleu pb-3">
           <div class="col-6">
             <h1>Fiche du candidat</h1>
+            <!-- Liens vers la demande -->
             <a
               routerLink="/administration/demandeStageComplet/60620ce45a06a90015d85280"
               class="btn btn-secondary"
@@ -59,6 +60,7 @@
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end align-items-end">
+            <!-- Ouverture du formulaire -->
             <button
               id="boutonModification"
               class="mr-2 text-dark bordureLiens btn-light"
@@ -80,6 +82,7 @@
               </svg>
               Modifier
             </button>
+            <!-- Suppression visible seulement quand administateur est connecter -->
             <button
               href="#"
               class="text-dark bordureLiens btn-light"
@@ -121,27 +124,27 @@
               transform="translate(0 0.002)"
             />
           </svg>
-          <h2 class="mb-0 pl-3">
-            {{ stagiaire?.prenom }} {{ stagiaire?.nom }}
-          </h2>
+          <h2 class="mb-0 pl-3">{{ stagiaire.prenom }} {{ stagiaire.nom }}</h2>
         </div>
+        <!-- Formulaire conditionelle a modification dans les memes cases que les informations du depart -->
         <form
           id="formulaireEdition"
           #formulaireEdition="ngForm"
           (ngSubmit)="onSubmit()"
         >
+          <!-- Prenom et nom -->
           <div class="row pt-4">
             <div class="col-6 tableauStagiaire">
               <h2>Prenom et nom du stagiaire :</h2>
             </div>
-            <!-- Nom et Prenom -->
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire?.prenom }}
-                {{ stagiaire?.nom }}
+                {{ stagiaire.prenom }}
+                {{ stagiaire.nom }}
               </p>
-              <!-- Prenom -->
+              <!-- Formulaire prenom et nom -->
               <mat-form-field *ngIf="modification">
+                <!-- Prenom -->
                 <input
                   matInput
                   type="text"
@@ -150,7 +153,7 @@
                   [(ngModel)]="stagiaire.prenom"
                   [ngModelOptions]="{ standalone: true }"
                   pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value="{{ stagiaire?.prenom }}"
+                  value="{{ stagiaire.prenom }}"
                 />
               </mat-form-field>
               <!-- Nom -->
@@ -163,17 +166,19 @@
                   [(ngModel)]="stagiaire.nom"
                   [ngModelOptions]="{ standalone: true }"
                   pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value="{{ stagiaire?.nom }}"
+                  value="{{ stagiaire.nom }}"
                 />
               </mat-form-field>
             </div>
           </div>
+          <!-- Ville -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Ville :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire?.ville }}</p>
+              <p *ngIf="!modification">{{ stagiaire.ville }}</p>
+              <!-- Formulaire ville -->
               <mat-form-field *ngIf="modification">
                 <input
                   type="text"
@@ -183,18 +188,19 @@
                   [(ngModel)]="stagiaire.ville"
                   [ngModelOptions]="{ standalone: true }"
                   pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value="{{ stagiaire?.ville }}"
+                  value="{{ stagiaire.ville }}"
                 />
               </mat-form-field>
             </div>
           </div>
+          <!-- Courriel -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Courriel :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire?.courriel }}</p>
-              <!-- Courriel -->
+              <p *ngIf="!modification">{{ stagiaire.courriel }}</p>
+              <!--Formulaire courriel -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -208,13 +214,14 @@
               </mat-form-field>
             </div>
           </div>
+          <!-- Telephone -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Telephone :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire?.telephone }}</p>
-              <!-- Telephone -->
+              <p *ngIf="!modification">{{ stagiaire.telephone }}</p>
+              <!--Formulaire Telephone -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -223,20 +230,21 @@
                   maxlength="50"
                   [(ngModel)]="stagiaire.telephone"
                   [ngModelOptions]="{ standalone: true }"
-                  value="{{ stagiaire?.telephone }}"
+                  value="{{ stagiaire.telephone }}"
                 />
               </mat-form-field>
             </div>
           </div>
+          <!-- Formatiosn -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Progamme de formation :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire?.formations }}
+                {{ stagiaire.formations }}
               </p>
-              <!-- formations -->
+              <!-- Formulaire formations -->
               <mat-form-field *ngIf="modification">
                 <mat-select
                   [(ngModel)]="stagiaire.formations"
@@ -250,15 +258,16 @@
               </mat-form-field>
             </div>
           </div>
+          <!-- Competences -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Competences :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire?.competences }}
+                {{ stagiaire.competences }}
               </p>
-              <!-- Nom -->
+              <!-- Formulaire competences -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -267,19 +276,21 @@
                   maxlength="1500"
                   [(ngModel)]="stagiaire.competences"
                   [ngModelOptions]="{ standalone: true }"
-                  value="{{ stagiaire?.competences }}"
+                  value="{{ stagiaire.competences }}"
                 />
               </mat-form-field>
             </div>
           </div>
+          <!-- Resumer -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Resumer :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire?.messageMotivation }}
+                {{ stagiaire.messageMotivation }}
               </p>
+              <!-- Formulaire Resumer -->
               <mat-form-field *ngIf="modification">
                 <textarea
                   matInput
@@ -287,12 +298,25 @@
                   maxlength="1500"
                   [(ngModel)]="stagiaire.messageMotivation"
                   [ngModelOptions]="{ standalone: true }"
-                ></textarea>
+                  >{{ stagiaire.messageMotivation }}</textarea
+                >
               </mat-form-field>
             </div>
           </div>
+          <!-- Action formulaire -->
           <div class="row d-flex justify-content-center">
-            <button class="py-2 px-2 my-3 btn btn-success">Modifier</button>
+            <!-- Modifier -->
+            <button *ngIf="modification" class="py-2 px-2 my-3 btn btn-success">
+              Modifier
+            </button>
+            <!-- Annuler -->
+            <button
+              *ngIf="modification"
+              (click)="annuler()"
+              class="py-2 px-2 my-3 btn btn-warning ml-2 text-white"
+            >
+              Annuler
+            </button>
           </div>
         </form>
       </div>

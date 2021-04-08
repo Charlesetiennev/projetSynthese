@@ -1,14 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { environement } from '../../environement';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validator,
-  Validators,
-  NgForm,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion-stagiaire',

@@ -21,7 +21,6 @@ export class FicheCandidatAdminComponent implements OnInit {
   formulaireEdition: NgForm;
   soumission = false;
   stagiaire: any;
-  stagiaireModifier: Stagiaire;
 
   private sub: any;
   constructor(
@@ -54,5 +53,8 @@ export class FicheCandidatAdminComponent implements OnInit {
       .subscribe(() => (this.stagiaire = null));
 
     console.log(this.stagiaire);
+  }
+  annuler(): void {
+    this.modification = false;
   }
 }

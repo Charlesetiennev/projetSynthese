@@ -81,6 +81,19 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
+  // Modification Stagiaire
+  majEntreprise(entreprise: Entreprise): Observable<Entreprise> {
+    const id = entreprise._id;
+    return this.http.put<Entreprise>(
+      this.entreprisesUrl + id,
+      entreprise,
+      httpOptions
+    );
+  }
+  // Recuperation Stagiaire par ID
+  recuperationEntrepriseavecId(_id: string | null): Observable<Entreprise> {
+    return this.http.get<Entreprise>(this.entreprisesUrl + _id, httpOptions);
+  }
   // ****************
   // OFFRES DE STAGES
   // ****************

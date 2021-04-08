@@ -1,1 +1,376 @@
-<p>entreprise-admin works!</p>
+<div class="conteneur">
+  <div class="row">
+    <div class="col-2">
+      <app-navigation-admin></app-navigation-admin>
+    </div>
+    <div class="col-10">
+      <app-action-haut-admin></app-action-haut-admin>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-3 col-8">
+      <!-- Contenue de la page -->
+      <div class="container-fluid">
+        <div class="row bordureBasBleu pb-3">
+          <div class="col-6">
+            <h1>Fiche de l'entreprise</h1>
+            <!-- Lien vers les offres de stages -->
+            <a routerLink="#" class="btn btn-secondary"
+              >Voire vos offres de stages</a
+            >
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="27.621"
+                height="27"
+                viewBox="0 0 27.621 27"
+              >
+                <g
+                  id="Icon_feather-corner-right-down"
+                  data-name="Icon feather-corner-right-down"
+                  transform="translate(-4.5 -4.5)"
+                >
+                  <path
+                    id="Path_83"
+                    data-name="Path 83"
+                    d="M15,22.5,22.5,30,30,22.5"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                  <path
+                    id="Path_84"
+                    data-name="Path 84"
+                    d="M6,6H16.5a6,6,0,0,1,6,6V30"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end align-items-end">
+            <!-- Ouverture du formulaire -->
+            <button
+              id="boutonModification"
+              class="mr-2 text-dark bordureLiens btn-light"
+              (click)="ouvrirFormulaire()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14.219"
+                viewBox="0 0 16 14.219"
+              >
+                <path
+                  id="Icon_awesome-edit"
+                  data-name="Icon awesome-edit"
+                  d="M11.183,2.315l2.506,2.506a.272.272,0,0,1,0,.383L7.622,11.271l-2.578.286a.54.54,0,0,1-.6-.6l.286-2.578L10.8,2.315A.272.272,0,0,1,11.183,2.315Zm4.5-.636L14.328.324a1.086,1.086,0,0,0-1.533,0l-.983.983a.272.272,0,0,0,0,.383L14.317,4.2a.272.272,0,0,0,.383,0l.983-.983a1.086,1.086,0,0,0,0-1.533ZM10.667,9.621v2.828H1.778V3.56H8.161a.342.342,0,0,0,.236-.1L9.508,2.351a.333.333,0,0,0-.236-.569H1.333A1.334,1.334,0,0,0,0,3.115v9.778a1.334,1.334,0,0,0,1.333,1.333h9.778a1.334,1.334,0,0,0,1.333-1.333V8.51a.334.334,0,0,0-.569-.236L10.764,9.385A.342.342,0,0,0,10.667,9.621Z"
+                  transform="translate(0 -0.007)"
+                  fill="#206d2f"
+                />
+              </svg>
+              Modifier
+            </button>
+            <!-- Suppression visible seulement quand administateur est connecter -->
+            <button
+              href="#"
+              class="text-dark bordureLiens btn-light"
+              *ngIf="env.statusDeConnexion === 'administrateur'"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+              >
+                <path
+                  id="Icon_awesome-window-close"
+                  data-name="Icon awesome-window-close"
+                  d="M14.5,2.25H1.5A1.5,1.5,0,0,0,0,3.75v11a1.5,1.5,0,0,0,1.5,1.5h13a1.5,1.5,0,0,0,1.5-1.5v-11A1.5,1.5,0,0,0,14.5,2.25Zm-2.612,9.078a.385.385,0,0,1,0,.544l-1.266,1.266a.385.385,0,0,1-.544,0L8,11.041l-2.078,2.1a.385.385,0,0,1-.544,0L4.113,11.872a.385.385,0,0,1,0-.544l2.1-2.078-2.1-2.078a.385.385,0,0,1,0-.544L5.378,5.363a.385.385,0,0,1,.544,0L8,7.459l2.078-2.1a.385.385,0,0,1,.544,0l1.266,1.266a.385.385,0,0,1,0,.544L9.791,9.25Z"
+                  transform="translate(0 -2.25)"
+                  fill="#b10000"
+                />
+              </svg>
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Fiche -->
+      <div class="container-fluid pt-4">
+        <div class="row bordure">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="31.5"
+            height="36"
+            viewBox="0 0 31.5 36"
+          >
+            <path
+              id="Icon_awesome-user-tie"
+              data-name="Icon awesome-user-tie"
+              d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
+            />
+          </svg>
+
+          <h2 class="mb-0 pl-3">{{ entreprise.nomEntreprise }}</h2>
+        </div>
+        <!-- Formulaire conditionelle a modification dans les memes cases que les informations du depart -->
+        <form
+          id="formulaireEdition"
+          #formulaireEdition="ngForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <!-- Nom de l'entreprise -->
+          <div class="row pt-4">
+            <div class="col-6 tableauStagiaire">
+              <h2>Nom Entreprise :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.nomEntreprise }}</p>
+              <!-- Formulaire nom entreprise -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.nomEntreprise"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ entreprise.nomEntreprise }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Adresse -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Adresse :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.adresse }}</p>
+              <!-- Formulaire adresse -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.adresse"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ entreprise.adresse }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Ville -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Ville :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.ville }}</p>
+              <!-- Formulaire ville -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.ville"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value="{{ entreprise.ville }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Courriel -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Courriel :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.courriel }}</p>
+              <!--Formulaire courriel -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="email"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.courriel"
+                  [ngModelOptions]="{ standalone: true }"
+                  value=" {{ entreprise.courriel }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Telephone -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Telephone :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.numeroTel }}</p>
+              <!--Formulaire Telephone -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.numeroTel"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ entreprise.numeroTel }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Secteur d'activites -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Secteur d'activites :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.secteurActivite }}</p>
+              <!--Formulaire secteurs d'activites -->
+              <mat-form-field *ngIf="modification">
+                <mat-select
+                  multiple
+                  [(ngModel)]="entreprise.secteurActivite"
+                  [ngModelOptions]="{ standalone: true }"
+                  ><mat-option
+                    *ngFor="let secteurActivite of secteursActivites"
+                    [value]="secteurActivite.titre"
+                    >{{ secteurActivite.titre }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Site web -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Site web :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.siteWeb }}</p>
+              <!-- Formulaire site web -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="entreprise.siteWeb"
+                  [ngModelOptions]="{ standalone: true }"
+                  value=" {{ entreprise.siteWeb }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Logo -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Url logo :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.logo }}</p>
+              <!-- Formulaire url Logo -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="entreprise.logo"
+                  [ngModelOptions]="{ standalone: true }"
+                  value=" {{ entreprise.logo }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Prenom et nom responsable -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Prenom et nom responsalbe :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ entreprise.prenomResponsable }}
+                {{ entreprise.nomResponsable }}
+              </p>
+              <!-- Formulaire prenom et nom responsable -->
+              <mat-form-field *ngIf="modification">
+                <!-- Prenom -->
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.prenomResponsable"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value=" {{ entreprise.prenomResponsable }} "
+                />
+              </mat-form-field>
+              <mat-form-field *ngIf="modification">
+                <!-- Nom -->
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="entreprise.nomResponsable"
+                  [ngModelOptions]="{ standalone: true }"
+                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                  value=" {{ entreprise.nomResponsable }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Resumer de l'entreprise -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Resumer de l'entreprise :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ entreprise.aPropos }}</p>
+              <!-- Formulaire resumer de l'entreprise -->
+              <mat-form-field *ngIf="modification">
+                <textarea
+                  matInput
+                  minlength="20"
+                  maxlength="1500"
+                  [(ngModel)]="entreprise.aPropos"
+                  [ngModelOptions]="{ standalone: true }"
+                  >{{ entreprise.aPropos }}</textarea
+                >
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Action formulaire -->
+          <div class="row d-flex justify-content-center">
+            <!-- Modifier -->
+            <button *ngIf="modification" class="py-2 px-2 my-3 btn btn-success">
+              Modifier
+            </button>
+            <!-- Annuler -->
+            <button
+              *ngIf="modification"
+              (click)="annuler()"
+              class="py-2 px-2 my-3 btn btn-warning ml-2 text-white"
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Fin de la section -->
+    </div>
+  </div>
+</div>
