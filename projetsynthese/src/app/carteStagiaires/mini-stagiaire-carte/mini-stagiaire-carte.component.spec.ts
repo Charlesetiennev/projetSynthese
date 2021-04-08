@@ -8,18 +8,13 @@ describe('MiniStagiaireCarteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiniStagiaireCarteComponent ]
-    })
-    .compileComponents();
+      declarations: [MiniStagiaireCarteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MiniStagiaireCarteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

@@ -14,23 +14,23 @@
         />
       </svg>
 
-      <h3 class="font-weight-bold mb-0 pl-2">{{ offreStage.titre }}</h3>
+      <h3 class="font-weight-bold mb-0 pl-2">{{ offreStage?.titre }}</h3>
     </div>
     <div class="card-subtitle text-secondary"></div>
     <div class="card-text">
-      Ville : <span class="text-secondary"> {{ offreStage.ville }}</span>
+      Ville : <span class="text-secondary"> {{ offreStage?.ville }}</span>
     </div>
     <div class="card-text">
       Entreprise :
       <span class="text-secondary">
-        {{ offreStage.entreprise.nomEntreprise }}</span
+        {{ offreStage?.entreprise?.nomEntreprise }}</span
       >
     </div>
     <div class="card-text text-secondary">
       {{
         offreStage.description.length > 100
-          ? (offreStage.description | slice: 0:100) + "..."
-          : offreStage.description
+          ? (offreStage?.description | slice: 0:100) + "..."
+          : offreStage?.description
       }}
     </div>
   </div>

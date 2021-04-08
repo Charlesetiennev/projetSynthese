@@ -17,14 +17,32 @@ import {
 })
 export class ConnexionStagiaireComponent implements OnInit {
   env = environement;
-  constructor(private router: Router) {}
+  formulaireDeConnexion: FormGroup;
+  soumission = false;
 
-  ngOnInit(): void {}
-  gererConnexionStagiaire(connexionStagiaire: NgForm) {
-    this.env.connecter = true;
-    this.env.statusDeConnexion = 'stagiaire';
-    this.router.navigate([
-      '/administration/ficheCandidat/605a31da6caff70015917aa4',
-    ]);
+  constructor(private router: Router, private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.formulaireDeConnexion = this.formBuilder.group({
+      courriel: ['', [Validators.required, Validators.email]],
+      motDePasse: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+  get f() {
+    return this.formulaireDeConnexion.controls;
+  }
+  onSubmit() {
+    this.soumission = true;
+
+    // Si formulaire valide
+    if (this.formulaireDeConnexion.valid) {
+      this.env.connecter = true;
+      this.env.statusDeConnexion = 'stagiaire';
+      this.router.navigate([
+        '/administration/ficheCandidat/605a31da6caff70015917aa4',
+      ]);
+    } else {
+      console.log('non valide');
+    }
   }
 }

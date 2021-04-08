@@ -8,18 +8,13 @@ describe('OffreStageAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OffreStageAdminComponent ]
-    })
-    .compileComponents();
+      declarations: [OffreStageAdminComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OffreStageAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

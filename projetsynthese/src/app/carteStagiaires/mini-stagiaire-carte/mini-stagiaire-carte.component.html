@@ -1,19 +1,19 @@
 <div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title mb-0">{{ demandeStage.titre }}</h4>
-      <h6 class="card-subtitle mb-2 text-muted">{{ demandeStage.ville }}</h6>
+      <h4 class="card-title mb-0">{{ demandeStage?.titre }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{ demandeStage?.ville }}</h6>
       <p class="card-text">
         {{
           demandeStage.description.length > 50
-            ? (demandeStage.description | slice: 0:50) + "..."
-            : demandeStage.description
+            ? (demandeStage?.description | slice: 0:50) + "..."
+            : demandeStage?.description
         }}
       </p>
       <div class="row">
         <div class="col-12 col-xl-4 pr-0">
           <a
-            [routerLink]="['/demandeStageComplet', demandeStage._id]"
+            [routerLink]="['/demandeStageComplet', demandeStage?._id]"
             class="card-link"
             >Details</a
           >

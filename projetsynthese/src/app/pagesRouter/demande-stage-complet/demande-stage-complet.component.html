@@ -17,7 +17,7 @@
     </div>
     <div class="row mx-5">
       <div class="col-9">
-        <p>Accueil > Demandes de stage > {{ demandeStage.titre }}</p>
+        <p>Accueil > Demandes de stage > {{ demandeStage?.titre }}</p>
         <div class="row ml-0">
           <div
             class="col-3 d-flex flex-column justify-content-between text-center bordure pb-5 pr-3"
@@ -30,13 +30,13 @@
 
             <p class="mb-3 font-weight-bolder">
               Formation:<br /><span class="font-weight-normal">{{
-                demandeStage.programmeSuivi
+                demandeStage?.programmeSuivi
               }}</span>
             </p>
           </div>
           <div class="ml-4 pr-3 col-8 bordure">
             <div class="row m-2">
-              <h2>{{ demandeStage.titre }}</h2>
+              <h2>{{ demandeStage?.titre }}</h2>
             </div>
             <div class="row m-2">
               <div class="col-6">
@@ -44,19 +44,19 @@
                   <p class="font-weight-bolder">
                     Date de parution
                     <span class="font-weight-normal">{{
-                      demandeStage.dateDeParution | date
+                      demandeStage?.dateDeParution | date
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
                     Date de début:
                     <span class="font-weight-normal">{{
-                      demandeStage.dateDebut | date
+                      demandeStage?.dateDebut | date
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
                     Date de fin:
                     <span class="font-weight-normal">{{
-                      demandeStage.dateFin | date
+                      demandeStage?.dateFin | date
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
@@ -77,25 +77,25 @@
                   <p class="font-weight-bolder">
                     Ville:
                     <span class="font-weight-normal">{{
-                      demandeStage.ville
+                      demandeStage?.ville
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
                     Horaire:
                     <span class="font-weight-normal">{{
-                      demandeStage.typeDeStage
+                      demandeStage?.typeDeStage
                     }}</span>
                   </p>
                   <p class="font-weight-bolder">
                     Nombres d'heures par semaine:
                     <span class="font-weight-normal"
-                      >{{ demandeStage.nombreHeuresSemaine }} heures</span
+                      >{{ demandeStage?.nombreHeuresSemaine }} heures</span
                     >
                   </p>
                   <p class="font-weight-bolder">
                     Rémunération:
                     <span class="font-weight-normal">{{
-                      demandeStage.remuneration
+                      demandeStage?.remuneration
                     }}</span>
                   </p>
                 </div>
@@ -104,7 +104,7 @@
             <div class="row d-flex mt-2 mb-4">
               <a
                 class="text-white text-center boutonGradiant w-100 mx-2 py-2"
-                href="mailto:{{ demandeStage.stagiaire.courriel }}"
+                href="mailto:{{ demandeStage?.stagiaire?.courriel }}"
               >
                 Contactez
               </a>
@@ -114,26 +114,26 @@
             <h2 class="font-weight-bolder text-uppercase">
               Type de stage recherché
             </h2>
-            <p>{{ demandeStage.description }}</p>
+            <p>{{ demandeStage?.description }}</p>
             <h2 class="font-weight-bolder text-uppercase pt-3">
               COMPÉTENCES AQCUISES
             </h2>
-            <p>{{ demandeStage.competencesAcquises }}</p>
+            <p>{{ demandeStage?.competencesAcquises }}</p>
 
             <!-- Sections avec les conditions -->
             <!-- Sil y a dautre formations -->
-            <div *ngIf="demandeStage.autreFormation !== ''">
+            <div *ngIf="demandeStage?.autreFormation !== ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
                 Autres Formations
               </h2>
-              <p>{{ demandeStage.autreFormation }}</p>
+              <p>{{ demandeStage?.autreFormation }}</p>
             </div>
             <!-- Sil y a dautre information Supplementaire -->
-            <div *ngIf="demandeStage.informationSupplementaire != ''">
+            <div *ngIf="demandeStage?.informationSupplementaire != ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
                 informations Supplémentaire
               </h2>
-              <p>{{ demandeStage.informationSupplementaire }}</p>
+              <p>{{ demandeStage?.informationSupplementaire }}</p>
             </div>
           </div>
         </div>

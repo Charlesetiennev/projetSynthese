@@ -8,18 +8,13 @@ describe('AnnonceLoremComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnnonceLoremComponent ]
-    })
-    .compileComponents();
+      declarations: [AnnonceLoremComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AnnonceLoremComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

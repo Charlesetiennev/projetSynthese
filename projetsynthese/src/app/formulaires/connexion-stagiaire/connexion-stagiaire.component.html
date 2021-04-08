@@ -1,17 +1,43 @@
 <form
-  id="stagiaireConnexion"
-  #stagiaireConnexion="ngForm"
-  (ngSubmit)="gererConnexionStagiaire(stagiaireConnexion)"
+  id="formulaireDeConnexion"
+  [formGroup]="formulaireDeConnexion"
+  (ngSubmit)="onSubmit()"
 >
   <mat-form-field>
     <mat-label>Courriel</mat-label>
-    <input matInput type="email" placeholder="Courriel" />
+    <input
+      matInput
+      type="email"
+      formControlName="courriel"
+      placeholder="Courriel"
+      [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
+    />
+    <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.email">
+        L'adresse courriel doit etre valide.
+      </div>
+    </div>
   </mat-form-field>
   <br />
   <mat-form-field>
     <mat-label>Mot de passe</mat-label>
-    <input matInput type="password" placeholder="Mot de passe " />
+    <input
+      matInput
+      type="password"
+      placeholder="Mot de passe "
+      formControlName="motDePasse"
+      [ngClass]="{ 'is-invalid': soumission && f.motDePasse.errors }"
+    />
+    <div *ngIf="soumission && f.motDePasse.errors" class="invalid-feedback">
+      <div *ngIf="f.motDePasse.errors.required">
+        Le mot de passe est requis.
+      </div>
+      <div *ngIf="f.motDePasse.errors.minlength">
+        Votre mot de passe doit contenir au moins six(6) caracteres.
+      </div>
+    </div>
   </mat-form-field>
   <br />
-  <button>Se connecter</button>
+  <button class="btn boutonGradiant text-white">Se connecter</button>
 </form>

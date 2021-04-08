@@ -8,9 +8,8 @@ describe('ConnexionInscriptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConnexionInscriptionComponent ]
-    })
-    .compileComponents();
+      declarations: [ConnexionInscriptionComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -18,8 +17,10 @@ describe('ConnexionInscriptionComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it("S'assure que le composant de connexion entreprise n'est pas ouvert au depart", () => {
+    expect(component.formulaireDiv.entreprise).toBeFalse();
+  });
+  it("S'assure que le composant de connexion stagiaire n'est pas ouvert au depart", () => {
+    expect(component.formulaireDiv.stagiaire).toBeFalse();
   });
 });

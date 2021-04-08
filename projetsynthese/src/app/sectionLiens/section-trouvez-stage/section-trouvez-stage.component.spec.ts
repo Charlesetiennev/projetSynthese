@@ -8,18 +8,13 @@ describe('SectionTrouvezStageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SectionTrouvezStageComponent ]
-    })
-    .compileComponents();
+      declarations: [SectionTrouvezStageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SectionTrouvezStageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

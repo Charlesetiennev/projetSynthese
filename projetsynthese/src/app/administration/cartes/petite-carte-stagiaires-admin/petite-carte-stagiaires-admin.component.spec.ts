@@ -8,18 +8,13 @@ describe('PetiteCarteStagiairesAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PetiteCarteStagiairesAdminComponent ]
-    })
-    .compileComponents();
+      declarations: [PetiteCarteStagiairesAdminComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PetiteCarteStagiairesAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

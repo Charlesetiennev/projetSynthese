@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PiedDePageComponent } from './pied-de-page/pied-de-page.component';
@@ -119,6 +120,7 @@ registerLocaleData(localeFr, 'fr');
   ],
   imports: [
     BrowserModule,
+    RouterTestingModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
@@ -133,6 +135,7 @@ registerLocaleData(localeFr, 'fr');
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    RouterModule.forRoot([]),
   ],
   providers: [
     ApiProjetSyntheseService,

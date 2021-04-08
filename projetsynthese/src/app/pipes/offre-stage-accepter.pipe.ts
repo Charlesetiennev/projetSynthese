@@ -9,6 +9,7 @@ import { OffreStage } from '../offre-stage';
 })
 export class OffreStageAccepterPipe implements PipeTransform {
   transform(offresStages: OffreStage[]): OffreStage[] {
+    if (!offresStages) return offresStages;
     return offresStages.filter((offreStage) => offreStage.accepter == true);
   }
 }

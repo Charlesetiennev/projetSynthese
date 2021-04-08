@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// Publique
 import { TrouvezStageComponent } from './pagesRouter/trouvez-stage/trouvez-stage.component';
 import { TrouvezStagiaireComponent } from './pagesRouter/trouvez-stagiaire/trouvez-stagiaire.component';
 import { AccueilComponent } from './pagesRouter/accueil/accueil.component';
 import { AProposComponent } from './pagesRouter/a-propos/a-propos.component';
 import { ConnexionInscriptionComponent } from './pagesRouter/connexion-inscription/connexion-inscription.component';
+import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
+import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
+// Administration
 import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
 import { OffreStageAdminComponent } from './administration/offre-stage-admin/offre-stage-admin.component';
 import { FicheCandidatAdminComponent } from './administration/fiche-candidat-admin/fiche-candidat-admin.component';
 import { ListeCandidatsAdminComponent } from './administration/liste-candidats-admin/liste-candidats-admin.component';
 import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
-
-import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
-import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
 import { DemandeStageAdminComponent } from './administration/demande-stage-admin/demande-stage-admin.component';
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
+import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
 import { fromEventPattern } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  // Publique
   { path: 'accueil', component: AccueilComponent },
   { path: 'trouvezStage', component: TrouvezStageComponent },
   { path: 'offreStageComplet/:id', component: OffreStageCompleteComponent },
@@ -28,6 +31,11 @@ const routes: Routes = [
   // Page Administration
   { path: 'administration/accueil', component: AccueilAdminComponent },
   { path: 'administration/offreStage', component: OffreStageAdminComponent },
+
+  {
+    path: 'administration/demandeStageComplet/:id',
+    component: DemandeStageDetailComponent,
+  },
   {
     path: 'administration/listeCandidats',
     component: ListeCandidatsAdminComponent,
@@ -54,6 +62,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+    RouterModule.forRoot([]),
   ],
   exports: [RouterModule],
 })

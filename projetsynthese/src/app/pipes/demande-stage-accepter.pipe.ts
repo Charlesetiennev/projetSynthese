@@ -10,6 +10,7 @@ import { DemandeStageCompletComponent } from '../pagesRouter/demande-stage-compl
 })
 export class DemandeStageAccepterPipe implements PipeTransform {
   transform(demandesStages: DemandeStage[]): DemandeStage[] {
+    if (!demandesStages) return demandesStages;
     return demandesStages.filter(
       (demandeStage) => demandeStage.accepter == true
     );

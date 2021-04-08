@@ -11,6 +11,7 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
   styleUrls: ['./trouvez-stage.component.sass'],
 })
 export class TrouvezStageComponent implements OnInit {
+  titre: string = 'Offres de stage';
   offresStages: OffreStage[];
   // Gestion du bouton pour charger plus d'offre
   chargerPlus: boolean = false;

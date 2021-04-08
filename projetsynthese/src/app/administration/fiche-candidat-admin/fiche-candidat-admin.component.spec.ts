@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { FicheCandidatAdminComponent } from './fiche-candidat-admin.component';
+import { not } from '@angular/compiler/src/output/output_ast';
 
 describe('FicheCandidatAdminComponent', () => {
   let component: FicheCandidatAdminComponent;
@@ -8,9 +11,14 @@ describe('FicheCandidatAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FicheCandidatAdminComponent ]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        RouterModule.forRoot([]),
+      ],
+      declarations: [FicheCandidatAdminComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -18,8 +26,10 @@ describe('FicheCandidatAdminComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Ouverture du bouton de modification', async () => {
+    expect(component.modification.valueOf).not.toBeTrue;
+  });
+  it("Verifie que le formulaire n'est pas a true(afficher) au depart", async () => {
+    expect(component.modification.valueOf).toBeFalse;
   });
 });

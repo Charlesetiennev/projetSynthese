@@ -14,40 +14,40 @@
             d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
           />
         </svg>
-        <h1 class="m-0">{{ offreStage.titre }}</h1>
+        <h1 class="m-0">{{ offreStage?.titre }}</h1>
       </div>
-      <div>Publie le : {{ offreStage.dateDeParution }}</div>
+      <div>Publie le : {{ offreStage?.dateDeParution }}</div>
     </div>
     <div class="row">
       <div class="col-6">
         <div class="card-subtitle text-secondary">
-          {{ offreStage.entreprise.nomEntreprise }}
+          {{ offreStage?.entreprise?.nomEntreprise }}
         </div>
         <div class="card-text">
-          Ville : <span>{{ offreStage.entreprise.ville }}</span>
+          Ville : <span>{{ offreStage?.entreprise?.ville }}</span>
         </div>
         <div class="card-text">
           Secteurs dactivite :
-          <span>{{ offreStage.entreprise.secteurActivite }}</span>
+          <span>{{ offreStage?.entreprise?.secteurActivite }}</span>
         </div>
       </div>
 
       <div class="col-6">
         <div class="card-text">
           Competence Recherche :
-          <span>{{ offreStage.competencesRechercher }}</span>
+          <span>{{ offreStage?.competencesRechercher }}</span>
         </div>
         <div class="card-text">
-          Debut : <span>{{ offreStage.dateDebut }}</span>
+          Debut : <span>{{ offreStage?.dateDebut }}</span>
         </div>
         <div class="card-text">
-          Fin : <span>{{ offreStage.dateFin }}</span>
+          Fin : <span>{{ offreStage?.dateFin }}</span>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="card-text px-3">
-        {{ offreStage.description }}
+        {{ offreStage?.description }}
       </div>
     </div>
     <div class="row d-flex justify-content-between">

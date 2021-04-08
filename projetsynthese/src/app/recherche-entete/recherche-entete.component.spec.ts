@@ -8,18 +8,13 @@ describe('RechercheEnteteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RechercheEnteteComponent ]
-    })
-    .compileComponents();
+      declarations: [RechercheEnteteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RechercheEnteteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

@@ -1,12 +1,12 @@
 <div class="container m-3">
   <div class="row text-secondary d-flex justify-content-center">
-    <h2>{{ stagiaire.prenom }} {{ stagiaire.nom }}</h2>
+    <h2>{{ stagiaire?.prenom }} {{ stagiaire?.nom }}</h2>
   </div>
   <div class="row d-flex justify-content-center">
-    <p>{{ stagiaire.ville }}</p>
+    <p>{{ stagiaire?.ville }}</p>
   </div>
   <div class="row d-flex justify-content-center">
-    <p class="text-primary">{{ stagiaire.formations }}</p>
+    <p class="text-primary">{{ stagiaire?.formations }}</p>
   </div>
   <div class="row d-flex justify-content-center">
     <button href="#" class="mr-2 text-dark bordureLiens btn-light">

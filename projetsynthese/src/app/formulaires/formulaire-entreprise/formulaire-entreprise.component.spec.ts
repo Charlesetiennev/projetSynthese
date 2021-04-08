@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 import { FormulaireEntrepriseComponent } from './formulaire-entreprise.component';
 
 describe('FormulaireEntrepriseComponent', () => {
@@ -8,6 +10,8 @@ describe('FormulaireEntrepriseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, , FormsModule, ReactiveFormsModule],
+      providers: [ApiProjetSyntheseService],
       declarations: [FormulaireEntrepriseComponent],
     }).compileComponents();
   });
@@ -16,9 +20,5 @@ describe('FormulaireEntrepriseComponent', () => {
     fixture = TestBed.createComponent(FormulaireEntrepriseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

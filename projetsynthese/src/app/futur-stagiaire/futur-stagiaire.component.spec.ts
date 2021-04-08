@@ -8,18 +8,13 @@ describe('FuturStagiaireComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FuturStagiaireComponent ]
-    })
-    .compileComponents();
+      declarations: [FuturStagiaireComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FuturStagiaireComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

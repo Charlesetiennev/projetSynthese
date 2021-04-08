@@ -8,9 +8,8 @@ describe('AccueilComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccueilComponent ]
-    })
-    .compileComponents();
+      declarations: [AccueilComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -18,8 +17,16 @@ describe('AccueilComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it("Récupération du h1 pour vérifiez son contenu n'a pas de faute", async () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Facile à utiliser!'
+    );
+  });
+  it("Récupération du h1 pour vérifiez son contenu n'a pas de faute", async () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).not.toContain(
+      'Facile a utiliser!'
+    );
   });
 });
