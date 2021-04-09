@@ -51,6 +51,7 @@ export class FicheCandidatAdminComponent implements OnInit {
     this.apiProjetSyntheseService
       .majStagiaire(this.stagiaire)
       .subscribe(() => (this.stagiaire = null));
+    this.modification = false;
 
     console.log(this.stagiaire);
   }

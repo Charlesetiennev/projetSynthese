@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./offre-stage-detail.component.sass'],
 })
 export class OffreStageDetailComponent implements OnInit {
-  @Input() offreStage: OffreStage;
+  @Input() offreStage: OffreStage | any;
   secteursActivites: SecteursActivites[];
   formulaireEdition: NgForm;
   modification = false;
@@ -25,7 +25,17 @@ export class OffreStageDetailComponent implements OnInit {
     return this.formulaireEdition.controls;
   }
   onSubmit() {
+    this.apiProjetSyntheseService
+      .majOffreDeStage(this.offreStage)
+      .subscribe(() => (this.offreStage = null));
+    this.modification = false;
     console.log(this.offreStage);
+  }
+  suppressionOffre(): void {
+    this.apiProjetSyntheseService
+      .suppressionOffreDeStage(this.offreStage._id)
+      .subscribe((result) => this.offreStage);
+    window.location.reload();
   }
   ouvrirFormulaire(): void {
     this.modification = true;

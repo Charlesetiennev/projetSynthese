@@ -10,6 +10,7 @@ import { DemandeStage } from './demande-stage';
 import { Observable } from 'rxjs';
 import { Entreprise } from './entreprise';
 import { ThisReceiver } from '@angular/compiler';
+import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -150,5 +151,20 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
-  //
+  // Modification demande de stage
+  majDemandeDeStage(demandeStage: DemandeStage): Observable<DemandeStage> {
+    const id = demandeStage._id;
+    return this.http.put<DemandeStage>(
+      this.demandesStagesUrl + id,
+      demandeStage,
+      httpOptions
+    );
+  }
+  // Suppression demande de stage
+  suppressionDemandeDeStage(id: string | null): Observable<DemandeStage> {
+    return this.http.delete<DemandeStage>(
+      this.demandesStagesUrl + id,
+      httpOptions
+    );
+  }
 }

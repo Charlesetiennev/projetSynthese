@@ -61,6 +61,12 @@
           </div>
         </div>
         <div class="col-12">
+          <!-- Retour au profil -->
+          <a
+            routerLink="/administration/ficheEntreprise/606dfadb1f69fe001501319f"
+            class="btn btn-secondary my-4"
+            >Retour au profil</a
+          >
           <div class="row">
             <!-- OFFRES DE STAGE -->
             <h2>Offres de stage</h2>
@@ -99,7 +105,10 @@
               </g>
             </svg>
           </div>
-          <div *ngFor="let offreStage of offresStages" class="pb-3">
+          <div
+            *ngFor="let offreStage of offresStages | offresStageEntreprise"
+            class="pb-3"
+          >
             <app-offre-stage-detail
               [offreStage]="offreStage"
             ></app-offre-stage-detail>

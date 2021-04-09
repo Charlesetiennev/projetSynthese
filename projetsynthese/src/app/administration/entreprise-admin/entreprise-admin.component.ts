@@ -52,6 +52,7 @@ export class EntrepriseAdminComponent implements OnInit {
     this.apiProjetSyntheseService
       .majEntreprise(this.entreprise)
       .subscribe(() => (this.entreprise = null));
+    this.modification = false;
     console.log(this.entreprise);
   }
   annuler(): void {

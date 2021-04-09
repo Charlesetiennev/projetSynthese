@@ -5,6 +5,456 @@
     <!-- Action au de page -->
     <app-action-haut-admin class="col-10"></app-action-haut-admin>
     <!-- Contenue -->
-    <div class="offset-2 col-10 px-5"></div>
+    <div class="offset-3 col-8">
+      <!-- Contenu de la page -->
+
+      <div class="container-fluid">
+        <div class="row bordureBasBleu pb-3">
+          <div class="col-6">
+            <h1>Demande de stage</h1>
+            <a
+              routerLink="/administration/ficheCandidat/605a31da6caff70015917aa4"
+              class="btn btn-secondary"
+              >Retour au profil</a
+            >
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="27.621"
+                height="27"
+                viewBox="0 0 27.621 27"
+              >
+                <g
+                  id="Icon_feather-corner-right-down"
+                  data-name="Icon feather-corner-right-down"
+                  transform="translate(-4.5 -4.5)"
+                >
+                  <path
+                    id="Path_83"
+                    data-name="Path 83"
+                    d="M15,22.5,22.5,30,30,22.5"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                  <path
+                    id="Path_84"
+                    data-name="Path 84"
+                    d="M6,6H16.5a6,6,0,0,1,6,6V30"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fiche -->
+      <div class="container-fluid pt-4">
+        <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
+        <form
+          id="formulaireEdition"
+          #formulaireEdition="ngForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="row bordure d-flex justify-content-between mb-3">
+            <div class="col-6 d-flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="31.5"
+                height="36.002"
+                viewBox="0 0 31.5 36.002"
+                class="ml-1"
+              >
+                <path
+                  id="Icon_awesome-user-graduate"
+                  data-name="Icon awesome-user-graduate"
+                  d="M22.458,22.542,15.75,29.25,9.042,22.542A9.429,9.429,0,0,0,0,31.95v.675A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V31.95a9.429,9.429,0,0,0-9.042-9.408ZM.956,5.611l.45.105V9.823a1.624,1.624,0,0,0-.063,2.813l-1.1,4.38C.127,17.5.394,18,.78,18H3.72c.387,0,.654-.5.534-.984l-1.1-4.38a1.624,1.624,0,0,0-.063-2.813v-3.7L7.734,7.242A8.984,8.984,0,1,0,24.75,11.25a8.84,8.84,0,0,0-.984-4.008l6.771-1.631a1.119,1.119,0,0,0,0-2.215L17.149.162a6.04,6.04,0,0,0-2.791,0L.956,3.389a1.124,1.124,0,0,0,0,2.222Z"
+                  transform="translate(0 0.002)"
+                />
+              </svg>
+              <!-- Titre -->
+              <h1 *ngIf="!modification" class="m-0">
+                {{ demandeStage?.titre }}
+              </h1>
+              <!-- Formulaire Titre -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  type="text"
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="demandeStage.titre"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.titre }}"
+                />
+              </mat-form-field>
+            </div>
+            <!-- Date de parution -->
+            <div
+              class="col-6 text-center font-weight-bold d-flex justify-content-end"
+            >
+              <p>
+                Publié le :
+                <span class="font-weight-normal">{{
+                  demandeStage?.dateDeParution | date
+                }}</span>
+              </p>
+              <!-- Status de la demande -->
+              <p class="ml-3">
+                Statut de la demande :
+                <!-- Si offre en attente -->
+                <span
+                  *ngIf="demandeStage.accepter === false"
+                  class="font-weight-normal"
+                  >En attente</span
+                >
+                <!-- Si offre acceptée -->
+                <span
+                  *ngIf="demandeStage.accepter === true"
+                  class="font-weight-normal"
+                  >Actif</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- Ville -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Ville :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ demandeStage.ville }}</p>
+              <!-- Formulaire ville -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="demandeStage.ville"
+                  [ngModelOptions]="{ standalone: true }"
+                  value=" {{ demandeStage.ville }} "
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Date début -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Début :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ demandeStage.dateDebut | date }}</p>
+              <!--Formulaire date début -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  [(ngModel)]="demandeStage.dateDebut"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.dateDebut }}"
+                  required
+                  [matDatepicker]="picker"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Date fin -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Fin :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ demandeStage.dateFin | date }}</p>
+              <!--Formulaire date fin -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  matInput
+                  [(ngModel)]="demandeStage.dateFin"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.dateFin }}"
+                  required
+                  [matDatepicker]="picker2"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Type de stage -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Type de stage :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ demandeStage.typeDeStage }}</p>
+              <!-- Formulaire type de stage -->
+              <mat-form-field *ngIf="modification">
+                <mat-label>Type de stage</mat-label>
+                <mat-select
+                  [(ngModel)]="demandeStage.typeDeStage"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                >
+                  <mat-option
+                    *ngFor="let typeDeStage of typesDeStageListe"
+                    [value]="typeDeStage"
+                  >
+                    {{ typeDeStage }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Nombres d'heures semaine -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Nombres d'heures semaine :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.nombreHeuresSemaine }}
+              </p>
+              <!-- Formulaire nombres d'heures semaine -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="number"
+                  matInput
+                  min="1"
+                  max="50"
+                  [(ngModel)]="demandeStage.nombreHeuresSemaine"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.nombreHeuresSemaine }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Rémunération-->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Rémunération :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.remuneration }}
+              </p>
+              <!-- Formulaire rémunération -->
+              <mat-form-field *ngIf="modification">
+                <mat-select
+                  required
+                  [(ngModel)]="demandeStage.remuneration"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <mat-option
+                    *ngFor="let remunerationsChoix of remunerationChoix"
+                    [value]="remunerationsChoix"
+                  >
+                    {{ remunerationsChoix }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Programme suivi -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Programme suivi :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.programmeSuivi }}
+              </p>
+              <!-- Formulaire programme suivi -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="50"
+                  [(ngModel)]="demandeStage.programmeSuivi"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.programmeSuivi }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Compétences acquises -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Compétences acquises :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.competencesAcquises }}
+              </p>
+              <!-- Formulaire compétences acquises -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  required
+                  minlength="2"
+                  maxlength="500"
+                  [(ngModel)]="demandeStage.competencesAcquises"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.competencesAcquises }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Autres formations  -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Autres formations :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.autreFormation }}
+              </p>
+              <!-- Formulaire autres formations  -->
+              <mat-form-field *ngIf="modification">
+                <input
+                  type="text"
+                  matInput
+                  minlength="2"
+                  maxlength="500"
+                  [(ngModel)]="demandeStage.autreFormation"
+                  [ngModelOptions]="{ standalone: true }"
+                  value="{{ demandeStage.autreFormation }}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Description -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Description :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">{{ demandeStage.description }}</p>
+              <!-- Formulaire Description -->
+              <mat-form-field *ngIf="modification">
+                <textarea
+                  matInput
+                  minlength="20"
+                  maxlength="1500"
+                  [(ngModel)]="demandeStage.description"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                {{ demandeStage.description }} </textarea
+                >
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Informations supplémentaires -->
+          <div class="row">
+            <div class="col-6 tableauStagiaire">
+              <h2>Informations supplémentaires :</h2>
+            </div>
+            <div class="col-6 tableauStagiaire d-flex align-items-center">
+              <p *ngIf="!modification">
+                {{ demandeStage.informationSupplementaire }}
+              </p>
+              <!-- Formulaire informations supplémentaires -->
+              <mat-form-field *ngIf="modification">
+                <textarea
+                  matInput
+                  minlength="2"
+                  maxlength="1500"
+                  [(ngModel)]="demandeStage.informationSupplementaire"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                          {{
+                    demandeStage.informationSupplementaire
+                  }} </textarea
+                >
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Action formulaire -->
+          <div class="row d-flex justify-content-center">
+            <!-- Modifier -->
+            <button *ngIf="modification" class="py-2 px-2 my-3 btn btn-success">
+              Modifier
+            </button>
+            <!-- Annuler -->
+            <button
+              *ngIf="modification"
+              (click)="annuler()"
+              class="py-2 px-2 my-3 btn btn-warning ml-2 text-white"
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+        <div
+          class="row d-flex py-3"
+          *ngIf="
+            env.statusDeConnexion === 'administrateur' ||
+            env.statusDeConnexion === 'stagiaire'
+          "
+        >
+          <!-- Ouverture du formulaire -->
+          <button
+            id="boutonModification"
+            class="mr-2 text-dark bordureLiens btn-light"
+            (click)="ouvrirFormulaire()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="14.219"
+              viewBox="0 0 16 14.219"
+            >
+              <path
+                id="Icon_awesome-edit"
+                data-name="Icon awesome-edit"
+                d="M11.183,2.315l2.506,2.506a.272.272,0,0,1,0,.383L7.622,11.271l-2.578.286a.54.54,0,0,1-.6-.6l.286-2.578L10.8,2.315A.272.272,0,0,1,11.183,2.315Zm4.5-.636L14.328.324a1.086,1.086,0,0,0-1.533,0l-.983.983a.272.272,0,0,0,0,.383L14.317,4.2a.272.272,0,0,0,.383,0l.983-.983a1.086,1.086,0,0,0,0-1.533ZM10.667,9.621v2.828H1.778V3.56H8.161a.342.342,0,0,0,.236-.1L9.508,2.351a.333.333,0,0,0-.236-.569H1.333A1.334,1.334,0,0,0,0,3.115v9.778a1.334,1.334,0,0,0,1.333,1.333h9.778a1.334,1.334,0,0,0,1.333-1.333V8.51a.334.334,0,0,0-.569-.236L10.764,9.385A.342.342,0,0,0,10.667,9.621Z"
+                transform="translate(0 -0.007)"
+                fill="#000"
+              />
+            </svg>
+            Modifier
+          </button>
+          <!-- Suppression -->
+          <button class="text-dark bordureLiens btn-light">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="14"
+              viewBox="0 0 16 14"
+            >
+              <path
+                id="Icon_awesome-window-close"
+                data-name="Icon awesome-window-close"
+                d="M14.5,2.25H1.5A1.5,1.5,0,0,0,0,3.75v11a1.5,1.5,0,0,0,1.5,1.5h13a1.5,1.5,0,0,0,1.5-1.5v-11A1.5,1.5,0,0,0,14.5,2.25Zm-2.612,9.078a.385.385,0,0,1,0,.544l-1.266,1.266a.385.385,0,0,1-.544,0L8,11.041l-2.078,2.1a.385.385,0,0,1-.544,0L4.113,11.872a.385.385,0,0,1,0-.544l2.1-2.078-2.1-2.078a.385.385,0,0,1,0-.544L5.378,5.363a.385.385,0,0,1,.544,0L8,7.459l2.078-2.1a.385.385,0,0,1,.544,0l1.266,1.266a.385.385,0,0,1,0,.544L9.791,9.25Z"
+                transform="translate(0 -2.25)"
+                fill="#000"
+              />
+            </svg>
+            Supprimer
+          </button>
+        </div>
+      </div>
+
+      <!--  -->
+    </div>
   </div>
 </div>

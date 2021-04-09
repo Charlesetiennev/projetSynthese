@@ -68,6 +68,7 @@ import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { OffresStageEntreprisePipe } from './pipes/offres-stage-entreprise.pipe';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -117,6 +118,7 @@ registerLocaleData(localeFr, 'fr');
     DemandeStageCompletComponent,
     OffreStageAccepterPipe,
     DemandeStageAccepterPipe,
+    OffresStageEntreprisePipe,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { OffreStage } from '../../../offre-stage';
 import { SecteursActivites } from '../../../secteurs-activites';
 import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaire-offre-stage-admin',
@@ -16,6 +17,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
   nouvelleOffreStage: OffreStage;
 
   constructor(
+    private router: Router,
     private apiProjetSyntheseService: ApiProjetSyntheseService,
     private formBuilder: FormBuilder
   ) {}
@@ -130,6 +132,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
         .subscribe(
           (nouvelleOffreStage) => (this.nouvelleOffreStage._id = null)
         );
+      this.router.navigate(['/administration/accueil']);
     } else {
       console.log('invalide');
     }

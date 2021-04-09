@@ -35,7 +35,31 @@
             />
           </mat-form-field>
         </div>
-        <div>Publié le : {{ offreStage?.dateDeParution | date }}</div>
+        <!-- Date de parution -->
+        <div class="font-weight-bold">
+          <div>
+            Publié le :
+            <span class="font-weight-normal">{{
+              offreStage?.dateDeParution | date
+            }}</span>
+          </div>
+          <!-- Statut de la demande -->
+          <div>
+            Statut de la demande :
+            <!-- Si offre en attente -->
+            <span
+              *ngIf="offreStage.accepter === false"
+              class="font-weight-normal"
+              >En attente</span
+            >
+            <!-- Si offre acceptée -->
+            <span
+              *ngIf="offreStage.accepter === true"
+              class="font-weight-normal"
+              >Actif</span
+            >
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -177,7 +201,9 @@
             }}</span>
             <!-- Formulaire secteurs d'activitées -->
             <mat-form-field *ngIf="modification" class="w-100">
-              <mat-label class="text-secondary">Secteurs d'activitées</mat-label>
+              <mat-label class="text-secondary"
+                >Secteurs d'activitées</mat-label
+              >
               <mat-select
                 required
                 [(ngModel)]="offreStage.entreprise.secteurActivite"
@@ -305,7 +331,10 @@
         </svg>
         Modifier
       </button>
-      <button class="px-3 py-2 text-dark bordureLiens btn-bg">
+      <button
+        class="px-3 py-2 text-dark bordureLiens btn-bg"
+        (click)="suppressionOffre()"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

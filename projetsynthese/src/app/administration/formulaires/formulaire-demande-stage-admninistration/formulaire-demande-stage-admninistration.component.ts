@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DemandeStage } from '../../../demande-stage';
 import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-formulaire-demande-stage-admninistration',
   templateUrl: './formulaire-demande-stage-admninistration.component.html',
@@ -22,6 +24,7 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
     'à la discrétion de l’entreprise',
   ];
   constructor(
+    private router: Router,
     private apiProjetSyntheseService: ApiProjetSyntheseService,
     private formBuilder: FormBuilder
   ) {}
@@ -134,6 +137,9 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
         .subscribe(
           (nouvelleDemandeStage) => (this.nouvelleDemandeStage._id = null)
         );
+      this.router.navigate([
+        '/administration/ficheCandidat/605a31da6caff70015917aa4',
+      ]);
     } else {
       console.log('invalide');
     }
