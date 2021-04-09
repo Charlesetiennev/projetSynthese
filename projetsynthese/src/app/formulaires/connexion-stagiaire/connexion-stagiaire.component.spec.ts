@@ -19,7 +19,7 @@ describe('ConnexionStagiaireComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it("Verifie que la status de connexion et la redirection ne se fait pas si le formulaire n'est pas encore valide", async () => {
+  it("Vérifiez que le statut de connexion et la redirection ne se fasse pas si le formulaire n'est pas encore valide.", async () => {
     let boutonConnexion = fixture.debugElement.nativeElement.querySelector(
       'button'
     );
@@ -28,7 +28,7 @@ describe('ConnexionStagiaireComponent', () => {
       expect(component.env.statusDeConnexion).toBe('');
     });
   });
-  it("Verifie que la status de connexion et la redirection ne se fait pas si le formulaire n'est pas encore valide", async () => {
+  it("Vérifiez que la statut de connexion et la redirection ne se fasse pas si le formulaire n'est pas encore valide.", async () => {
     let boutonConnexion = fixture.debugElement.nativeElement.querySelector(
       'button'
     );

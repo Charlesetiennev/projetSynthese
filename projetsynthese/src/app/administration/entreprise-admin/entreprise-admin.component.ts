@@ -27,7 +27,7 @@ export class EntrepriseAdminComponent implements OnInit {
     private apiProjetSyntheseService: ApiProjetSyntheseService
   ) {}
   ngOnInit(): void {
-    // Secteur d'activites
+    // Secteurs d'activitées
     this.recuperationSecteursActivites();
     this.route.paramMap.subscribe((params: ParamMap) => {
       this._id = params.get('id');
@@ -57,7 +57,7 @@ export class EntrepriseAdminComponent implements OnInit {
   annuler(): void {
     this.modification = false;
   }
-  // Recuperations des secteurs d'activites
+  // Récupérations des secteurs d'activitées
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

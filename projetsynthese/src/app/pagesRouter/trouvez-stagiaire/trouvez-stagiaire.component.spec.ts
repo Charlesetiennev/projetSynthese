@@ -21,7 +21,7 @@ describe('TrouvezStagiaireComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Verifie que au clique , la valeur de la variable qui affiche tout les demandes passe a true', async () => {
+  it("Vérifiez qu'au clic , la valeur de la variable qui affiche l'entièreté des demandes passe a true.", async () => {
     let bouton = fixture.debugElement.nativeElement.querySelector(
       '#chargerPlusDemande'
     );
@@ -31,7 +31,7 @@ describe('TrouvezStagiaireComponent', () => {
       expect(component.afficher).toBeTrue;
     });
   });
-  it("Verifie qu'au chargement de la page seul les cinq premieres demandes sont affiche", async () => {
+  it("Vérifiez qu'au chargement de la page, seulement les 5 premières demandes sont affichées.", async () => {
     expect(component.afficher).toBeFalse;
   });
 });

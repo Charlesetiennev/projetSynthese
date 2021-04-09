@@ -24,26 +24,32 @@
     <a routerLink="/administration/accueil" class="text-white pl-4">Accueil</a>
   </div>
   <!-- Offre de stage -->
-  <div class="row py-3" *ngIf="env.statusDeConnexion === 'stagiaire'">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-    >
-      <path
-        id="Icon_awesome-arrow-circle-right"
-        data-name="Icon awesome-arrow-circle-right"
-        d="M8.563.563a8,8,0,0,1,8,8,8.14,8.14,0,0,1-2.921,6.182,7.764,7.764,0,0,1-5.079,1.818,8,8,0,0,1,0-16ZM7.63,5.195,10.066,7.53H4.175A.772.772,0,0,0,3.4,8.3v.516a.772.772,0,0,0,.774.774h5.89L7.63,11.93a.775.775,0,0,0-.013,1.106l.355.352a.771.771,0,0,0,1.094,0l4.281-4.277a.771.771,0,0,0,0-1.094L9.066,3.733a.771.771,0,0,0-1.094,0l-.355.352a.779.779,0,0,0,.013,1.11Z"
-        transform="translate(-0.563 -0.563)"
-        fill="#fff"
-      />
-    </svg>
-    <a routerLink="/administration/offreStage" class="text-white pl-4"
-      >Offre de stage</a
+  <div
+    class="row py-3"
+    *ngIf="
+      env.statusDeConnexion === 'stagiaire' ||
+      env.statusDeConnexion === 'entreprise'
+    "
+  >
+    <a routerLink="/administration/offreStage" class="text-white">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+      >
+        <path
+          id="Icon_awesome-arrow-circle-right"
+          data-name="Icon awesome-arrow-circle-right"
+          d="M8.563.563a8,8,0,0,1,8,8,8.14,8.14,0,0,1-2.921,6.182,7.764,7.764,0,0,1-5.079,1.818,8,8,0,0,1,0-16ZM7.63,5.195,10.066,7.53H4.175A.772.772,0,0,0,3.4,8.3v.516a.772.772,0,0,0,.774.774h5.89L7.63,11.93a.775.775,0,0,0-.013,1.106l.355.352a.771.771,0,0,0,1.094,0l4.281-4.277a.771.771,0,0,0,0-1.094L9.066,3.733a.771.771,0,0,0-1.094,0l-.355.352a.779.779,0,0,0,.013,1.11Z"
+          transform="translate(-0.563 -0.563)"
+          fill="#fff"
+        />
+      </svg>
+      <span class="pl-2">Offres de stage</span></a
     >
   </div>
-  <!-- Demande de stage -->
+  <!-- Demandes de stage -->
   <div
     class="row py-3"
     *ngIf="
@@ -67,7 +73,7 @@
       />
     </svg>
     <a routerLink="/administration/demandeStage" class="text-white pl-4"
-      >Demande de stage</a
+      >Demandes de stage</a
     >
   </div>
   <!-- Candidats -->
@@ -91,7 +97,7 @@
       Candidats</a
     >
   </div>
-  <!-- Entreprise -->
+  <!-- Entreprises -->
   <div class="row pt-3 pb-5" *ngIf="env.statusDeConnexion === 'stagiaire'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +115,9 @@
 
     <a routerLink="/administration/" class="text-white pl-4"> Entreprises</a>
   </div>
-  <!-- Deconnexion -->
+  <!-- Déconnexion -->
   <div class="row pt-5 text-white">
     <mat-icon>logout</mat-icon>
-    <button class="pl-4" (click)="deconnexion()">Deconnexion</button>
+    <button class="pl-4" (click)="deconnexion()">Déconnexion</button>
   </div>
 </div>

@@ -9,17 +9,17 @@
   </div>
   <div class="row">
     <div class="offset-3 col-8">
-      <!-- Contenue de la page -->
+      <!-- Contenu de la page -->
 
       <div class="container-fluid">
         <div class="row bordureBasBleu pb-3">
           <div class="col-6">
             <h1>Fiche du candidat</h1>
-            <!-- Liens vers la demande -->
+            <!-- Lien vers la demande -->
             <a
               routerLink="/administration/demandeStageComplet/60620ce45a06a90015d85280"
               class="btn btn-secondary"
-              >Voire ma demande</a
+              >Voir ma demande</a
             >
           </div>
           <div class="col-6">
@@ -82,9 +82,8 @@
               </svg>
               Modifier
             </button>
-            <!-- Suppression visible seulement quand administateur est connecter -->
+            <!-- Suppression visible seulement quand administateur est connecté -->
             <button
-              href="#"
               class="text-dark bordureLiens btn-light"
               *ngIf="env.statusDeConnexion === 'administrateur'"
             >
@@ -126,25 +125,25 @@
           </svg>
           <h2 class="mb-0 pl-3">{{ stagiaire.prenom }} {{ stagiaire.nom }}</h2>
         </div>
-        <!-- Formulaire conditionelle a modification dans les memes cases que les informations du depart -->
+        <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
         <form
           id="formulaireEdition"
           #formulaireEdition="ngForm"
           (ngSubmit)="onSubmit()"
         >
-          <!-- Prenom et nom -->
+          <!-- Prénom et nom -->
           <div class="row pt-4">
             <div class="col-6 tableauStagiaire">
-              <h2>Prenom et nom du stagiaire :</h2>
+              <h2>Prénom et nom du stagiaire :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
                 {{ stagiaire.prenom }}
                 {{ stagiaire.nom }}
               </p>
-              <!-- Formulaire prenom et nom -->
+              <!-- Formulaire prénom et nom -->
               <mat-form-field *ngIf="modification">
-                <!-- Prenom -->
+                <!-- Prénom -->
                 <input
                   matInput
                   type="text"
@@ -214,14 +213,14 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Telephone -->
+          <!-- Téléphone -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Telephone :</h2>
+              <h2>Téléphone :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">{{ stagiaire.telephone }}</p>
-              <!--Formulaire Telephone -->
+              <!--Formulaire Téléphone -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -235,7 +234,7 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Formatiosn -->
+          <!-- Formation -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
               <h2>Progamme de formation :</h2>
@@ -244,7 +243,7 @@
               <p *ngIf="!modification">
                 {{ stagiaire.formations }}
               </p>
-              <!-- Formulaire formations -->
+              <!-- Formulaire formation -->
               <mat-form-field *ngIf="modification">
                 <mat-select
                   [(ngModel)]="stagiaire.formations"
@@ -258,16 +257,16 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Competences -->
+          <!-- Compétences -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Competences :</h2>
+              <h2>Compétences :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
                 {{ stagiaire.competences }}
               </p>
-              <!-- Formulaire competences -->
+              <!-- Formulaire compétences -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -281,16 +280,16 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Resumer -->
+          <!-- Résumé -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Resumer :</h2>
+              <h2>Résumé :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
                 {{ stagiaire.messageMotivation }}
               </p>
-              <!-- Formulaire Resumer -->
+              <!-- Formulaire Résumé -->
               <mat-form-field *ngIf="modification">
                 <textarea
                   matInput

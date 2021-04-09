@@ -9,13 +9,13 @@
   </div>
   <div class="row">
     <div class="offset-3 col-8">
-      <!-- Contenue de la page -->
+      <!-- Contenu de la page -->
       <div class="container-fluid">
         <div class="row bordureBasBleu pb-3">
           <div class="col-6">
             <h1>Fiche de l'entreprise</h1>
             <!-- Lien vers les offres de stages -->
-            <a routerLink="#" class="btn btn-secondary"
+            <a routerLink="/administration/accueil" class="btn btn-secondary"
               >Voire vos offres de stages</a
             >
           </div>
@@ -79,7 +79,7 @@
               </svg>
               Modifier
             </button>
-            <!-- Suppression visible seulement quand administateur est connecter -->
+            <!-- Suppression visible seulement quand administateur est connecté -->
             <button
               href="#"
               class="text-dark bordureLiens btn-light"
@@ -122,7 +122,7 @@
 
           <h2 class="mb-0 pl-3">{{ entreprise.nomEntreprise }}</h2>
         </div>
-        <!-- Formulaire conditionelle a modification dans les memes cases que les informations du depart -->
+        <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
         <form
           id="formulaireEdition"
           #formulaireEdition="ngForm"
@@ -213,14 +213,14 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Telephone -->
+          <!-- Téléphone -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Telephone :</h2>
+              <h2>Téléphone :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">{{ entreprise.numeroTel }}</p>
-              <!--Formulaire Telephone -->
+              <!--Formulaire Téléphone -->
               <mat-form-field *ngIf="modification">
                 <input
                   matInput
@@ -234,14 +234,14 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Secteur d'activites -->
+          <!-- Secteurs d'activitées -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Secteur d'activites :</h2>
+              <h2>Secteurs d'activitées :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">{{ entreprise.secteurActivite }}</p>
-              <!--Formulaire secteurs d'activites -->
+              <!--Formulaire secteurs d'activitées -->
               <mat-form-field *ngIf="modification">
                 <mat-select
                   multiple
@@ -294,19 +294,19 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Prenom et nom responsable -->
+          <!-- Prénom et nom responsable -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Prenom et nom responsalbe :</h2>
+              <h2>Prénom et nom responsalbe :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
                 {{ entreprise.prenomResponsable }}
                 {{ entreprise.nomResponsable }}
               </p>
-              <!-- Formulaire prenom et nom responsable -->
+              <!-- Formulaire prénom et nom responsable -->
               <mat-form-field *ngIf="modification">
-                <!-- Prenom -->
+                <!-- Prénom -->
                 <input
                   matInput
                   type="text"
@@ -333,14 +333,14 @@
               </mat-form-field>
             </div>
           </div>
-          <!-- Resumer de l'entreprise -->
+          <!-- Résumé de l'entreprise -->
           <div class="row">
             <div class="col-6 tableauStagiaire">
-              <h2>Resumer de l'entreprise :</h2>
+              <h2>Résumé de l'entreprise :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">{{ entreprise.aPropos }}</p>
-              <!-- Formulaire resumer de l'entreprise -->
+              <!-- Formulaire résumé de l'entreprise -->
               <mat-form-field *ngIf="modification">
                 <textarea
                   matInput

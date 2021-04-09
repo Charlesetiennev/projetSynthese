@@ -21,7 +21,7 @@ describe('FormulaireStagiaireComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Le formulaire est invalide', async () => {
+  it('Le formulaire est invalide.', async () => {
     component.stagiaireAjoutForm.controls['prenom'].setValue('12');
     component.stagiaireAjoutForm.controls['nom'].setValue('!');
     component.stagiaireAjoutForm.controls['courriel'].setValue('cliase');
@@ -34,7 +34,7 @@ describe('FormulaireStagiaireComponent', () => {
     component.stagiaireAjoutForm.controls['motDePasse'].setValue('123');
     expect(component.stagiaireAjoutForm.valid).toBeFalsy();
   });
-  it('Le formulaire est valide', async () => {
+  it('Le formulaire est valide.', async () => {
     component.stagiaireAjoutForm.controls['prenom'].setValue('Eric');
     component.stagiaireAjoutForm.controls['nom'].setValue('Balapa');
     component.stagiaireAjoutForm.controls['courriel'].setValue(

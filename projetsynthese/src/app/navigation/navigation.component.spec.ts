@@ -17,11 +17,11 @@ describe('NavigationComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Verifie que les 5 liens de la navigation sont present ', async () => {
+  it('Vérifiez que les 5 liens de la navigation sont présents. ', async () => {
     expect(fixture.debugElement.queryAll(By.css('a')).length).toBe(5);
   });
 
-  it("Verifie qu'il n'y a pas plus de cinq liens", async () => {
+  it("Vérifiez qu'il n'y a pas plus de 5 liens.", async () => {
     expect(
       fixture.debugElement.queryAll(By.css('a')).length
     ).not.toBeGreaterThan(5);

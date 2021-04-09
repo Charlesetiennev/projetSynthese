@@ -18,12 +18,12 @@ describe('PiedDePageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('H3 doit avoir la classe font-weight-bold', async () => {
+  it('H3 doit avoir la classe font-weight-bold.', async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h3')).toHaveClass('font-weight-bold');
   });
 
-  it('H3 ne dois pas avoir la classe font-weight-light', async () => {
+  it('H3 ne doit pas avoir la classe font-weight-light.', async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h3')).not.toHaveClass('font-weight-light');
   });

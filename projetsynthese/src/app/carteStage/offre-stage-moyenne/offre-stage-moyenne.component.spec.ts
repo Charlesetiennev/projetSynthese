@@ -18,12 +18,12 @@ describe('OffreStageMoyenneComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Description doit contenir moins de 78 caracteres ', () => {
+  it('Description doit contenir au maximum 78 caractères.', () => {
     const description = fixture.debugElement.query(By.css('.description'))
       .nativeElement;
     expect(description.innerHTML.length).toBeLessThanOrEqual(78);
   });
-  it('Description ne dois pas etre vide', () => {
+  it('Description ne doit pas être vide.', () => {
     const description = fixture.debugElement.query(By.css('.description'))
       .nativeElement;
     expect(description.innerHTML).not.toBeNull();

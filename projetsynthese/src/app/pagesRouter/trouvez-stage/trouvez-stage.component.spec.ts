@@ -21,10 +21,10 @@ describe('TrouvezStageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Titre devrais envoyer Offres de stage', () => {
+  it('Titre devrait envoyer Offres de stage', () => {
     expect(component.titre).not.toBe('Offre de stages');
   });
-  it('Titre devrais envoyer Offres de stage', () => {
+  it('Titre devrait envoyer Offres de stage', () => {
     expect(component.titre).toBe('Offres de stage');
   });
 });

@@ -81,7 +81,7 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
-  // Modification Stagiaire
+  // Modification entreprise
   majEntreprise(entreprise: Entreprise): Observable<Entreprise> {
     const id = entreprise._id;
     return this.http.put<Entreprise>(
@@ -112,6 +112,19 @@ export class ApiProjetSyntheseService {
       nouvelleOffreStage,
       httpOptions
     );
+  }
+  // Modification offre de stage
+  majOffreDeStage(offreStage: OffreStage): Observable<OffreStage> {
+    const id = offreStage._id;
+    return this.http.put<OffreStage>(
+      this.offresStagesUrl + id,
+      offreStage,
+      httpOptions
+    );
+  }
+  // Suppression offre de stage
+  suppressionOffreDeStage(id: string | null): Observable<OffreStage> {
+    return this.http.delete<OffreStage>(this.offresStagesUrl + id, httpOptions);
   }
   // ****************
   // DEMANDES DE STAGES

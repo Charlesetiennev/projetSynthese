@@ -1,98 +1,327 @@
 <div class="card rounded-0">
   <div class="card-body">
-    <div class="row bordureTitreCarte d-flex justify-content-between mb-2">
-      <div class="d-flex">
+    <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
+    <form
+      id="formulaireEdition"
+      #formulaireEdition="ngForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="row bordureTitreCarte d-flex justify-content-between mb-2">
+        <div class="d-flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="31.5"
+            height="36"
+            viewBox="0 0 31.5 36"
+          >
+            <path
+              id="Icon_awesome-user-tie"
+              data-name="Icon awesome-user-tie"
+              d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
+            />
+          </svg>
+          <!-- Titre -->
+          <h1 *ngIf="!modification" class="m-0">{{ offreStage?.titre }}</h1>
+          <!-- Formulaire Titre -->
+          <mat-form-field *ngIf="modification">
+            <input
+              matInput
+              type="text"
+              minlength="2"
+              maxlength="50"
+              [(ngModel)]="offreStage.titre"
+              [ngModelOptions]="{ standalone: true }"
+              value="{{ offreStage.titre }}"
+            />
+          </mat-form-field>
+        </div>
+        <div>Publié le : {{ offreStage?.dateDeParution | date }}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <!-- Ville -->
+          <div class="card-text">
+            Ville : <span *ngIf="!modification">{{ offreStage?.ville }}</span>
+            <!-- Formulaire ville -->
+            <mat-form-field *ngIf="modification">
+              <input
+                type="text"
+                matInput
+                minlength="2"
+                maxlength="50"
+                [(ngModel)]="offreStage.ville"
+                [ngModelOptions]="{ standalone: true }"
+                pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                value="{{ offreStage.ville }}"
+              />
+            </mat-form-field>
+          </div>
+          <!-- Emploi après stage -->
+          <div class="card-text">
+            Emploi après stage :
+            <span *ngIf="!modification && offreStage.emploieApresStage === true"
+              >Oui</span
+            >
+            <span
+              *ngIf="!modification && offreStage.emploieApresStage === false"
+              >Non</span
+            >
+            <!-- Formulaire emploi après stage -->
+            <mat-form-field *ngIf="modification">
+              <select
+                matNativeControl
+                required
+                [(ngModel)]="offreStage.emploieApresStage"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option [ngValue]="true">Oui</option>
+                <option [ngValue]="false">Non</option>
+              </select>
+            </mat-form-field>
+          </div>
+          <!-- Rémunération -->
+          <div class="card-text">
+            Rémunération :
+            <span *ngIf="!modification && offreStage.remuneration === true"
+              >Oui</span
+            >
+            <span *ngIf="!modification && offreStage.remuneration === false"
+              >Non</span
+            >
+            <!-- Formulaire rémunération -->
+            <mat-form-field *ngIf="modification">
+              <select
+                matNativeControl
+                required
+                [(ngModel)]="offreStage.remuneration"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option [ngValue]="true">Oui</option>
+                <option [ngValue]="false">Non</option>
+              </select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <!-- Date début -->
+          <div class="card-text">
+            Début :
+            <span *ngIf="!modification">{{
+              offreStage?.dateDebut | date
+            }}</span>
+            <!-- Formulaire date début -->
+            <mat-form-field *ngIf="modification">
+              <input
+                matInput
+                [(ngModel)]="offreStage.dateDebut"
+                [ngModelOptions]="{ standalone: true }"
+                value="{{ offreStage.dateDebut }}"
+                required
+                [matDatepicker]="picker"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <!-- Date fin  -->
+          <div class="card-text">
+            Fin :
+            <span *ngIf="!modification">{{ offreStage?.dateFin | date }}</span>
+            <!-- Formulaire date de fin -->
+            <mat-form-field *ngIf="modification">
+              <input
+                matInput
+                [(ngModel)]="offreStage.dateFin"
+                [ngModelOptions]="{ standalone: true }"
+                value="{{ offreStage.dateFin }}"
+                required
+                [matDatepicker]="picker2"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <!-- Nombres d'heures semaine -->
+          <div class="card-text">
+            Nombres d'heures semaine :
+            <span *ngIf="!modification">{{
+              offreStage.nombreHeuresSemaine
+            }}</span>
+            <!-- Formulaire nombres d'heures semaine -->
+            <mat-form-field *ngIf="modification">
+              <input
+                type="number"
+                matInput
+                min="1"
+                max="50"
+                [(ngModel)]="offreStage.nombreHeuresSemaine"
+                [ngModelOptions]="{ standalone: true }"
+                value="{{ offreStage.nombreHeuresSemaine }}"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12">
+          <!-- Secteurs d'activitées -->
+          <div class="card-text">
+            Secteurs d'activitées :
+            <span *ngIf="!modification">{{
+              offreStage?.entreprise?.secteurActivite
+            }}</span>
+            <!-- Formulaire secteurs d'activitées -->
+            <mat-form-field *ngIf="modification" class="w-100">
+              <mat-label class="text-secondary">Secteurs d'activitées</mat-label>
+              <mat-select
+                required
+                [(ngModel)]="offreStage.entreprise.secteurActivite"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <mat-option
+                  *ngFor="let secteurActivite of secteursActivites"
+                  [value]="secteurActivite.titre"
+                  >{{ secteurActivite.titre }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <!-- Description du stage -->
+          <div class="card-text">
+            Description du stage :
+            <span *ngIf="!modification">{{ offreStage?.description }}</span>
+            <!-- Formulaire description du stage -->
+            <mat-form-field *ngIf="modification" class="w-100">
+              <textarea
+                matInput
+                minlength="20"
+                maxlength="1500"
+                [(ngModel)]="offreStage.description"
+                [ngModelOptions]="{ standalone: true }"
+                required
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="4"
+                cdkAutosizeMaxRows="10"
+                >{{ offreStage.description }}</textarea
+              >
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-6">
+          <!-- Compétences recherchés -->
+          <div class="card-text">
+            Compétence recherchés :
+            <span *ngIf="!modification">{{
+              offreStage?.competencesRechercher
+            }}</span>
+            <!-- Formulaire Compétences recherchés -->
+            <mat-form-field *ngIf="modification" class="w-100">
+              <textarea
+                matInput
+                minlength="20"
+                maxlength="1500"
+                [(ngModel)]="offreStage.competencesRechercher"
+                [ngModelOptions]="{ standalone: true }"
+                required
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="4"
+                cdkAutosizeMaxRows="10"
+                >{{ offreStage.competencesRechercher }}</textarea
+              >
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12">
+          <!-- Informations supplémentaires -->
+          <div class="card-text">
+            Informations supplémentaires :
+            <span *ngIf="!modification">{{
+              offreStage?.informationSupplementaire
+            }}</span>
+            <!-- Formulaire informations supplémentaires -->
+            <mat-form-field *ngIf="modification" class="w-100">
+              <textarea
+                matInput
+                minlength="20"
+                maxlength="1500"
+                [(ngModel)]="offreStage.informationSupplementaire"
+                [ngModelOptions]="{ standalone: true }"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="4"
+                cdkAutosizeMaxRows="10"
+                >{{ offreStage.informationSupplementaire }}</textarea
+              >
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="row d-flex justify-content-start">
+        <div class="card-body d-flex pb-0">
+          <button *ngIf="modification" class="btn btn-info px-3 pt-2">
+            Terminez
+          </button>
+
+          <button
+            *ngIf="modification"
+            (click)="annuler()"
+            class="m-0 ml-2 btn btn-warning text-white"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row d-flex justify-content-end">
+      <button
+        (click)="ouvrirFormulaire()"
+        class="px-3 m-0 mr-2 text-dark bordureLiens btn-bg"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="31.5"
-          height="36"
-          viewBox="0 0 31.5 36"
+          width="16"
+          height="14.219"
+          viewBox="0 0 16 14.219"
         >
           <path
-            id="Icon_awesome-user-tie"
-            data-name="Icon awesome-user-tie"
-            d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
+            id="Icon_awesome-edit"
+            data-name="Icon awesome-edit"
+            d="M11.183,2.315l2.506,2.506a.272.272,0,0,1,0,.383L7.622,11.271l-2.578.286a.54.54,0,0,1-.6-.6l.286-2.578L10.8,2.315A.272.272,0,0,1,11.183,2.315Zm4.5-.636L14.328.324a1.086,1.086,0,0,0-1.533,0l-.983.983a.272.272,0,0,0,0,.383L14.317,4.2a.272.272,0,0,0,.383,0l.983-.983a1.086,1.086,0,0,0,0-1.533ZM10.667,9.621v2.828H1.778V3.56H8.161a.342.342,0,0,0,.236-.1L9.508,2.351a.333.333,0,0,0-.236-.569H1.333A1.334,1.334,0,0,0,0,3.115v9.778a1.334,1.334,0,0,0,1.333,1.333h9.778a1.334,1.334,0,0,0,1.333-1.333V8.51a.334.334,0,0,0-.569-.236L10.764,9.385A.342.342,0,0,0,10.667,9.621Z"
+            transform="translate(0 -0.007)"
+            fill="#206d2f"
           />
         </svg>
-        <h1 class="m-0">{{ offreStage?.titre }}</h1>
-      </div>
-      <div>Publie le : {{ offreStage?.dateDeParution }}</div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="card-subtitle text-secondary">
-          {{ offreStage?.entreprise?.nomEntreprise }}
-        </div>
-        <div class="card-text">
-          Ville : <span>{{ offreStage?.entreprise?.ville }}</span>
-        </div>
-        <div class="card-text">
-          Secteurs dactivite :
-          <span>{{ offreStage?.entreprise?.secteurActivite }}</span>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <div class="card-text">
-          Competence Recherche :
-          <span>{{ offreStage?.competencesRechercher }}</span>
-        </div>
-        <div class="card-text">
-          Debut : <span>{{ offreStage?.dateDebut }}</span>
-        </div>
-        <div class="card-text">
-          Fin : <span>{{ offreStage?.dateFin }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="card-text px-3">
-        {{ offreStage?.description }}
-      </div>
-    </div>
-    <div class="row d-flex justify-content-between">
-      <div class="card-body d-flex pb-0">
-        <a href="#" class="badge-info px-3 pt-2">Details</a>
-      </div>
-      <div class="card-body d-flex justify-content-end pb-0">
-        <a
-          href="#"
-          class="px-3 pt-2 m-0 mr-2 text-dark bordureLiens border-light"
+        Modifier
+      </button>
+      <button class="px-3 py-2 text-dark bordureLiens btn-bg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="14"
+          viewBox="0 0 16 14"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="14.219"
-            viewBox="0 0 16 14.219"
-          >
-            <path
-              id="Icon_awesome-edit"
-              data-name="Icon awesome-edit"
-              d="M11.183,2.315l2.506,2.506a.272.272,0,0,1,0,.383L7.622,11.271l-2.578.286a.54.54,0,0,1-.6-.6l.286-2.578L10.8,2.315A.272.272,0,0,1,11.183,2.315Zm4.5-.636L14.328.324a1.086,1.086,0,0,0-1.533,0l-.983.983a.272.272,0,0,0,0,.383L14.317,4.2a.272.272,0,0,0,.383,0l.983-.983a1.086,1.086,0,0,0,0-1.533ZM10.667,9.621v2.828H1.778V3.56H8.161a.342.342,0,0,0,.236-.1L9.508,2.351a.333.333,0,0,0-.236-.569H1.333A1.334,1.334,0,0,0,0,3.115v9.778a1.334,1.334,0,0,0,1.333,1.333h9.778a1.334,1.334,0,0,0,1.333-1.333V8.51a.334.334,0,0,0-.569-.236L10.764,9.385A.342.342,0,0,0,10.667,9.621Z"
-              transform="translate(0 -0.007)"
-              fill="#206d2f"
-            />
-          </svg>
-          Modifier</a
-        >
-        <a href="#" class="px-3 py-2 text-dark bordureLiens border-light">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="14"
-            viewBox="0 0 16 14"
-          >
-            <path
-              id="Icon_awesome-window-close"
-              data-name="Icon awesome-window-close"
-              d="M14.5,2.25H1.5A1.5,1.5,0,0,0,0,3.75v11a1.5,1.5,0,0,0,1.5,1.5h13a1.5,1.5,0,0,0,1.5-1.5v-11A1.5,1.5,0,0,0,14.5,2.25Zm-2.612,9.078a.385.385,0,0,1,0,.544l-1.266,1.266a.385.385,0,0,1-.544,0L8,11.041l-2.078,2.1a.385.385,0,0,1-.544,0L4.113,11.872a.385.385,0,0,1,0-.544l2.1-2.078-2.1-2.078a.385.385,0,0,1,0-.544L5.378,5.363a.385.385,0,0,1,.544,0L8,7.459l2.078-2.1a.385.385,0,0,1,.544,0l1.266,1.266a.385.385,0,0,1,0,.544L9.791,9.25Z"
-              transform="translate(0 -2.25)"
-              fill="#b10000"
-            />
-          </svg>
-          Supprimer</a
-        >
-      </div>
+          <path
+            id="Icon_awesome-window-close"
+            data-name="Icon awesome-window-close"
+            d="M14.5,2.25H1.5A1.5,1.5,0,0,0,0,3.75v11a1.5,1.5,0,0,0,1.5,1.5h13a1.5,1.5,0,0,0,1.5-1.5v-11A1.5,1.5,0,0,0,14.5,2.25Zm-2.612,9.078a.385.385,0,0,1,0,.544l-1.266,1.266a.385.385,0,0,1-.544,0L8,11.041l-2.078,2.1a.385.385,0,0,1-.544,0L4.113,11.872a.385.385,0,0,1,0-.544l2.1-2.078-2.1-2.078a.385.385,0,0,1,0-.544L5.378,5.363a.385.385,0,0,1,.544,0L8,7.459l2.078-2.1a.385.385,0,0,1,.544,0l1.266,1.266a.385.385,0,0,1,0,.544L9.791,9.25Z"
+            transform="translate(0 -2.25)"
+            fill="#b10000"
+          />
+        </svg>
+        Supprimer
+      </button>
     </div>
   </div>
 </div>

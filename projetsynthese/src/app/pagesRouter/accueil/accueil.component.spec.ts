@@ -17,13 +17,13 @@ describe('AccueilComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it("Récupération du h1 pour vérifiez son contenu n'a pas de faute", async () => {
+  it("Récupération du H1 pour vérifier que son contenu n'a pas de faute.", async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain(
       'Facile à utiliser!'
     );
   });
-  it("Récupération du h1 pour vérifiez son contenu n'a pas de faute", async () => {
+  it("Récupération du H1 pour vérifier que son contenu n'a pas de faute.", async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).not.toContain(
       'Facile a utiliser!'

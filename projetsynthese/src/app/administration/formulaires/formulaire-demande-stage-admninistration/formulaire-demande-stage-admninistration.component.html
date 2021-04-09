@@ -2,9 +2,9 @@
   <div class="row m-0" style="margin-right: 0 !important">
     <!-- Navigation Gauche -->
     <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
-    <!-- Action au de page -->
+    <!-- Action haut de page -->
     <app-action-haut-admin class="col-10"></app-action-haut-admin>
-    <!-- Contenue -->
+    <!-- Contenu -->
     <div class="offset-2 col-10 px-5">
       <!-- FORMULAIRE -->
       <form
@@ -26,15 +26,15 @@
               [ngClass]="{ 'is-invalid': soumission && f.titre.errors }"
             />
             <div *ngIf="soumission && f.titre.errors" class="invalid-feedback">
-              <div *ngIf="f.titre.errors.required">Le titre est requis</div>
+              <div *ngIf="f.titre.errors.required">Le titre est requis.</div>
               <div *ngIf="f.titre.errors.minlength || f.titre.errors.maxlength">
-                Le titre doit comporter entre 2 et 50 caracteres
+                Le titre doit comporter entre 2 et 50 caractères.
               </div>
             </div>
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- type de stage -->
+          <!-- Type de stage -->
           <mat-form-field>
             <mat-label>Type de stage</mat-label>
             <mat-select
@@ -56,7 +56,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.typeDeStage.errors.required">
-                Le type de stage est requis
+                Le type de stage est requis.
               </div>
             </div>
           </mat-form-field>
@@ -76,18 +76,18 @@
             <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
               <div *ngIf="f.ville.errors.required">La ville est requis</div>
               <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
-                La ville doit comporter entre 2 et 50 caracteres
+                La ville doit comporter entre 2 et 50 caractères.
               </div>
               <div *ngIf="f.ville.errors.pattern">
-                La ville doit etre compose que de lettres
+                La ville doit être composée que de lettres.
               </div>
             </div>
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- Date de debut -->
+          <!-- Date de début -->
           <mat-form-field>
-            <mat-label>Date Debut du stage</mat-label>
+            <mat-label>Date début du stage</mat-label>
             <input
               matInput
               required
@@ -105,7 +105,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.dateDebut.errors.required">
-                La date de debut est requis
+                La date de début est requis.
               </div>
             </div>
           </mat-form-field>
@@ -129,7 +129,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.dateFin.errors.required">
-                La date de fin est requis
+                La date de fin est requis.
               </div>
             </div>
           </mat-form-field>
@@ -155,7 +155,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.nombreHeuresSemaine.errors.required">
-                Le nombres d'heure par semaine est requis.
+                Le nombres d'heures par semaine est requis.
               </div>
               <div
                 *ngIf="
@@ -163,7 +163,7 @@
                   f.nombreHeuresSemaine.errors.max
                 "
               >
-                Le nombres d'heures doit etre entre 1 et 50 heures semaine.
+                Le nombres d'heures doit être entre 1 et 50 heures par semaine.
               </div>
             </div>
           </mat-form-field>
@@ -186,7 +186,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.programmeSuivi.errors.required">
-                Le programme suivi est requis
+                Le programme suivi est requis.
               </div>
               <div
                 *ngIf="
@@ -194,15 +194,15 @@
                   f.programmeSuivi.errors.maxlength
                 "
               >
-                Le programme suivi doit comporter entre 2 et 50 caracteres
+                Le programme suivi doit comporter entre 2 et 50 caractères.
               </div>
             </div>
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- Remuneration -->
+          <!-- Rémunération -->
           <mat-form-field>
-            <mat-label>Remuneration : </mat-label>
+            <mat-label>Rémunération : </mat-label>
             <mat-select required formControlName="remuneration">
               <mat-option
                 *ngFor="let remunerationsChoix of remunerationChoix"
@@ -225,12 +225,12 @@
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- Competences Acquices -->
+          <!-- Compétences acquises -->
           <mat-form-field>
             <input
               matInput
               type="text"
-              placeholder="Competences acquises"
+              placeholder="Compétences acquises"
               minlength="2"
               maxlength="500"
               required
@@ -244,7 +244,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.competencesAcquises.errors.required">
-                Vos competences acquises sont requis
+                Vos compétences acquises sont requis.
               </div>
               <div
                 *ngIf="
@@ -252,8 +252,8 @@
                   f.competencesAcquises.errors.maxlength
                 "
               >
-                Vos competences acquises doit comprendre entre 2 et 500
-                caracteres
+                Vos compétences acquises doivent comprendre entre 2 et 500
+                caractères.
               </div>
             </div>
           </mat-form-field>
@@ -263,7 +263,7 @@
               matInput
               type="text"
               formControlName="informationSupplementaire"
-              placeholder="Informations supplementaires"
+              placeholder="Informations supplémentaires"
               minlength="2"
               maxlength="500"
             />
@@ -272,7 +272,7 @@
         <div class="row">
           <!-- Description -->
           <mat-form-field class="w-50">
-            <mat-label>Description du stage demander</mat-label>
+            <mat-label>Description du stage demandé</mat-label>
             <textarea
               matInput
               minlength="20"
@@ -292,7 +292,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.description.errors.required">
-                Vous devez entrer une description du stage recherches
+                Vous devez entrer une description du stage recherché.
               </div>
               <div
                 *ngIf="
@@ -300,7 +300,7 @@
                   f.description.errors.maxlength
                 "
               >
-                Votre description doit comprendre entre 20 et 1500 caracteres
+                Votre description doit comprendre entre 20 et 1500 caractères.
               </div>
             </div>
           </mat-form-field>

@@ -29,7 +29,7 @@ describe('FicheCandidatAdminComponent', () => {
   it('Ouverture du bouton de modification', async () => {
     expect(component.modification.valueOf).not.toBeTrue;
   });
-  it("Verifie que le formulaire n'est pas a true(afficher) au depart", async () => {
+  it("Vérifiez que le formulaire n'est pas affiché au départ.", async () => {
     expect(component.modification.valueOf).toBeFalse;
   });
 });

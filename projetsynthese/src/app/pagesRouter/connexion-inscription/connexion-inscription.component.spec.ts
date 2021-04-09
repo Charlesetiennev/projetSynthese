@@ -17,10 +17,10 @@ describe('ConnexionInscriptionComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it("S'assure que le composant de connexion entreprise n'est pas ouvert au depart", () => {
+  it("S'assurez que le composant de connexion entreprise n'est pas ouvert au départ", () => {
     expect(component.formulaireDiv.entreprise).toBeFalse();
   });
-  it("S'assure que le composant de connexion stagiaire n'est pas ouvert au depart", () => {
+  it("S'assurez que le composant de connexion stagiaire n'est pas ouvert au départ", () => {
     expect(component.formulaireDiv.stagiaire).toBeFalse();
   });
 });

@@ -2,9 +2,9 @@
   <div class="row m-0" style="margin-right: 0 !important">
     <!-- Navigation Gauche -->
     <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
-    <!-- Action au de page -->
+    <!-- Action haut de page -->
     <app-action-haut-admin class="col-10"></app-action-haut-admin>
-    <!-- Contenue -->
+    <!-- Contenu -->
     <div class="offset-2 col-10 px-5">
       <!--  -->
       <form
@@ -33,7 +33,7 @@
               </div>
             </div>
           </mat-form-field>
-          <!-- ville -->
+          <!-- Ville -->
           <mat-form-field class="ml-2">
             <input
               matInput
@@ -47,18 +47,18 @@
               [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
             />
             <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
-              <div *ngIf="f.ville.errors.required">La ville est requis</div>
+              <div *ngIf="f.ville.errors.required">La ville est requis.</div>
               <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
-                La ville doit comporter entre 2 et 50 caracteres
+                La ville doit comporter entre 2 et 50 caractères.
               </div>
               <div *ngIf="f.ville.errors.pattern">
-                La ville doit etre compose que de lettres
+                La ville doit être composée que de lettres.
               </div>
             </div>
           </mat-form-field>
-          <!-- Secteurs activites -->
+          <!-- Secteur d'activitée -->
           <mat-form-field>
-            <mat-label class="text-secondary">Secteurs d'avtivites</mat-label>
+            <mat-label class="text-secondary"> Secteur activitée</mat-label>
             <mat-select formControlName="secteursActivites" required>
               <mat-option
                 *ngFor="let secteurActivite of secteursActivites"
@@ -69,9 +69,9 @@
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- Date de debut -->
+          <!-- Date de début -->
           <mat-form-field>
-            <mat-label>Date Debut du stage</mat-label>
+            <mat-label>Date début du stage</mat-label>
             <input
               matInput
               required
@@ -89,7 +89,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.dateDebut.errors.required">
-                La date de debut est requis
+                La date de début est requis.
               </div>
             </div>
           </mat-form-field>
@@ -113,13 +113,13 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.dateFin.errors.required">
-                La date de fin est requis
+                La date de fin est requis.
               </div>
             </div>
           </mat-form-field>
         </div>
         <div class="row">
-          <!-- NombreheuresSemaine -->
+          <!-- Nombre d'heures par semaine -->
 
           <mat-form-field class="ml-2">
             <input
@@ -139,7 +139,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.nombreHeuresSemaine.errors.required">
-                Le nombres d'heure par semaine est requis.
+                Le nombre d'heures par semaine est requis.
               </div>
               <div
                 *ngIf="
@@ -147,21 +147,21 @@
                   f.nombreHeuresSemaine.errors.max
                 "
               >
-                Le nombres d'heures doit etre entre 1 et 50 heures semaine.
+                Le nombre d'heures doit être entre 1 et 50 heures par semaine.
               </div>
             </div>
           </mat-form-field>
-          <!-- Remuneration -->
+          <!-- Rémunération -->
           <mat-form-field>
-            <mat-label>Remuneration : </mat-label>
+            <mat-label>Rémunération : </mat-label>
             <select matNativeControl required formControlName="remuneration">
               <option [ngValue]="true">Oui</option>
               <option [ngValue]="false">Non</option>
             </select>
           </mat-form-field>
-          <!-- Emploie ApresStage -->
+          <!-- Emploi après stage -->
           <mat-form-field>
-            <mat-label>Emploi apres stage : </mat-label>
+            <mat-label>Emploi après stage : </mat-label>
             <select
               matNativeControl
               required
@@ -195,7 +195,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.description.errors.required">
-                La description du stage est requis
+                La description du stage est requis.
               </div>
               <div
                 *ngIf="
@@ -204,13 +204,13 @@
                 "
               >
                 La description du stage doit comprendre entre 20 et 1500
-                caracteres
+                caractères.
               </div>
             </div>
           </mat-form-field>
 
           <mat-form-field class="ml-2">
-            <mat-label>Competences recherches</mat-label>
+            <mat-label>Compétences recherchées</mat-label>
             <textarea
               matInput
               minlength="20"
@@ -230,7 +230,7 @@
               class="invalid-feedback"
             >
               <div *ngIf="f.competencesRechercher.errors.required">
-                Vous devez entrer les competences recherches
+                Vous devez entrer les compétences recherchées.
               </div>
               <div
                 *ngIf="
@@ -238,14 +238,14 @@
                   f.competencesRechercher.errors.maxlength
                 "
               >
-                Les competences recherches doit comprendre entre 20 et 1500
-                caracteres
+                Les compétences recherchées doit comprendre entre 20 et 1500
+                caractères
               </div>
             </div>
           </mat-form-field>
-          <!-- Informatios supplementaires -->
+          <!-- Informations supplémentaires -->
           <mat-form-field class="ml-2">
-            <mat-label>Information supplementaires</mat-label>
+            <mat-label>Information supplémentaires</mat-label>
             <textarea
               matInput
               formControlName="informationSupplementaire"

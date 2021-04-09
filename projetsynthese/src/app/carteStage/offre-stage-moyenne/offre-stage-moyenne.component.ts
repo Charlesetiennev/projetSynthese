@@ -8,6 +8,7 @@ import { OffreStage } from '../../offre-stage';
 })
 export class OffreStageMoyenneComponent implements OnInit {
   @Input() offreStage: OffreStage;
+
   constructor() {}
 
   ngOnInit(): void {}

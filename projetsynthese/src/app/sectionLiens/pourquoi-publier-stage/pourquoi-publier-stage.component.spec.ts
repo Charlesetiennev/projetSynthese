@@ -17,10 +17,10 @@ describe('PourquoiPublierStageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('Doit contenir le bon nombre de li dans la liste', () => {
+  it('Doit contenir le bon nombre de LI dans la liste.', () => {
     expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(3);
   });
-  it("S'assure qu'il n'y a pas moins de 3 li dans la liste", () => {
+  it("S'assurez qu'il y a un maximum de 3 LI dans la liste.", () => {
     expect(fixture.debugElement.queryAll(By.css('li')).length).not.toBeLessThan(
       3
     );

@@ -7,11 +7,14 @@
     <div class="offset-2 col-10 px-5">
       <!-- Content -->
 
-      <div class="row">
-        <h1>En attente de valitadion</h1>
+      <div class="row" *ngIf="env.statusDeConnexion === 'administrateur'">
+        <h1>En attente de validation</h1>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-lg-6">
+        <div
+          class="col-xs-12 col-lg-6"
+          *ngIf="env.statusDeConnexion === 'administrateur'"
+        >
           <div class="row">
             <!-- DEMANDES DE STAGE -->
             <h2>Demandes de stage</h2>
@@ -57,7 +60,7 @@
             ></app-attente-demande-stage>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-6">
+        <div class="col-12">
           <div class="row">
             <!-- OFFRES DE STAGE -->
             <h2>Offres de stage</h2>
@@ -97,9 +100,9 @@
             </svg>
           </div>
           <div *ngFor="let offreStage of offresStages" class="pb-3">
-            <app-attente-offre-stage
+            <app-offre-stage-detail
               [offreStage]="offreStage"
-            ></app-attente-offre-stage>
+            ></app-offre-stage-detail>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Secteur d'activites
+    // Secteurs d'activitées
     this.recuperationSecteursActivites();
     //
     this.offreStageAjoutForm = this.formBuilder.group({
@@ -139,7 +139,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
     this.soumission = false;
     this.offreStageAjoutForm.reset();
   }
-  // Recuperations des secteurs d'activites
+  // Récuperations des secteurs d'activitées
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

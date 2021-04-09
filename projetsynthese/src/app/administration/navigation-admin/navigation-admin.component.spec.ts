@@ -18,11 +18,11 @@ describe('NavigationAdminComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it("Récupération du logo pour vérifiez son contenu n'a pas de faute", async () => {
+  it("Récupération du logo pour vérifier que son contenu n'a pas de faute", async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('eStage');
   });
-  it("Récupération du logo pour vérifiez son contenu n'a pas de faute", async () => {
+  it("Récupération du logo pour vérifier que son contenu n'a pas de faute", async () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).not.toContain('estage');
   });
