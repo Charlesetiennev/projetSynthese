@@ -1,3 +1,6 @@
+// formulaire-offre-stage-administration.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { OffreStage } from '../../../offre-stage';
 import { SecteursActivites } from '../../../secteurs-activites';
@@ -11,10 +14,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaire-offre-stage-admin.component.sass'],
 })
 export class FormulaireOffreStageAdminComponent implements OnInit {
+  nouvelleOffreStage: OffreStage;
+  // Formulaire
   offreStageAjoutForm: FormGroup;
   soumission = false;
+  // Secteurs d'activités
   secteursActivites: SecteursActivites[];
-  nouvelleOffreStage: OffreStage;
 
   constructor(
     private router: Router,
@@ -23,9 +28,8 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Secteurs d'activitées
+    // Secteurs d'activités
     this.recuperationSecteursActivites();
-    //
     this.offreStageAjoutForm = this.formBuilder.group({
       titre: [
         '',
@@ -76,6 +80,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
   get f() {
     return this.offreStageAjoutForm.controls;
   }
+  // Action Formulaire
   onSubmit() {
     this.soumission = true;
     // Si formulaire valide
@@ -132,6 +137,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
         .subscribe(
           (nouvelleOffreStage) => (this.nouvelleOffreStage._id = null)
         );
+      // Redirection vers les offres de stage de l'entreprise
       this.router.navigate(['/administration/accueil']);
     } else {
       console.log('invalide');
@@ -142,7 +148,7 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
     this.soumission = false;
     this.offreStageAjoutForm.reset();
   }
-  // Récuperations des secteurs d'activitées
+  // Récuperation des secteurs d'activitées
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

@@ -1,3 +1,6 @@
+// petite-carte-stagiaires.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit, Input } from '@angular/core';
 import { Stagiaire } from '../../../stagiaire';
 

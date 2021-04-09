@@ -1,3 +1,6 @@
+// demande-stage-detail.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
@@ -12,14 +15,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./demande-stage-detail.component.sass'],
 })
 export class DemandeStageDetailComponent implements OnInit {
+  demandeStage: any;
+  _id: string | null;
   // Environement
   env = environement;
   // Modification
   modification = false;
+  // Formulaire
   formulaireEdition: NgForm;
   soumission = false;
-  demandeStage: any;
-  _id: string | null;
+  // Listes des champs a choix du formulaire
   typesDeStageListe: string[] = [
     'Temps plein',
     'Temps partiel',
@@ -45,6 +50,7 @@ export class DemandeStageDetailComponent implements OnInit {
   get f() {
     return this.formulaireEdition.controls;
   }
+  // Action du formulaire
   ouvrirFormulaire(): void {
     this.modification = true;
   }
@@ -58,6 +64,7 @@ export class DemandeStageDetailComponent implements OnInit {
   annuler(): void {
     this.modification = false;
   }
+  // Récupération d'une demande de stage par son ID
   recuperationDemandeStagesId(): void {
     this.apiProjetSyntheseService
       .recuperationDemandeStagesId(this._id)

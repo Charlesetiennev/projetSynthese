@@ -1,3 +1,6 @@
+// formulaire-demande-stage-administration.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { DemandeStage } from '../../../demande-stage';
 import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
@@ -10,9 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaire-demande-stage-admninistration.component.sass'],
 })
 export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
+  nouvelleDemandeStage: DemandeStage;
+  // Formulaire
   demandeStageAjoutForm: FormGroup;
   soumission = false;
-  nouvelleDemandeStage: DemandeStage;
+  // Listes des champs a choix du formulaire
   typesDeStageListe: string[] = [
     'Temps plein',
     'Temps partiel',
@@ -88,6 +93,7 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
   get f() {
     return this.demandeStageAjoutForm.controls;
   }
+  // Action Formulaire
   onSubmit() {
     this.soumission = true;
     // Si formulaire valide
@@ -137,6 +143,7 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
         .subscribe(
           (nouvelleDemandeStage) => (this.nouvelleDemandeStage._id = null)
         );
+      // Redirection vers la fiche du candidat
       this.router.navigate([
         '/administration/ficheCandidat/605a31da6caff70015917aa4',
       ]);

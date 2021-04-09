@@ -1,11 +1,14 @@
-<div class="container-fluid bg-light">
-  <div class="row">
-    <div class="col-2 p-0">
-      <app-navigation-admin></app-navigation-admin>
-    </div>
+<!-- liste-candidats-admin.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 9 Avril 2021 -->
+<div class="conteneur pl-0">
+  <div class="row m-0" style="margin-right: 0 !important">
+    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
 
-    <div class="col-10">
-      <app-action-haut-admin></app-action-haut-admin>
+    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+
+    <div class="offset-2 col-10 px-5 bg-light">
+      <!-- Contenu -->
       <div class="row pl-4">
         <h1>Liste des Candidats</h1>
         <svg
@@ -42,7 +45,8 @@
           </g>
         </svg>
       </div>
-      <div class="row w-75 pl-5">
+      <div class="row pl-5">
+        <!-- Carte des stagiaires -->
         <div class="col-4" *ngFor="let stagiaire of stagiaires">
           <app-petite-carte-stagiaires-admin
             [stagiaire]="stagiaire"

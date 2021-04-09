@@ -1,3 +1,6 @@
+// navigation-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environement } from '../../environement';
@@ -8,14 +11,14 @@ import { environement } from '../../environement';
 })
 export class NavigationAdminComponent implements OnInit {
   env = environement;
-  deconnexion() {
-    this.env.connecter = false;
-    this.router.navigate(['/']);
-  }
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.deconnexion;
-    console.log(this.env.statusDeConnexion);
+  }
+  // Déconnexion
+  deconnexion() {
+    this.env.connecter = false;
+    this.router.navigate(['/']);
   }
 }

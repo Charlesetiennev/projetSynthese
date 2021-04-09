@@ -1,5 +1,8 @@
+// action-haut-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
-//Environement
+import { Router } from '@angular/router';
 import { environement } from '../../environement';
 
 @Component({
@@ -9,7 +12,12 @@ import { environement } from '../../environement';
 })
 export class ActionHautAdminComponent implements OnInit {
   env = environement;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+  // Déconnexion
+  deconnexion() {
+    this.env.connecter = false;
+    this.router.navigate(['/']);
+  }
 }

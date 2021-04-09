@@ -10,7 +10,6 @@ import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/
 import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
 // Administration
 import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
-import { OffreStageAdminComponent } from './administration/offre-stage-admin/offre-stage-admin.component';
 import { FicheCandidatAdminComponent } from './administration/fiche-candidat-admin/fiche-candidat-admin.component';
 import { ListeCandidatsAdminComponent } from './administration/liste-candidats-admin/liste-candidats-admin.component';
 import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'connexion-insription', component: ConnexionInscriptionComponent },
   // Page Administration
   { path: 'administration/accueil', component: AccueilAdminComponent },
-  { path: 'administration/offreStage', component: OffreStageAdminComponent },
 
   {
     path: 'administration/demandeStageComplet/:id',

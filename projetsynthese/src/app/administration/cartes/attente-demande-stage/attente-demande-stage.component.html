@@ -1,3 +1,9 @@
+<!-- --------------------------------------------- -->
+<!-- ----Page non utilisé (Pour administrateur)--- -->
+<!-- --------------------------------------------- -->
+<!-- attente-demande-stage.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 9 Avril 2021 -->
 <div class="card carteAttente rounded-0 w-100">
   <div class="card-body">
     <div class="card-title bordureTitreCarte">
@@ -22,17 +28,14 @@
     </div>
     <div class="card-text">
       Ville :<span>
-        <!-- {{ stagiaire.ville }} -->
+        {{ demandeStage?.stagiaire?.ville }}
       </span>
     </div>
     <div class="card-text">
-      Etablissement Scolaire : {{ demandeStage?._id }}
+      Etablissement Scolaire :
       <span>
-        <!-- {{ stagiaire.formations }} -->
+        {{ demandeStage?.stagiaire?.formations }}
       </span>
-    </div>
-    <div class="card-text">
-      <!-- {{ stagiaire.messageMotivation }} -->
     </div>
     <div class="row d-flex justify-content-between">
       <div class="card-body d-flex">

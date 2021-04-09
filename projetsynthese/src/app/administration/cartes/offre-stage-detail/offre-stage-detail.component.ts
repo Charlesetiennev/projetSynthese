@@ -1,3 +1,6 @@
+// offre-stage-detail.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
 import { OffreStage } from '../../../offre-stage';
@@ -11,19 +14,23 @@ import { NgForm } from '@angular/forms';
 })
 export class OffreStageDetailComponent implements OnInit {
   @Input() offreStage: OffreStage | any;
-  secteursActivites: SecteursActivites[];
+  // Formulaire
   formulaireEdition: NgForm;
   modification = false;
   soumission = false;
+  // Secteurs d'activité
+  secteursActivites: SecteursActivites[];
+
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}
 
   ngOnInit(): void {
-    // Secteur d'activitées
+    // Secteur d'activité
     this.recuperationSecteursActivites();
   }
   get f() {
     return this.formulaireEdition.controls;
   }
+  // Action du formulaire
   onSubmit() {
     this.apiProjetSyntheseService
       .majOffreDeStage(this.offreStage)
@@ -43,7 +50,7 @@ export class OffreStageDetailComponent implements OnInit {
   annuler(): void {
     this.modification = false;
   }
-  // Récupérations des secteurs d'activitées
+  // Récupération des secteurs d'activitées
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

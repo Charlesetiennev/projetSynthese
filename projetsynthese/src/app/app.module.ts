@@ -29,9 +29,7 @@ import { FormulaireStagiaireComponent } from './formulaires/formulaire-stagiaire
 import { FormulaireEntrepriseComponent } from './formulaires/formulaire-entreprise/formulaire-entreprise.component';
 import { NavigationAdminComponent } from './administration/navigation-admin/navigation-admin.component';
 import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
-import { OffreStageAdminComponent } from './administration/offre-stage-admin/offre-stage-admin.component';
 import { DemandeStageAdminComponent } from './administration/demande-stage-admin/demande-stage-admin.component';
-import { CandidatsAdminComponent } from './administration/candidats-admin/candidats-admin.component';
 import { EntrepriseAdminComponent } from './administration/entreprise-admin/entreprise-admin.component';
 import { AttenteDemandeStageComponent } from './administration/cartes/attente-demande-stage/attente-demande-stage.component';
 import { AttenteOffreStageComponent } from './administration/cartes/attente-offre-stage/attente-offre-stage.component';
@@ -98,9 +96,7 @@ registerLocaleData(localeFr, 'fr');
     FormulaireEntrepriseComponent,
     NavigationAdminComponent,
     AccueilAdminComponent,
-    OffreStageAdminComponent,
     DemandeStageAdminComponent,
-    CandidatsAdminComponent,
     EntrepriseAdminComponent,
     AttenteDemandeStageComponent,
     AttenteOffreStageComponent,

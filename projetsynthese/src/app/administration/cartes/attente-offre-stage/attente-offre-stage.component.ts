@@ -1,3 +1,9 @@
+/*****************************************************/
+/********Page non utilisé (Pour administrateur)*******/
+/*****************************************************/
+// attende-offre-stage.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit, Input } from '@angular/core';
 import { from } from 'rxjs';
 import { OffreStage } from '../../../offre-stage';

@@ -1,3 +1,6 @@
+// liste-candidats-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { Stagiaire } from '../../stagiaire';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
@@ -13,6 +16,7 @@ export class ListeCandidatsAdminComponent implements OnInit {
   ngOnInit(): void {
     this.getStagiaires();
   }
+  //Récuperation des stagiaires
   getStagiaires(): void {
     this.apiProjetSyntheseService
       .getStagiaires()

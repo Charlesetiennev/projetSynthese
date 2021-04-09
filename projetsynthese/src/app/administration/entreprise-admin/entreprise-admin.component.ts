@@ -1,3 +1,6 @@
+// entreprise-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { Entreprise } from '../../entreprise';
 import { SecteursActivites } from '../../secteurs-activites';
@@ -12,14 +15,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./entreprise-admin.component.sass'],
 })
 export class EntrepriseAdminComponent implements OnInit {
+  _id: string | null;
+  entreprise: any;
   // Environement
   env = environement;
-  // Modification
+  // Formulaire
   modification = false;
   formulaireEdition: NgForm;
   soumission = false;
-  _id: string | null;
-  entreprise: any;
+  // Secteurs d'activité
   secteursActivites: SecteursActivites[];
   private sub: any;
   constructor(
@@ -27,7 +31,7 @@ export class EntrepriseAdminComponent implements OnInit {
     private apiProjetSyntheseService: ApiProjetSyntheseService
   ) {}
   ngOnInit(): void {
-    // Secteurs d'activitées
+    // Secteurs d'activité
     this.recuperationSecteursActivites();
     this.route.paramMap.subscribe((params: ParamMap) => {
       this._id = params.get('id');
@@ -37,17 +41,16 @@ export class EntrepriseAdminComponent implements OnInit {
   get f() {
     return this.formulaireEdition.controls;
   }
-
+  // Récupération d'une entreprise avec son champ ID
   entrepriseAvecId(): void {
     this.apiProjetSyntheseService
       .recuperationEntrepriseavecId(this._id)
       .subscribe((resultat) => (this.entreprise = resultat));
   }
-  // Ouverture du formulaire
+  // Action du formulaire
   ouvrirFormulaire(): void {
     this.modification = true;
   }
-  // soummission et annulation du formulaire
   onSubmit() {
     this.apiProjetSyntheseService
       .majEntreprise(this.entreprise)
@@ -58,7 +61,7 @@ export class EntrepriseAdminComponent implements OnInit {
   annuler(): void {
     this.modification = false;
   }
-  // Récupérations des secteurs d'activitées
+  // Récupérations des secteurs d'activité
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

@@ -1,10 +1,9 @@
+// accueil-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { Component, OnInit } from '@angular/core';
-
-//Offre Stage
 import { OffreStage } from '../../offre-stage';
-// Demande Stage
 import { DemandeStage } from '../../demande-stage';
-//Environement
 import { environement } from '../../environement';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 @Component({

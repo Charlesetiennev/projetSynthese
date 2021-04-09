@@ -1,3 +1,6 @@
+// fiche-candidat-admin.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -12,15 +15,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./fiche-candidat-admin.component.sass'],
 })
 export class FicheCandidatAdminComponent implements OnInit {
+  stagiaire: any;
+  _id: string | null;
   // Environement
   env = environement;
-  // Modification
+  // Formulaire
   modification = false;
-  _id: string | null;
-  formationsListe: string[] = ['AEC', 'DEC', 'BAC', 'Autres'];
   formulaireEdition: NgForm;
   soumission = false;
-  stagiaire: any;
+  // Liste pour le champs de la formation dans le formulaire
+  formationsListe: string[] = ['AEC', 'DEC', 'BAC', 'Autres'];
 
   private sub: any;
   constructor(
@@ -38,12 +42,13 @@ export class FicheCandidatAdminComponent implements OnInit {
   get f() {
     return this.formulaireEdition.controls;
   }
-
+  // Récupération d'un stagiaire par son ID
   stagiaireAvecId(): void {
     this.apiProjetSyntheseService
       .getStagiaireavecId(this._id)
       .subscribe((resultat) => console.log((this.stagiaire = resultat)));
   }
+  // Action du formulaire
   ouvrirFormulaire(): void {
     this.modification = true;
   }
@@ -52,8 +57,6 @@ export class FicheCandidatAdminComponent implements OnInit {
       .majStagiaire(this.stagiaire)
       .subscribe(() => (this.stagiaire = null));
     this.modification = false;
-
-    console.log(this.stagiaire);
   }
   annuler(): void {
     this.modification = false;
