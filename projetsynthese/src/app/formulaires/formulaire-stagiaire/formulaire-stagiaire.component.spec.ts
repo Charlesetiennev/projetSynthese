@@ -43,10 +43,10 @@ describe('FormulaireStagiaireComponent', () => {
     component.stagiaireAjoutForm.controls['telephone'].setValue('8197019322');
     component.stagiaireAjoutForm.controls['ville'].setValue('Valdor');
     component.stagiaireAjoutForm.controls['competences'].setValue(
-      'Plusieurs qui ne pourrais entrer en 20 caracteres'
+      'Plusieurs qui ne pourraient entrer en 20 caractères'
     );
     component.stagiaireAjoutForm.controls['messageMotivation'].setValue(
-      'Tres motiver aujourdhui et cest tres bien'
+      "Très motivé aujourd'hui et c'est très bien"
     );
     component.stagiaireAjoutForm.controls['motDePasse'].setValue('asdfgh');
     expect(component.stagiaireAjoutForm.valid).toBeTruthy;

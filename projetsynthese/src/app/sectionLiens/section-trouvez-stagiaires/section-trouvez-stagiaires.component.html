@@ -1,7 +1,6 @@
 <!-- Section-trouvez-stagiaires -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 25 Mars 2021 -->
-<!-- Validation W3 Effectuez -->
+<!-- Le 12 Avril 2021 -->
 
 <div class="container-fluid mb-5 pt-3">
   <div class="row my-5 no-gutters d-block text-center">
@@ -14,12 +13,12 @@
       tellus et elit aliquet, vitae dignissim ligula sodales.
     </p>
   </div>
-  <!-- Section affichage Stagiaires -->
+  <!-- Section affichage stagiaires -->
   <div class="container-fluid">
     <div class="row mx-4 mb-3">
       <!-- Stagiaire petit format -->
       <div
-        class="col-3"
+        class="col-xs-12 col-md-6 col-lg-3"
         *ngFor="let demandeStage of demandesStages | slice: 0:4"
       >
         <app-mini-stagiaire-carte
@@ -31,7 +30,7 @@
       <a
         routerLink="/trouvezStagiaire"
         class="badge-danger rounded px-2 py-1 font-weight-bold"
-        >Voir toutes les candidats</a
+        >Voir touts les candidats</a
       >
     </div>
   </div>

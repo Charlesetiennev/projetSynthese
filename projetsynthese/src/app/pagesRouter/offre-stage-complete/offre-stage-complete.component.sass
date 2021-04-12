@@ -2,9 +2,9 @@
 // Par Charles-Etienne Villemure
 // Le 26 Mars 2021
 @import '../../app.component'
-.bordure
+.bordureOffreDemandeComplet
     border: solid 1px #707070
-    // box-shadow:  inset -1px 0px 0px 5px #000000
+    //box-shadow:  inset -1px 0px 0px 5px #000000
 .col-7 , .col-3
     padding: 0 !important 
 :host
@@ -13,3 +13,13 @@
             transform: translateY(25%)
     button
         border-radius: 0
+.ficheEntete
+    border-top: none
+    @include lg
+        margin-left: 1rem
+        border-top: solid 1px #707070
+.ficheImage 
+    border-bottom: none
+    @include lg
+        padding-bottom: 3rem
+        border-bottom: solid 1px #707070

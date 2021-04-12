@@ -30,7 +30,7 @@ export class DemandeStageCompletComponent implements OnInit {
       .recuperationDemandeStagesId(this._id)
       .subscribe((resultat) => (this.demandeStage = resultat));
   }
-  // Calucul nombres semaines de stage
+  // Calcul nombres semaines de stage
   dureeDuStage(
     dateDebut: string | number | Date,
     dateFin: string | number | Date

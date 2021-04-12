@@ -1,6 +1,6 @@
 <!-- demandeStageComplet.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 6 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <section>
   <div
     class="header container-fluid d-flex justify-content-center align-items-center"
@@ -15,12 +15,12 @@
     <div class="row">
       <p class="titre text-white" style="font-size: 2.4rem">Demande de stage</p>
     </div>
-    <div class="row mx-5">
-      <div class="col-9">
+    <div class="row contenuPageListeStageStagiaire">
+      <div class="col-xs-12 col-md-9">
         <p>Accueil > Demandes de stage > {{ demandeStage?.titre }}</p>
         <div class="row ml-0">
           <div
-            class="col-3 d-flex flex-column justify-content-between text-center bordure pb-5 pr-3"
+            class="ficheImage col-xs-12 col-lg-3 d-flex flex-column justify-content-between text-center bordureOffreDemandeComplet"
           >
             <img
               class="img-fluid mx-auto pt-4 px-2"
@@ -34,7 +34,9 @@
               }}</span>
             </p>
           </div>
-          <div class="ml-4 pr-3 col-8 bordure">
+          <div
+            class="ficheEntete pr-3 col-xs-12 col-lg-8 bordureOffreDemandeComplet"
+          >
             <div class="row m-2">
               <h2>{{ demandeStage?.titre }}</h2>
             </div>
@@ -121,25 +123,25 @@
             <p>{{ demandeStage?.competencesAcquises }}</p>
 
             <!-- Sections avec les conditions -->
-            <!-- Sil y a dautre formations -->
+            <!-- S'il y a d'autres formations -->
             <div *ngIf="demandeStage?.autreFormation !== ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
-                Autres Formations
+                Autres formations
               </h2>
               <p>{{ demandeStage?.autreFormation }}</p>
             </div>
-            <!-- Sil y a dautre information Supplementaire -->
+            <!-- S'il y a d'autres informations supplémentaires -->
             <div *ngIf="demandeStage?.informationSupplementaire != ''">
               <h2 class="font-weight-bolder text-uppercase pt-3">
-                informations Supplémentaire
+                Informations supplémentaires
               </h2>
               <p>{{ demandeStage?.informationSupplementaire }}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-3">
-        <!-- Tables secteur activites -->
+      <div class="col-xs-12 col-md-3">
+        <!-- Tables secteurs d'activités -->
         <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
       </div>
     </div>

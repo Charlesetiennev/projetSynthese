@@ -1,6 +1,6 @@
 <!-- Trouvez-stagiaire.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 7 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <section>
   <div
     class="header container-fluid d-flex justify-content-center align-items-center"
@@ -15,8 +15,8 @@
     <div class="row">
       <p class="ml-5 titre text-white" style="font-size: 2.4rem">Candidats</p>
     </div>
-    <div class="row mx-5">
-      <div class="col-7">
+    <div class="row contenuPageListeStageStagiaire">
+      <div class="col-xs-12 col-md-7">
         <p>Accueil > Candidats</p>
         <div
           *ngFor="
@@ -29,7 +29,7 @@
             [demandeStage]="demandeStage"
           ></app-carte-stagiaire-moyen>
         </div>
-        <!-- Apres la cinquieme demande -->
+        <!-- Après la cinquième demandes -->
         <div *ngIf="chargerPlus">
           <div
             *ngFor="
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="row">
-          <!-- Le bouton permet de d'afficher tout les demandes -->
+          <!-- Le bouton permet d'afficher toutes les demandes -->
           <button
             id="chargerPlusDemande"
             *ngIf="afficher"
@@ -55,8 +55,8 @@
           </button>
         </div>
       </div>
-      <div class="offset-1 col-4">
-        <!-- Tableau secteurs activites -->
+      <div class="col-xs-12 offset-md-1 col-md-4">
+        <!-- Tableau secteurs d'activités -->
         <app-tableau-secteurs-activite></app-tableau-secteurs-activite>
       </div>
     </div>

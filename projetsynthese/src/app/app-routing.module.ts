@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// Publique
+// Public
 import { TrouvezStageComponent } from './pagesRouter/trouvez-stage/trouvez-stage.component';
 import { TrouvezStagiaireComponent } from './pagesRouter/trouvez-stagiaire/trouvez-stagiaire.component';
 import { AccueilComponent } from './pagesRouter/accueil/accueil.component';
@@ -20,7 +20,7 @@ import { EntrepriseAdminComponent } from './administration/entreprise-admin/entr
 import { fromEventPattern } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  // Publique
+  // Public
   { path: 'accueil', component: AccueilComponent },
   { path: 'trouvezStage', component: TrouvezStageComponent },
   { path: 'offreStageComplet/:id', component: OffreStageCompleteComponent },

@@ -13,7 +13,7 @@ import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 export class TrouvezStageComponent implements OnInit {
   titre: string = 'Offres de stage';
   offresStages: OffreStage[];
-  // Gestion du bouton pour charger plus d'offre
+  // Gestion du bouton pour charger plus d'offres
   chargerPlus: boolean = false;
   afficher: boolean = true;
   constructor(private apiProjetSyntheseService: ApiProjetSyntheseService) {}

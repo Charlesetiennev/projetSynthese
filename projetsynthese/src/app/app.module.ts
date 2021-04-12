@@ -62,7 +62,7 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
 // Pipes
 import { OffreStageAccepterPipe } from './pipes/offre-stage-accepter.pipe';
 import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
-// Francais
+// Français
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';

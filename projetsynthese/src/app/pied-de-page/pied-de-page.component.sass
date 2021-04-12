@@ -1,5 +1,30 @@
 // pied-de-page.sass 
 // Par Charles-Etienne Villemure
-// Le 7 Avril 2021
+// Le 11 Avril 2021
+@import '../app.component'
 .ml-10
     margin-left: 10rem
+.sectionCopyrightLiensInternes
+    display: block 
+    @include xl
+        display: flex
+        width: 100%
+        justify-content: space-between
+.copyRight
+    text-align: center
+    @include xl
+        margin-left: 10rem
+.liensInterne
+    width: 100%
+    @include xl
+        width: auto
+        display: flex
+        justify-content: flex-end
+        margin-right: 5rem
+    .premiereLigne
+        display: flex
+        justify-content: center
+
+    .deuxiemeLigne
+        display: flex
+        justify-content: center

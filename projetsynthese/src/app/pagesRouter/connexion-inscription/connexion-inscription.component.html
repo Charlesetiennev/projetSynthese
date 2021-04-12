@@ -1,6 +1,6 @@
 <!-- Connexion-inscription.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 6 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="conteneur">
   <div
     class="header container-fluid d-flex justify-content-center align-items-center"
@@ -15,7 +15,7 @@
   <div class="container-fluid">
     <div class="row">
       <p class="titre text-white" style="font-size: 2.4rem">
-        Accéder à votre compte
+        Accédez à votre compte
       </p>
     </div>
 
@@ -41,29 +41,29 @@
       </div>
     </div>
   </div>
-  <div class="container mt-3">
-    <!-- Rendu de la section selectionnez -->
+  <div class="container my-3">
+    <!-- Rendu de la section sélectionnez -->
 
     <!-- Stagiaire -->
     <div *ngIf="formulaireDiv.stagiaire" class="row">
-      <div class="col-6">
-        <h1>Connexion</h1>
+      <div class="col-xs-12 col-lg-6">
+        <h1>Identification</h1>
         <app-connexion-stagiaire></app-connexion-stagiaire>
       </div>
-      <div class="col-6">
-        <h1>Inscrivez-vous pour trouvez un stage</h1>
+      <div class="col-xs-12 col-lg-6">
+        <h1>Nouvel utilisateur</h1>
         <app-formulaire-stagiaire></app-formulaire-stagiaire>
       </div>
     </div>
     <!-- Entreprise -->
     <div *ngIf="formulaireDiv.entreprise">
       <div class="row">
-        <div class="col-6">
-          <h1>Connexion</h1>
+        <div class="col-xs-12 col-lg-6">
+          <h1>Identification</h1>
           <app-connexion-entreprise></app-connexion-entreprise>
         </div>
-        <div class="col-6">
-          <h1>Inscrivez votre entreprise</h1>
+        <div class="col-xs-12 col-lg-6">
+          <h1>Nouvelle entreprise</h1>
           <app-formulaire-entreprise></app-formulaire-entreprise>
         </div>
       </div>

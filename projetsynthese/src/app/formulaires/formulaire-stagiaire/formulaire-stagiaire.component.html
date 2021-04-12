@@ -1,6 +1,8 @@
-<!-- main app container -->
-
+<!-- formulaireStagiaire.html -->
+<!-- Par Charles-Etienne Villemure -->
+<!-- Le 12 Avril 2021 -->
 <form [formGroup]="stagiaireAjoutForm" (ngSubmit)="onSubmit()">
+  <!-- Formations -->
   <div class="form-group">
     <select
       formControlName="formations"
@@ -19,9 +21,10 @@
       </div>
     </div>
   </div>
+  <!-- Prénom -->
   <div class="form-group">
     <input
-      placeholder="Prenom"
+      placeholder="Prénom"
       type="text"
       formControlName="prenom"
       class="form-control"
@@ -31,15 +34,16 @@
       [ngClass]="{ 'is-invalid': soumission && f.prenom.errors }"
     />
     <div *ngIf="soumission && f.prenom.errors" class="invalid-feedback">
-      <div *ngIf="f.prenom.errors.required">Votre prenom est requis</div>
+      <div *ngIf="f.prenom.errors.required">Votre prénom est requis.</div>
       <div *ngIf="f.prenom.errors.minlength || f.prenom.errors.maxlength">
-        Votre prenom doit comporter entre 2 et 50 caracteres
+        Votre prénom doit comporter entre 2 et 50 caractères.
       </div>
       <div *ngIf="f.prenom.errors.pattern">
-        Votre prenom ne doit etre compose que de lettres
+        Votre prénom doit être composé que de lettres.
       </div>
     </div>
   </div>
+  <!-- Nom -->
   <div class="form-group">
     <input
       placeholder="Nom"
@@ -52,15 +56,16 @@
       [ngClass]="{ 'is-invalid': soumission && f.nom.errors }"
     />
     <div *ngIf="soumission && f.nom.errors" class="invalid-feedback">
-      <div *ngIf="f.nom.errors.required">Votre nom est requis</div>
+      <div *ngIf="f.nom.errors.required">Votre nom est requis.</div>
       <div *ngIf="f.nom.errors.minlength || f.nom.errors.maxlength">
-        Votre nom doit comporter entre 2 et 50 caracteres
+        Votre nom doit comporter entre 2 et 50 caractères.
       </div>
       <div *ngIf="f.nom.errors.pattern">
-        Votre nom ne doit etre compose que de lettres
+        Votre nom ne doit être composé que de lettres.
       </div>
     </div>
   </div>
+  <!-- Ville -->
   <div class="form-group">
     <input
       placeholder="Ville"
@@ -73,18 +78,19 @@
       [ngClass]="{ 'is-invalid': soumission && f.ville.errors }"
     />
     <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
-      <div *ngIf="f.ville.errors.required">Votre ville est requis</div>
+      <div *ngIf="f.ville.errors.required">Votre ville est requis.</div>
       <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
-        Le champs doit comporter entre 2 et 100 caracteres
+        Votre ville doit comporter entre 2 et 100 caractères.
       </div>
       <div *ngIf="f.ville.errors.pattern">
-        Votre ville ne doit etre compose que de lettres
+        Votre ville doit être composée que de lettres.
       </div>
     </div>
   </div>
+  <!-- Compétences -->
   <div class="form-group">
     <textarea
-      placeholder="competences"
+      placeholder="Compétences"
       rows="3"
       type="text"
       minlength="20"
@@ -95,18 +101,19 @@
     ></textarea>
     <div *ngIf="soumission && f.competences.errors" class="invalid-feedback">
       <div *ngIf="f.competences.errors.required">
-        Vos champs de competences sont requis.
+        Vos champs de compétences sont requis.
       </div>
       <div
         *ngIf="f.competences.errors.minlength || f.competences.errors.maxlength"
       >
-        Vos champs de competences doivent comprendre entre 20 et 1500 caracteres
+        Vos champs de compétences doivent comporter entre 20 et 1500 caractères.
       </div>
     </div>
   </div>
+  <!-- Message de motivation -->
   <div class="form-group">
     <textarea
-      placeholder="messageMotivation"
+      placeholder="Résumé"
       rows="4"
       minlength="20"
       maxlength="1500"
@@ -122,7 +129,7 @@
       class="invalid-feedback"
     >
       <div *ngIf="f.messageMotivation.errors.required">
-        Vous devez entrer un resumer de vous.
+        Votre résumé est requis.
       </div>
       <div
         *ngIf="
@@ -130,23 +137,26 @@
           f.messageMotivation.errors.maxlength
         "
       >
-        Votre resumer doit comprendre entre 20 et 1500 caracteres
+        Votre résumé doit comprendre entre 20 et 1500 caractères.
       </div>
     </div>
   </div>
+  <!-- Téléphone -->
   <div class="form-group">
     <input
-      placeholder="Telephone"
+      placeholder="Téléphone"
       type="text"
       formControlName="telephone"
       class="form-control"
       [ngClass]="{ 'is-invalid': soumission && f.telephone.errors }"
     />
     <div *ngIf="soumission && f.telephone.errors" class="invalid-feedback">
-      <div *ngIf="f.telephone.errors.required">Last Name is required</div>
+      <div *ngIf="f.telephone.errors.required">
+        Votre numéro de téléphone est requis.
+      </div>
     </div>
   </div>
-
+  <!-- Courriel -->
   <div class="form-group">
     <input
       placeholder="Courriel"
@@ -156,13 +166,13 @@
       [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
     />
     <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
-      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis.</div>
       <div *ngIf="f.courriel.errors.email">
-        L'adresse courriel doit etre valide.
+        L'adresse courriel doit être valide.
       </div>
     </div>
   </div>
-
+  <!-- Mot de passe -->
   <div class="form-group">
     <input
       placeholder="Mot de passe"
@@ -176,12 +186,12 @@
         Le mot de passe est requis.
       </div>
       <div *ngIf="f.motDePasse.errors.minlength">
-        Votre mot de passe doit contenir au moins six(6) caracteres.
+        Votre mot de passe doit contenir au moins six(6) caractères.
       </div>
     </div>
   </div>
-
-  <div class="text-center">
+  <!-- Action formulaire -->
+  <div>
     <button class="btn btn-primary mr-1">S'inscrire</button>
     <button class="btn btn-secondary" type="reset" (click)="redemarrer()">
       Annuler

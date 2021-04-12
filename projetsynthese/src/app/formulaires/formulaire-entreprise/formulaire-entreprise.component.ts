@@ -21,7 +21,7 @@ export class FormulaireEntrepriseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Secteur d'activites
+    // Secteur d'activités
     this.recuperationSecteursActivites();
     // Formulaire
     this.entrepriseAjoutForm = this.formBuilder.group({
@@ -128,7 +128,7 @@ export class FormulaireEntrepriseComponent implements OnInit {
     this.soumission = false;
     this.entrepriseAjoutForm.reset();
   }
-  // Recuperations des secteurs d'activites
+  // Récupérations des secteurs d'activités
   recuperationSecteursActivites(): void {
     this.apiProjetSyntheseService
       .recuperationSecteursActivites()

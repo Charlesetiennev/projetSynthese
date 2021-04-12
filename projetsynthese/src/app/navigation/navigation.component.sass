@@ -1,6 +1,10 @@
 // Navigation.sass
 // Par Charles-Etienne Villemure
-// Le 25 Mars 2021
+// Le 11 Avril 2021
+@import '../app.component'
+
+    
+    
 section
     position: absolute
     width: 100%
@@ -8,4 +12,35 @@ section
         font-size: 2.4rem
     a
         font-weight: normal 
+    .navigationW100LG
+        @include sm
+            width: 100%!important
+.logo
+    margin: auto
+    padding-bottom: 2vh 
+    @include lg
+        padding-bottom: 0
+        margin: 0
+.liens
+    display: block
 
+    margin-top: 2vh
+    @include lg 
+        margin-top: 0 
+.liensNav
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 1vh 
+.sectionLiens
+    width: 100%
+    display: block
+    @include lg
+        display: flex
+.connexionInscription
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 1vh 
+    @include lg
+        justify-content: flex-end 

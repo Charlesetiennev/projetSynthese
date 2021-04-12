@@ -1,12 +1,11 @@
 <!-- Navigation.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 25 Mars 2021 -->
-<!-- Validation W3 Effectuez -->
+<!-- Le 11 Avril 2021 -->
 
 <section class="pt-2">
-  <nav class="navbar">
-    <div class="row w-100">
-      <div class="col-3">
+  <nav class="navbar container-fluid">
+    <div class="row navigationW100LG">
+      <div class="col-xs-12 col-lg-3 logo">
         <a
           routerLink="/accueil"
           class="d-flex align-items-end justify-content-center navbar-brand"
@@ -27,32 +26,35 @@
         </a>
       </div>
       <div
-        class="col-8 d-inline-flex align-items-center justify-content-between"
+        class="col-xs-12 col-lg-8 d-inline-flex align-items-center justify-content-between"
       >
-        <div>
-          <a
-            routerLink="/trouvezStage"
-            class="badge badge-success px-3 py-2 mr-3"
-            >Trouvez votre stage</a
-          >
-          <a
-            routerLink="/trouvezStagiaire"
-            class="badge badge-success px-3 py-2 mr-3"
-          >
-            Trouvez votre futur stagiaire</a
-          >
-        </div>
-        <div class="">
-          <a
-            routerLink="/connexion-insription"
-            class="badge badge-light px-3 py-2 mr-3"
-            >Connexion</a
-          >
-          <a
-            routerLink="/connexion-insription"
-            class="badge badge-dark px-3 py-2 mr-3"
-            >Inscription</a
-          >
+        <div class="sectionLiens">
+          <div class="col-xs-12 col-lg-6 liensNav">
+            <a
+              routerLink="/trouvezStage"
+              class="badge badge-success px-3 py-2 mr-3"
+              >Trouvez votre stage</a
+            >
+            <a
+              routerLink="/trouvezStagiaire"
+              class="badge badge-success px-3 py-2 mr-3"
+            >
+              Trouvez votre futur stagiaire</a
+            >
+          </div>
+
+          <div class="col-xs-12 col-lg-6 connexionInscription">
+            <a
+              routerLink="/connexion-insription"
+              class="badge badge-light px-3 py-2 mr-3"
+              >Connexion</a
+            >
+            <a
+              routerLink="/connexion-insription"
+              class="badge badge-dark px-3 py-2 mr-3"
+              >Inscription</a
+            >
+          </div>
         </div>
       </div>
     </div>

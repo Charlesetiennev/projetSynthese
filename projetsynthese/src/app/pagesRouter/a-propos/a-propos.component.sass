@@ -1,12 +1,14 @@
 // aPropos.sass 
 // Par Charles-Etienne Villemure
-// Le 6 avril 2021
-@import '../../app.component'
-.logo
-    h1
-    font-size: 6rem    
+// Le 12 avril 2021
+@import '../../app.component'  
 .px-8
-    padding: 0 8rem
+    padding: 0
+    @include lg
+        padding: 0 8rem
+.logo
+    font-size: 90px
+    font-family: $policeTitre
 :host
     &::ng-deep app-annonce
         img

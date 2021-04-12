@@ -30,7 +30,7 @@ export class ApiProjetSyntheseService {
 
   constructor(private http: HttpClient) {}
   // ******************
-  // SECTEURS ACTIVITES
+  // SECTEURS ACTIVITÉS
   // ******************
   recuperationSecteursActivites(): Observable<SecteursActivites[]> {
     return this.http.get<SecteursActivites[]>(this.secteursActivitesUrl);
@@ -38,11 +38,11 @@ export class ApiProjetSyntheseService {
   // **********
   // STAGIAIRES
   // **********
-  // Recuperation Stagiaires
+  // Récupération Stagiaires
   getStagiaires(): Observable<Stagiaire[]> {
     return this.http.get<Stagiaire[]>(this.stagiairesUrl);
   }
-  // Recuperation Stagiaire par ID
+  // Récupération Stagiaire par ID
   getStagiaireavecId(_id: string | null): Observable<Stagiaire> {
     return this.http.get<Stagiaire>(this.stagiairesUrl + _id, httpOptions);
   }
@@ -70,7 +70,7 @@ export class ApiProjetSyntheseService {
   // **********
   // ENTREPRISES
   // **********
-  // Recuperation Entreprises
+  // Récupération Entreprises
   getEntreprises(): Observable<Entreprise[]> {
     return this.http.get<Entreprise[]>(this.entreprisesUrl);
   }
@@ -91,18 +91,18 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
-  // Recuperation Stagiaire par ID
+  // Récupération Stagiaire par ID
   recuperationEntrepriseavecId(_id: string | null): Observable<Entreprise> {
     return this.http.get<Entreprise>(this.entreprisesUrl + _id, httpOptions);
   }
   // ****************
   // OFFRES DE STAGES
   // ****************
-  // Recuperation Offres de stages
+  // Récupération Offres de stages
   recuperationOffresStages(): Observable<OffreStage[]> {
     return this.http.get<OffreStage[]>(this.offresStagesUrl);
   }
-  // Recuperation Offre de stage par ID
+  // Récupération Offre de stage par ID
   recuperationOffreStagesId(_id: string | null): Observable<OffreStage> {
     return this.http.get<OffreStage>(this.offresStagesUrl + _id, httpOptions);
   }
@@ -130,7 +130,7 @@ export class ApiProjetSyntheseService {
   // ****************
   // DEMANDES DE STAGES
   // ****************
-  // Recuperation Demandes se stages
+  // Récupération Demandes se stages
   recuperationDemandesStages(): Observable<DemandeStage[]> {
     return this.http.get<DemandeStage[]>(this.demandesStagesUrl);
   }
@@ -144,7 +144,7 @@ export class ApiProjetSyntheseService {
       httpOptions
     );
   }
-  // Recuperation Demande de stage par ID
+  // Récupération Demande de stage par ID
   recuperationDemandeStagesId(_id: string | null): Observable<DemandeStage> {
     return this.http.get<DemandeStage>(
       this.demandesStagesUrl + _id,

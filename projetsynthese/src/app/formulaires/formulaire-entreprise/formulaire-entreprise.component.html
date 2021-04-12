@@ -12,20 +12,20 @@
     />
     <div *ngIf="soumission && f.nomEntreprise.errors" class="invalid-feedback">
       <div *ngIf="f.nomEntreprise.errors.required">
-        Le nom de l'entreprise est requis
+        Le nom de l'entreprise est requis.
       </div>
       <div
         *ngIf="
           f.nomEntreprise.errors.minlength || f.nomEntreprise.errors.maxlength
         "
       >
-        Le nom de l'entreprise doit comporter entre 2 et 50 caracteres
+        Le nom de l'entreprise doit comporter entre 2 et 50 caractères.
       </div>
     </div>
   </div>
 
   <div>
-    <!-- adresse de L'entreprise -->
+    <!-- Adresse de l'entreprise -->
     <div class="form-group">
       <input
         placeholder="adresse de l'entreprise"
@@ -38,17 +38,17 @@
       />
       <div *ngIf="soumission && f.adresse.errors" class="invalid-feedback">
         <div *ngIf="f.adresse.errors.required">
-          adresse de l'entreprise est requis
+          L'adresse de l'entreprise est requis.
         </div>
         <div *ngIf="f.adresse.errors.minlength || f.adresse.errors.maxlength">
-          adresse de l'entreprise doit comporter entre 2 et 50 caracteres
+          L'adresse de l'entreprise doit comporter entre 2 et 50 caractères.
         </div>
       </div>
     </div>
-    <!-- ville de L'entreprise -->
+    <!-- Ville de l'entreprise -->
     <div class="form-group">
       <input
-        placeholder="ville de l'entreprise"
+        placeholder="Ville de l'entreprise"
         type="text"
         formControlName="ville"
         class="form-control"
@@ -59,13 +59,13 @@
       />
       <div *ngIf="soumission && f.ville.errors" class="invalid-feedback">
         <div *ngIf="f.ville.errors.required">
-          ville de l'entreprise est requis
+          La ville de l'entreprise est requis.
         </div>
         <div *ngIf="f.ville.errors.minlength || f.ville.errors.maxlength">
-          ville de l'entreprise doit comporter entre 2 et 100 caracteres
+          La ville de l'entreprise doit comporter entre 2 et 100 caractères.
         </div>
         <div *ngIf="f.ville.errors.pattern">
-          ville doit etre compose que de lettres
+          La ville doit être composée que de lettres.
         </div>
       </div>
     </div>
@@ -81,23 +81,23 @@
       [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
     />
     <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
-      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis.</div>
       <div *ngIf="f.courriel.errors.email">
-        L'adresse courriel doit etre valide.
+        L'adresse courriel doit être valide.
       </div>
     </div>
   </div>
-  <!-- Telephone -->
+  <!-- Téléphone -->
   <div class="form-group">
     <input
-      placeholder="Telephone"
+      placeholder="Téléphone"
       type="text"
       formControlName="numeroTel"
       class="form-control"
       [ngClass]="{ 'is-invalid': soumission && f.numeroTel.errors }"
     />
     <div *ngIf="soumission && f.numeroTel.errors" class="invalid-feedback">
-      <div *ngIf="f.numeroTel.errors.required">Le telephone est requis</div>
+      <div *ngIf="f.numeroTel.errors.required">Le téléphone est requis.</div>
     </div>
   </div>
   <!-- Url logo d'entreprise -->
@@ -111,7 +111,7 @@
     />
     <div *ngIf="soumission && f.logo.errors" class="invalid-feedback">
       <div *ngIf="f.logo.errors.required">
-        L'url du logo de lentreprise est requis
+        L'url du logo de l'entreprise est requis.
       </div>
     </div>
   </div>
@@ -126,14 +126,14 @@
     />
     <div *ngIf="soumission && f.siteWeb.errors" class="invalid-feedback">
       <div *ngIf="f.siteWeb.errors.required">
-        L'url du site Web de lentreprise est requis
+        L'url du site Web de l'entreprise est requis.
       </div>
     </div>
   </div>
   <!-- Description de l'entreprise -->
   <div class="form-group">
     <textarea
-      placeholder="A propos de l'entreprise"
+      placeholder="À propos de l'entreprise"
       rows="4"
       minlength="20"
       maxlength="1500"
@@ -146,17 +146,17 @@
     ></textarea>
     <div *ngIf="soumission && f.aPropos.errors" class="invalid-feedback">
       <div *ngIf="f.aPropos.errors.required">
-        Vous devez entrer une presentation de l'entreprise
+        Vous devez entrer une présentation de l'entreprise.
       </div>
       <div *ngIf="f.aPropos.errors.minlength || f.aPropos.errors.maxlength">
-        Votre resumer doit comprendre entre 20 et 1500 caracteres
+        Votre résumé doit comprendre entre 20 et 1500 caractères.
       </div>
     </div>
   </div>
-  <!-- Secteurs activites -->
+  <!-- Secteurs activités -->
   <div>
     <mat-form-field class="w-100">
-      <label class="text-secondary">Secteurs d'avtivites de l'entreprise</label>
+      <label class="text-secondary">Secteurs d'avtivités de l'entreprise</label>
       <mat-select multiple formControlName="secteurActivite" required>
         <mat-option
           *ngFor="let secteurActivite of secteursActivites"
@@ -166,10 +166,10 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <!-- Prenom personne contact -->
+  <!-- Prénom personne contact -->
   <div class="form-group">
     <input
-      placeholder="Prenom de la personne de contact"
+      placeholder="Prénom de la personne de contact"
       type="text"
       formControlName="prenomResponsable"
       class="form-control"
@@ -183,7 +183,7 @@
       class="invalid-feedback"
     >
       <div *ngIf="f.prenomResponsable.errors.required">
-        Le prenom est requis
+        Le prénom est requis.
       </div>
       <div
         *ngIf="
@@ -191,10 +191,10 @@
           f.prenomResponsable.errors.maxlength
         "
       >
-        Le prenom comporter entre 2 et 50 caracteres
+        Le prénom doit comporter entre 2 et 50 caractères.
       </div>
       <div *ngIf="f.prenomResponsable.errors.pattern">
-        Le prenom doit etre compose que de lettres
+        Le prénom doit être composé que de lettres.
       </div>
     </div>
   </div>
@@ -218,10 +218,10 @@
           f.nomResponsable.errors.minlength || f.nomResponsable.errors.maxlength
         "
       >
-        Le nom comporter entre 2 et 50 caracteres
+        Le nom doit comporter entre 2 et 50 caractères.
       </div>
       <div *ngIf="f.nomResponsable.errors.pattern">
-        Le nom doit etre compose que de lettres
+        Le nom doit être composé que de lettres.
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@
         Le mot de passe est requis.
       </div>
       <div *ngIf="f.motDePasse.errors.minlength">
-        Votre mot de passe doit contenir au moins six(6) caracteres.
+        Votre mot de passe doit contenir au moins six(6) caractères.
       </div>
     </div>
   </div>

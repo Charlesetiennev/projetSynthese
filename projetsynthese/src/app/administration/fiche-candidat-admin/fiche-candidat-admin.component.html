@@ -125,7 +125,9 @@
               transform="translate(0 0.002)"
             />
           </svg>
-          <h2 class="mb-0 pl-3">{{ stagiaire.prenom }} {{ stagiaire.nom }}</h2>
+          <h2 class="mb-0 pl-3">
+            {{ stagiaire?.prenom }} {{ stagiaire?.nom }}
+          </h2>
         </div>
         <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
         <form
@@ -140,8 +142,8 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire.prenom }}
-                {{ stagiaire.nom }}
+                {{ stagiaire?.prenom }}
+                {{ stagiaire?.nom }}
               </p>
               <!-- Formulaire prénom et nom -->
               <mat-form-field *ngIf="modification">
@@ -178,7 +180,7 @@
               <h2>Ville :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire.ville }}</p>
+              <p *ngIf="!modification">{{ stagiaire?.ville }}</p>
               <!-- Formulaire ville -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -200,7 +202,7 @@
               <h2>Courriel :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire.courriel }}</p>
+              <p *ngIf="!modification">{{ stagiaire?.courriel }}</p>
               <!--Formulaire courriel -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -221,7 +223,7 @@
               <h2>Téléphone :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ stagiaire.telephone }}</p>
+              <p *ngIf="!modification">{{ stagiaire?.telephone }}</p>
               <!--Formulaire Téléphone -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -243,7 +245,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire.formations }}
+                {{ stagiaire?.formations }}
               </p>
               <!-- Formulaire formation -->
               <mat-form-field *ngIf="modification">
@@ -266,7 +268,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire.competences }}
+                {{ stagiaire?.competences }}
               </p>
               <!-- Formulaire compétences -->
               <mat-form-field *ngIf="modification">
@@ -289,7 +291,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ stagiaire.messageMotivation }}
+                {{ stagiaire?.messageMotivation }}
               </p>
               <!-- Formulaire Résumé -->
               <mat-form-field *ngIf="modification">
@@ -299,7 +301,7 @@
                   maxlength="1500"
                   [(ngModel)]="stagiaire.messageMotivation"
                   [ngModelOptions]="{ standalone: true }"
-                  >{{ stagiaire.messageMotivation }}</textarea
+                  >{{ stagiaire?.messageMotivation }}</textarea
                 >
               </mat-form-field>
             </div>

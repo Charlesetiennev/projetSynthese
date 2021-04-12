@@ -13,9 +13,9 @@
       [ngClass]="{ 'is-invalid': soumission && f.courriel.errors }"
     />
     <div *ngIf="soumission && f.courriel.errors" class="invalid-feedback">
-      <div *ngIf="f.courriel.errors.required">Votre courriel est requis</div>
+      <div *ngIf="f.courriel.errors.required">Votre courriel est requis.</div>
       <div *ngIf="f.courriel.errors.email">
-        L'adresse courriel doit etre valide.
+        L'adresse courriel doit être valide.
       </div>
     </div>
   </mat-form-field>
@@ -34,7 +34,7 @@
         Le mot de passe est requis.
       </div>
       <div *ngIf="f.motDePasse.errors.minlength">
-        Votre mot de passe doit contenir au moins six(6) caracteres.
+        Votre mot de passe doit contenir au moins six(6) caractères.
       </div>
     </div>
   </mat-form-field>

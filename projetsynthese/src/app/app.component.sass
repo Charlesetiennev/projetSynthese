@@ -1,13 +1,47 @@
 // app.compoment.sass
 // Par Charles-Etienne Villemure
-// Le 7 Avril 2021
+// Le 12 Avril 2021
     // Police de style des tites de pages
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap')
 $policeTitre : 'Oswald', sans-serif
 $couleurPrincipal : #5C4CF9
 $couleurSecondaire : #4F4F6F 
 $CouleurTitreCarte: #584CF9
-// Conteneur modifier pour le scroll horizontal
+
+
+// Petite tablette et grand téléphone
+$screen-sm-min: 576px
+// Petite tablette
+$screen-md-min: 768px
+// Tablette et petit écran
+$screen-lg-min: 992px
+// Tablette large et écran ordinateur
+$screen-xl-min: 1200px
+// Petit appareil
+@mixin sm
+  @media (min-width: #{$screen-sm-min})
+    @content
+// Moyen appareil
+@mixin md
+  @media (min-width: #{$screen-md-min})
+    @content
+// Grand appareil
+@mixin lg
+  @media (min-width: #{$screen-lg-min})
+    @content
+// Très large appareil
+@mixin xl
+  @media (min-width: #{$screen-xl-min})
+    @content
+// Sur mesure
+@mixin rwd($screen)
+  @media (min-width: $screen+'px' )
+    @content
+
+
+        
+    
+// Conteneur modifié pour le défilement horizontal
 .conteneur
     max-width: 100%
     overflow: hidden
@@ -45,3 +79,17 @@ $CouleurTitreCarte: #584CF9
     background-color: #F6F6F6
 .bordureBasBleu
     border-bottom: solid 2vh #3E99DF
+.titreDeLannonce
+    line-height: 1.2
+    font-size: 2rem
+    @include lg
+        font-size: 3rem
+.texteCouleurSecondaire
+     color: $couleurSecondaire
+.contenuPageListeStageStagiaire
+    margin: 0
+    @include lg
+        margin: 0 48px
+.bordureOffreDemandeComplet
+    border: solid 1px #707070
+

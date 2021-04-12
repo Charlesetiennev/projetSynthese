@@ -1,16 +1,15 @@
 <!-- Section-trouvez-stage.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 25 Mars 2021 -->
-<!-- Validation W3 Effectuez -->
+<!-- Le 11 Avril 2021 -->
 
 <div class="container-fluid" style="padding-left: 0; padding-right: 0">
   <div class="row no-gutters">
     <div
-      class="col-6 bg-light d-flex flex-column align-items-start contenuGauche justify-content-center"
+      class="col-xs-12 col-lg-6 bg-light d-flex flex-column align-items-start justify-content-center"
     >
       <div class="px-6">
         <h1 class="font-weight-bold">
-          Trouvez un stage<br />a la hauteur de vos attentes
+          Trouvez un stage<br />à la hauteur de vos attentes
         </h1>
 
         <p class="text-secondary">
@@ -24,23 +23,23 @@
           <li>Suspendisse tincidunt vulputate leo in sollicitudin</li>
           <li>Morbi sodales risus quis orci hendrerit semper</li>
         </ul>
-        <!-- Liens si utilisateurs non connecter -->
+        <!-- Lien si utilisateur non connecté -->
         <a
           *ngIf="env.connecter === false"
           routerLink="/connexion-insription"
           class="card-link badge-danger couleurPrincipale px-2 py-2"
-          >Publier une demande de stage maintenant!</a
+          >Publiez une demande de stage maintenant!</a
         >
-        <!-- Liens si utilisateurs est connecter -->
+        <!-- Lien si utilisateur est connecté -->
         <a
           *ngIf="env.connecter === true"
           routerLink="/administration/demandeStageFormulaire"
           class="card-link badge-danger couleurPrincipale px-2 py-2"
-          >Publier une demande de stage maintenant!</a
+          >Publiez une demande de stage maintenant!</a
         >
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-xs-12 col-lg-6">
       <img
         src="../../assets/img/sectionTrouvezStage.png"
         alt="Etudiant avec professeur."

@@ -1,13 +1,12 @@
 <!-- Section-trouvez-un-stage-->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 25 Mars 2021 -->
-<!-- Validation W3 Effectuez -->
+<!-- Le 12 Avril 2021 -->
 <div class="container-fluid mb-5">
   <div class="row my-5 no-gutters d-block text-center">
-    <h1 class="texteCouleurSecondaire">
+    <p class="texteCouleurSecondaire titreDeLannonce">
       Tu es à la recherche de ton <br />
-      stage de fin d'études?
-    </h1>
+      stage de fin d'étude?
+    </p>
     <br />
     <p class="text-secondary">
       Pellentesque vehicula fermentum turpis eu cursus. Cras convallis <br />
@@ -19,7 +18,7 @@
     <div class="row w-75 mx-auto mb-3">
       <!-- Stage petit format -->
       <div
-        class="col-3"
+        class="col-xs-12 col-md-6 col-lg-3"
         *ngFor="
           let offreStage of offresStages | offreStageAccepter | slice: 0:4
         "
