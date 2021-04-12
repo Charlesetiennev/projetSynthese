@@ -1,7 +1,20 @@
 // entreprise-admin.sass
 // Par Charles-Etienne Villemure
-// Le 9 Avril 2021
+// Le 12 Avril 2021
 @import '../../app.component'
 
 .bordureBasJaune
     border-bottom: solid 2vh #A5AC3F
+.contenuFicheEntreprise
+    padding: 2vh
+    @include lg
+        padding: 0
+    .mat-form-field
+        width: 100%
+    .formPrenomNom
+        width: 100%
+        display: block
+    .tableauStagiaire
+        overflow: hidden
+    p
+        word-wrap: break-word

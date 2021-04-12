@@ -1,13 +1,13 @@
 <!-- accueil-admin.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="conteneur pl-0">
   <div class="row m-0" style="margin-right: 0 !important">
-    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
+    <app-navigation-admin class="col-xs-12 col-lg-2 p-0"></app-navigation-admin>
 
-    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+    <app-action-haut-admin class="col-xs-12 col-lg-10"></app-action-haut-admin>
 
-    <div class="offset-2 col-10 px-5">
+    <div class="col-xs-12 offset-lg-2 col-lg-10 px-5">
       <!-- Content -->
 
       <div class="row" *ngIf="env.statusDeConnexion === 'administrateur'">
@@ -64,9 +64,16 @@
           </div>
         </div>
         <div class="col-12">
-          <!-- Retour au profil -->
+          <!-- Retour au profil entreprise -->
           <a
+            *ngIf="env.statusDeConnexion === 'entreprise'"
             routerLink="/administration/ficheEntreprise/606dfadb1f69fe001501319f"
+            class="btn btn-secondary my-4"
+            >Retour au profil</a
+          >
+          <a
+            *ngIf="env.statusDeConnexion === 'stagiaire'"
+            routerLink="/administration/ficheCandidat/605a31da6caff70015917aa4"
             class="btn btn-secondary my-4"
             >Retour au profil</a
           >

@@ -1,17 +1,17 @@
 <!-- fiche-candidat.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="conteneur">
   <div class="row">
-    <div class="col-2">
+    <div class="col-xs-12 col-lg-2">
       <app-navigation-admin></app-navigation-admin>
     </div>
-    <div class="col-10">
+    <div class="col-xs-12 col-lg-10">
       <app-action-haut-admin></app-action-haut-admin>
     </div>
   </div>
-  <div class="row">
-    <div class="offset-3 col-8">
+  <div class="row contenuFicheCandidat">
+    <div class="col-xs-12 offset-lg-3 col-lg-8">
       <!-- Contenu de la page -->
       <div class="container-fluid">
         <div class="row bordureBasBleu pb-3">
@@ -19,7 +19,7 @@
             <h1>Fiche du candidat</h1>
             <!-- Lien vers la demande -->
             <a
-              routerLink="/administration/demandeStageComplet/60620ce45a06a90015d85280"
+              routerLink="/administration/demandeStageComplet/60731ab8bd0a78038947c692"
               class="btn btn-secondary"
               >Voir ma demande</a
             >
@@ -146,32 +146,34 @@
                 {{ stagiaire?.nom }}
               </p>
               <!-- Formulaire prénom et nom -->
-              <mat-form-field *ngIf="modification">
-                <!-- Prénom -->
-                <input
-                  matInput
-                  type="text"
-                  minlength="2"
-                  maxlength="50"
-                  [(ngModel)]="stagiaire.prenom"
-                  [ngModelOptions]="{ standalone: true }"
-                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value="{{ stagiaire.prenom }}"
-                />
-              </mat-form-field>
-              <!-- Nom -->
-              <mat-form-field *ngIf="modification">
-                <input
-                  matInput
-                  type="text"
-                  minlength="2"
-                  maxlength="50"
-                  [(ngModel)]="stagiaire.nom"
-                  [ngModelOptions]="{ standalone: true }"
-                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value="{{ stagiaire.nom }}"
-                />
-              </mat-form-field>
+              <div class="formPrenomNom" *ngIf="modification">
+                <mat-form-field class="formPrenomNom">
+                  <!-- Prénom -->
+                  <input
+                    matInput
+                    type="text"
+                    minlength="2"
+                    maxlength="50"
+                    [(ngModel)]="stagiaire.prenom"
+                    [ngModelOptions]="{ standalone: true }"
+                    pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                    value="{{ stagiaire.prenom }}"
+                  />
+                </mat-form-field>
+                <!-- Nom -->
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    minlength="2"
+                    maxlength="50"
+                    [(ngModel)]="stagiaire.nom"
+                    [ngModelOptions]="{ standalone: true }"
+                    pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                    value="{{ stagiaire.nom }}"
+                  />
+                </mat-form-field>
+              </div>
             </div>
           </div>
           <!-- Ville -->

@@ -1,17 +1,17 @@
 <!-- entreprise-admin.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="conteneur">
   <div class="row">
-    <div class="col-2">
+    <div class="col-xs-12 col-lg-2 p-0">
       <app-navigation-admin></app-navigation-admin>
     </div>
-    <div class="col-10">
+    <div class="col-xs-12 col-lg-10">
       <app-action-haut-admin></app-action-haut-admin>
     </div>
   </div>
-  <div class="row">
-    <div class="offset-3 col-8">
+  <div class="row contenuFicheEntreprise">
+    <div class="col-xs-12 offset-lg-3 col-lg-8">
       <!-- Contenu de la page -->
       <div class="container-fluid">
         <div class="row bordureBasJaune pb-3">
@@ -308,32 +308,34 @@
                 {{ entreprise.nomResponsable }}
               </p>
               <!-- Formulaire prénom et nom responsable -->
-              <mat-form-field *ngIf="modification">
-                <!-- Prénom -->
-                <input
-                  matInput
-                  type="text"
-                  minlength="2"
-                  maxlength="50"
-                  [(ngModel)]="entreprise.prenomResponsable"
-                  [ngModelOptions]="{ standalone: true }"
-                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value=" {{ entreprise.prenomResponsable }} "
-                />
-              </mat-form-field>
-              <mat-form-field *ngIf="modification">
-                <!-- Nom -->
-                <input
-                  matInput
-                  type="text"
-                  minlength="2"
-                  maxlength="50"
-                  [(ngModel)]="entreprise.nomResponsable"
-                  [ngModelOptions]="{ standalone: true }"
-                  pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
-                  value=" {{ entreprise.nomResponsable }} "
-                />
-              </mat-form-field>
+              <div class="formPrenomNom" *ngIf="modification">
+                <mat-form-field>
+                  <!-- Prénom -->
+                  <input
+                    matInput
+                    type="text"
+                    minlength="2"
+                    maxlength="50"
+                    [(ngModel)]="entreprise.prenomResponsable"
+                    [ngModelOptions]="{ standalone: true }"
+                    pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                    value=" {{ entreprise.prenomResponsable }} "
+                  />
+                </mat-form-field>
+                <mat-form-field>
+                  <!-- Nom -->
+                  <input
+                    matInput
+                    type="text"
+                    minlength="2"
+                    maxlength="50"
+                    [(ngModel)]="entreprise.nomResponsable"
+                    [ngModelOptions]="{ standalone: true }"
+                    pattern="[a-zA-Z -àâäèéêëîïôœùûüÿçÀÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ]*"
+                    value=" {{ entreprise.nomResponsable }} "
+                  />
+                </mat-form-field>
+              </div>
             </div>
           </div>
           <!-- Résumé de l'entreprise -->

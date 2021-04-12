@@ -1,6 +1,6 @@
 // offre-stage-detail.sass
 // Par Charles-Etienne Villemure
-// Le 9 Avril 2021
+// Le 12 Avril 2021
 @import '../../../app.component'
 .card
     border-top: 5px solid #A5AC3F
@@ -8,3 +8,18 @@
     font-weight: bold
     span
         font-weight: normal
+.enteteOffreStage
+    display: flex
+    flex-direction: column-reverse
+    @include lg
+        flex-direction: row
+.mat-form-field
+    width: 100%
+.boutonSupprimerModifier
+    display: flex
+    justify-content: center
+    @include lg
+        justify-content: flex-end
+.card
+    -webkit-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.16) 
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.16)

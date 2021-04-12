@@ -1,14 +1,14 @@
 <!-- demande-stage-detail.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="conteneur pl-0">
   <div class="row m-0" style="margin-right: 0 !important">
     <!-- Navigation Gauche -->
-    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
+    <app-navigation-admin class="col-xs-12 col-lg-2 p-0"></app-navigation-admin>
     <!-- Action au de page -->
-    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+    <app-action-haut-admin class="col-xs-12 col-lg-10"></app-action-haut-admin>
     <!-- Contenue -->
-    <div class="offset-3 col-8">
+    <div class="col-xs-12 offset-lg-3 col-lg-8">
       <!-- Contenu de la page -->
 
       <div class="container-fluid">
@@ -61,15 +61,15 @@
         </div>
       </div>
       <!-- Fiche -->
-      <div class="container-fluid pt-4">
+      <div class="container-fluid py-4">
         <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
         <form
           id="formulaireEdition"
           #formulaireEdition="ngForm"
           (ngSubmit)="onSubmit()"
         >
-          <div class="row bordure d-flex justify-content-between mb-3">
-            <div class="col-6 d-flex">
+          <div class="row bordure mb-3 enteteDemandeStage">
+            <div class="col-xs-12 col-lg-6 d-flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="31.5"
@@ -103,7 +103,7 @@
             </div>
             <!-- Date de parution -->
             <div
-              class="col-6 text-center font-weight-bold d-flex justify-content-end"
+              class="col-xs-12 col-lg-6 text-center font-weight-bold d-flex justify-content-end"
             >
               <p>
                 Publié le :
@@ -116,14 +116,14 @@
                 Statut de la demande :
                 <!-- Si offre en attente -->
                 <span
-                  *ngIf="demandeStage.accepter === false"
-                  class="font-weight-normal"
+                  *ngIf="demandeStage?.accepter == false"
+                  class="font-weight-normal text-warning"
                   >En attente</span
                 >
                 <!-- Si offre acceptée -->
                 <span
-                  *ngIf="demandeStage.accepter === true"
-                  class="font-weight-normal"
+                  *ngIf="demandeStage?.accepter == true"
+                  class="font-weight-normal text-success"
                   >Actif</span
                 >
               </p>
@@ -136,7 +136,7 @@
               <h2>Ville :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ demandeStage.ville }}</p>
+              <p *ngIf="!modification">{{ demandeStage?.ville }}</p>
               <!-- Formulaire ville -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -157,7 +157,7 @@
               <h2>Début :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ demandeStage.dateDebut | date }}</p>
+              <p *ngIf="!modification">{{ demandeStage?.dateDebut | date }}</p>
               <!--Formulaire date début -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -182,7 +182,7 @@
               <h2>Fin :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ demandeStage.dateFin | date }}</p>
+              <p *ngIf="!modification">{{ demandeStage?.dateFin | date }}</p>
               <!--Formulaire date fin -->
               <mat-form-field *ngIf="modification">
                 <input
@@ -207,7 +207,7 @@
               <h2>Type de stage :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ demandeStage.typeDeStage }}</p>
+              <p *ngIf="!modification">{{ demandeStage?.typeDeStage }}</p>
               <!-- Formulaire type de stage -->
               <mat-form-field *ngIf="modification">
                 <mat-label>Type de stage</mat-label>
@@ -233,7 +233,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.nombreHeuresSemaine }}
+                {{ demandeStage?.nombreHeuresSemaine }}
               </p>
               <!-- Formulaire nombres d'heures semaine -->
               <mat-form-field *ngIf="modification">
@@ -256,7 +256,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.remuneration }}
+                {{ demandeStage?.remuneration }}
               </p>
               <!-- Formulaire rémunération -->
               <mat-form-field *ngIf="modification">
@@ -282,7 +282,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.programmeSuivi }}
+                {{ demandeStage?.programmeSuivi }}
               </p>
               <!-- Formulaire programme suivi -->
               <mat-form-field *ngIf="modification">
@@ -305,7 +305,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.competencesAcquises }}
+                {{ demandeStage?.competencesAcquises }}
               </p>
               <!-- Formulaire compétences acquises -->
               <mat-form-field *ngIf="modification">
@@ -329,7 +329,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.autreFormation }}
+                {{ demandeStage?.autreFormation }}
               </p>
               <!-- Formulaire autres formations  -->
               <mat-form-field *ngIf="modification">
@@ -351,7 +351,7 @@
               <h2>Description :</h2>
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
-              <p *ngIf="!modification">{{ demandeStage.description }}</p>
+              <p *ngIf="!modification">{{ demandeStage?.description }}</p>
               <!-- Formulaire Description -->
               <mat-form-field *ngIf="modification">
                 <textarea
@@ -361,7 +361,7 @@
                   [(ngModel)]="demandeStage.description"
                   [ngModelOptions]="{ standalone: true }"
                 >
-                {{ demandeStage.description }} </textarea
+                {{ demandeStage?.description }} </textarea
                 >
               </mat-form-field>
             </div>
@@ -373,7 +373,7 @@
             </div>
             <div class="col-6 tableauStagiaire d-flex align-items-center">
               <p *ngIf="!modification">
-                {{ demandeStage.informationSupplementaire }}
+                {{ demandeStage?.informationSupplementaire }}
               </p>
               <!-- Formulaire informations supplémentaires -->
               <mat-form-field *ngIf="modification">
@@ -385,7 +385,7 @@
                   [ngModelOptions]="{ standalone: true }"
                 >
                           {{
-                    demandeStage.informationSupplementaire
+                    demandeStage?.informationSupplementaire
                   }} </textarea
                 >
               </mat-form-field>

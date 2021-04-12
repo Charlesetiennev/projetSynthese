@@ -1,13 +1,17 @@
 // navigation-admin.sass 
 // Par Charles-Etienne Villemure
-// Le 9 Avril 2021
+// Le 12 Avril 2021
+@import '../../app.component'
 .navigation
-    height: 100vh
-    position: fixed
-    left: 0
-    top: 0
-    max-width: 16.66666667%
     background-color: #307CAF
+    @include lg    
+        height: 100vh
+        position: fixed
+        left: 0
+        top: 0
+        max-width: 16.66666667%
+        padding-left: 3rem
+
 button
     border: none
     background-color: rgba(0,0 ,0 ,.0 )
@@ -16,3 +20,18 @@ button
 .mat-icon
     height: 16px
     width: 16px
+.row
+    display: flex
+    justify-content: center
+    @include lg
+        justify-content: start
+.deconnexionAdmin
+    padding: 2vh 0 
+    @include lg
+        padding-bottom: 0
+        padding-top: 10rem
+// Cette page n'a pas encore été intégrer completement
+.liensDesactive
+    cursor: not-allowed
+    opacity: 0.5
+    text-decoration: none

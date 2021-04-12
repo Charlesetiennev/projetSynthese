@@ -1,7 +1,7 @@
 <!-- navigation-admin.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
-<div class="container-fluid navigation pl-5">
+<!-- Le 12 Avril 2021 -->
+<div class="container-fluid navigation pt-3">
   <!-- Logo -->
   <div class="row d-flex text-white">
     <svg
@@ -74,9 +74,8 @@
         fill="#fff"
       />
     </svg>
-    <a routerLink="/administration/demandeStage" class="text-white pl-4"
-      >Demandes de stage</a
-    >
+    <!-- Section non terminé -->
+    <a class="text-white pl-4 liensDesactive">Demandes de stage</a>
   </div>
   <!-- Candidats -->
   <div class="row py-3" *ngIf="env.statusDeConnexion === 'entreprise'">
@@ -100,25 +99,26 @@
     >
   </div>
   <!-- Entreprises -->
-  <div class="row pt-3 pb-5" *ngIf="env.statusDeConnexion === 'stagiaire'">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 31.5 36"
+  <div class="row py-3" *ngIf="env.statusDeConnexion === 'stagiaire'">
+    <a routerLink="/administration/" class="text-white">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 31.5 36"
+      >
+        <path
+          id="Icon_awesome-user-tie"
+          data-name="Icon awesome-user-tie"
+          d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
+          fill="#fff"
+        />
+      </svg>
+      <span class="pl-2">Entreprises</span></a
     >
-      <path
-        id="Icon_awesome-user-tie"
-        data-name="Icon awesome-user-tie"
-        d="M15.75,18a9,9,0,1,0-9-9A9,9,0,0,0,15.75,18Zm6.736,2.292L19.125,33.75l-2.25-9.562,2.25-3.937h-6.75l2.25,3.938-2.25,9.563L9.014,20.292A9.434,9.434,0,0,0,0,29.7v2.925A3.376,3.376,0,0,0,3.375,36h24.75A3.376,3.376,0,0,0,31.5,32.625V29.7a9.434,9.434,0,0,0-9.014-9.408Z"
-        fill="#fff"
-      />
-    </svg>
-
-    <a routerLink="/administration/" class="text-white pl-4"> Entreprises</a>
   </div>
   <!-- Déconnexion -->
-  <div class="row pt-5 text-white">
+  <div class="row text-white deconnexionAdmin">
     <mat-icon>logout</mat-icon>
     <button class="pl-4" (click)="deconnexion()">Déconnexion</button>
   </div>

@@ -1,6 +1,6 @@
 <!-- offre-stage-detail.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 9 Avril 2021 -->
+<!-- Le 12 Avril 2021 -->
 <div class="card rounded-0">
   <div class="card-body">
     <!-- Formulaire conditionelle à modification dans les mêmes cases que les informations du départ -->
@@ -9,7 +9,9 @@
       #formulaireEdition="ngForm"
       (ngSubmit)="onSubmit()"
     >
-      <div class="row bordureTitreCarte d-flex justify-content-between mb-2">
+      <div
+        class="row bordureTitreCarte enteteOffreStage justify-content-between mb-2"
+      >
         <div class="d-flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,13 +54,13 @@
             <!-- Si offre en attente -->
             <span
               *ngIf="offreStage.accepter === false"
-              class="font-weight-normal"
+              class="font-weight-normal text-warning"
               >En attente</span
             >
             <!-- Si offre acceptée -->
             <span
               *ngIf="offreStage.accepter === true"
-              class="font-weight-normal"
+              class="font-weight-normal text-success"
               >Actif</span
             >
           </div>
@@ -223,10 +225,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-xs-12 col-lg-6">
           <!-- Description du stage -->
           <div class="card-text">
-            Description du stage :
+            Description du stage :<br />
             <span *ngIf="!modification">{{ offreStage?.description }}</span>
             <!-- Formulaire description du stage -->
             <mat-form-field *ngIf="modification" class="w-100">
@@ -246,10 +248,10 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-xs-12 col-lg-6">
           <!-- Compétences recherchés -->
           <div class="card-text">
-            Compétence recherchés :
+            Compétence recherchés :<br />
             <span *ngIf="!modification">{{
               offreStage?.competencesRechercher
             }}</span>
@@ -297,14 +299,11 @@
         </div>
       </div>
       <!--  -->
-      <div class="row d-flex justify-content-start">
+      <div class="row d-flex justify-content-start mb-3" *ngIf="modification">
         <div class="card-body d-flex pb-0">
-          <button *ngIf="modification" class="btn btn-info px-3 pt-2">
-            Terminez
-          </button>
+          <button class="btn btn-info px-3 pt-2">Terminez</button>
 
           <button
-            *ngIf="modification"
             (click)="annuler()"
             class="m-0 ml-2 btn btn-warning text-white"
           >
@@ -313,7 +312,7 @@
         </div>
       </div>
     </form>
-    <div class="row d-flex justify-content-end">
+    <div class="row boutonSupprimerModifier" *ngIf="!modification">
       <button
         (click)="ouvrirFormulaire()"
         class="px-3 m-0 mr-2 text-dark bordureLiens btn-bg"
