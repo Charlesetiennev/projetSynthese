@@ -1,7 +1,8 @@
 // petite-carte-stagiaires.ts
 // Par Charles-Etienne Villemure
-// Le 9 Avril 2021
+// Le 12 Avril 2021
 import { Component, OnInit, Input } from '@angular/core';
+import { environement } from '../../../environement';
 import { Stagiaire } from '../../../stagiaire';
 
 @Component({
@@ -11,6 +12,7 @@ import { Stagiaire } from '../../../stagiaire';
 })
 export class PetiteCarteStagiairesAdminComponent implements OnInit {
   @Input() stagiaire: Stagiaire;
+  env = environement;
   constructor() {}
 
   ngOnInit(): void {}

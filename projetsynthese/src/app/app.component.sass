@@ -8,7 +8,9 @@ $couleurPrincipal : #5C4CF9
 $couleurSecondaire : #4F4F6F 
 $CouleurTitreCarte: #584CF9
 
-
+//***************************// 
+// Mixin pour largeur d'écran//
+//***************************//
 // Petite tablette et grand téléphone
 $screen-sm-min: 576px
 // Petite tablette
@@ -36,15 +38,22 @@ $screen-xl-min: 1200px
 // Sur mesure
 @mixin rwd($screen)
   @media (min-width: $screen+'px' )
-    @content
-
-
-        
-    
+    @content        
+//********************** 
+//********Global********
+//**********************     
 // Conteneur modifié pour le défilement horizontal
 .conteneur
     max-width: 100%
     overflow: hidden
+.boutonGradiant
+    border: none
+    background-image: linear-gradient(to right, #544CF9 , #814CF9)
+.texteCouleurSecondaire
+     color: $couleurSecondaire
+//********************** 
+//********Public********
+//**********************     
 .imageHautDePage
     width: 100%
     height: 100%
@@ -54,38 +63,25 @@ $screen-xl-min: 1200px
     transform: translateY(-120%) 
     font-family: $policeTitre   
     margin-left: 5rem
-.titreCarte
-    color: $CouleurTitreCarte
 .header
     height: 50vh    
     background-position: center
     background-repeat: no-repeat
     background-size: cover
-.bordureTitreCarte
-    border-bottom: solid .5vh black
-.carteAttente
-    height: 35vh
-    box-shadow:  0px 3px 4px 0px rgba(50, 50, 50, 0.2), 0px 3px 4px 0px rgba(50, 50, 50, 0.2), 0px 3px 4px 0px rgba(50, 50, 50, 0.2)
-.boutonGradiant
-    border: none
-    background-image: linear-gradient(to right, #544CF9 , #814CF9)
-.tableauStagiaire
-    border: solid 1px lightgrey
-.bordure
-    border-bottom: solid 1vh black
-.bordureLiens
-    border: solid .6vh #efefef
-.btn-bg
-    background-color: #F6F6F6
-.bordureBasBleu
-    border-bottom: solid 2vh #3E99DF
 .titreDeLannonce
     line-height: 1.2
     font-size: 2rem
     @include lg
         font-size: 3rem
-.texteCouleurSecondaire
-     color: $couleurSecondaire
+// Cartes
+.titreCarte
+    color: $CouleurTitreCarte
+.bordureTitreCarte
+    border-bottom: solid .5vh black
+.bordure
+    border-bottom: solid 1vh black
+.bordureLiens
+    border: solid .6vh #efefef
 .contenuPageListeStageStagiaire
     margin: 0
     @include lg
@@ -93,3 +89,16 @@ $screen-xl-min: 1200px
 .bordureOffreDemandeComplet
     border: solid 1px #707070
 
+//********************** 
+//Section administration
+//********************** 
+.espaceFormulaire
+    margin-left: 0
+    @include md
+        margin-left: 1rem
+.btn-bg
+    background-color: #F6F6F6
+.tableauStagiaire
+    border: solid 1px lightgrey
+.bordureBasBleu
+    border-bottom: solid 2vh #3E99DF

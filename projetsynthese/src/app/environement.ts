@@ -1,4 +1,4 @@
 export const environement = {
-  connecter: false,
-  statusDeConnexion: '',
+  connecter: true,
+  statusDeConnexion: 'stagiaire',
 };

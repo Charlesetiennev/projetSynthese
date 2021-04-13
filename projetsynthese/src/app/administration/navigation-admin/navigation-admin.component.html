@@ -1,7 +1,7 @@
 <!-- navigation-admin.html -->
 <!-- Par Charles-Etienne Villemure -->
 <!-- Le 12 Avril 2021 -->
-<div class="container-fluid navigation pt-3">
+<div class="container-fluid navigation pt-3" style="z-index: 1">
   <!-- Logo -->
   <div class="row d-flex text-white">
     <svg
@@ -100,7 +100,7 @@
   </div>
   <!-- Entreprises -->
   <div class="row py-3" *ngIf="env.statusDeConnexion === 'stagiaire'">
-    <a routerLink="/administration/" class="text-white">
+    <a routerLink="/administration/listeEntreprises" class="text-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

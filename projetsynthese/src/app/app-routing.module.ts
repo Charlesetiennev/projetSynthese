@@ -17,6 +17,7 @@ import { DemandeStageAdminComponent } from './administration/demande-stage-admin
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
 import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
 import { EntrepriseAdminComponent } from './administration/entreprise-admin/entreprise-admin.component';
+import { ListeEntreprisesComponent } from './administration/liste-entreprises/liste-entreprises.component';
 import { fromEventPattern } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
@@ -39,6 +40,11 @@ const routes: Routes = [
     path: 'administration/listeCandidats',
     component: ListeCandidatsAdminComponent,
   },
+  {
+    path: 'administration/listeEntreprises',
+    component: ListeEntreprisesComponent,
+  },
+
   {
     path: 'administration/ficheCandidat/:id',
     component: FicheCandidatAdminComponent,

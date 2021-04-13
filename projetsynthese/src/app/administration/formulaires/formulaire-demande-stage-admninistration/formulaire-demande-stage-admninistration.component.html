@@ -3,10 +3,10 @@
 <!-- Le 9 Avril 2021 -->
 <div class="conteneur pl-0">
   <div class="row m-0" style="margin-right: 0 !important">
-    <app-navigation-admin class="col-2 p-0"></app-navigation-admin>
-    <app-action-haut-admin class="col-10"></app-action-haut-admin>
+    <app-navigation-admin class="col-xs-12 col-lg-2 p-0"></app-navigation-admin>
+    <app-action-haut-admin class="col-xs-12 col-lg-10"></app-action-haut-admin>
     <!-- Contenu -->
-    <div class="offset-2 col-10 px-5">
+    <div class="col-xs-12 offset-lg-2 col-lg-10 px-5">
       <!-- FORMULAIRE -->
       <form
         id="demandeStageAjoutForm"
@@ -62,7 +62,7 @@
             </div>
           </mat-form-field>
           <!-- Ville -->
-          <mat-form-field class="ml-2">
+          <mat-form-field class="espaceFormulaire">
             <input
               matInput
               type="text"
@@ -91,6 +91,7 @@
             <mat-label>Date début du stage</mat-label>
             <input
               matInput
+              [min]="dateAujourdhui"
               required
               [matDatepicker]="picker"
               formControlName="dateDebut"
@@ -111,7 +112,7 @@
             </div>
           </mat-form-field>
           <!-- Date de fin -->
-          <mat-form-field class="ml-2">
+          <mat-form-field class="espaceFormulaire">
             <mat-label>Date de fin du stage</mat-label>
             <input
               matInput
@@ -169,7 +170,7 @@
             </div>
           </mat-form-field>
           <!-- Programme suivi -->
-          <mat-form-field class="ml-2">
+          <mat-form-field class="espaceFormulaire">
             <input
               matInput
               type="text"
@@ -214,7 +215,7 @@
             </mat-select>
           </mat-form-field>
           <!-- Autres formations -->
-          <mat-form-field class="ml-2">
+          <mat-form-field class="espaceFormulaire">
             <input
               matInput
               type="text"
@@ -259,7 +260,7 @@
             </div>
           </mat-form-field>
           <!-- Informations supplémentaires -->
-          <mat-form-field class="ml-2">
+          <mat-form-field class="espaceFormulaire">
             <input
               matInput
               type="text"

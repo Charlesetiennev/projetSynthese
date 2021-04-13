@@ -17,6 +17,8 @@ export class FormulaireDemandeStageAdmninistrationComponent implements OnInit {
   // Formulaire
   demandeStageAjoutForm: FormGroup;
   soumission = false;
+  // Date minimum
+  dateAujourdhui = new Date();
   // Listes des champs a choix du formulaire
   typesDeStageListe: string[] = [
     'Temps plein',

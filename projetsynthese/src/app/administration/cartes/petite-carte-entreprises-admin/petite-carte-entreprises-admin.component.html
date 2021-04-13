@@ -3,13 +3,13 @@
 <!-- Le 12 Avril 2021 -->
 <div class="container bg-white m-2">
   <div class="row text-secondary d-flex justify-content-center">
-    <h2>{{ stagiaire?.prenom }} {{ stagiaire?.nom }}</h2>
+    <h2>{{ entreprise?.nomEntreprise }}</h2>
   </div>
   <div class="row d-flex text-primary justify-content-center">
-    <p>{{ stagiaire?.ville }}</p>
+    <p>{{ entreprise?.ville }}</p>
   </div>
-  <div class="row d-flex justify-content-center">
-    <p class="text-primary">{{ stagiaire?.formations }}</p>
+  <div class="row d-flex justify-content-center px-2">
+    <p class="text-primary">{{ entreprise?.secteurActivite }}</p>
   </div>
   <div
     class="row d-flex justify-content-center"
@@ -51,10 +51,10 @@
     </button>
   </div>
   <div
-    *ngIf="env.statusDeConnexion === 'entreprise'"
+    *ngIf="env.statusDeConnexion === 'stagiaire'"
     class="d-flex align-items-center justify-content-center pb-2"
   >
-    <a href="mailto:{{ stagiaire?.courriel }}" class="btn btn-success">
+    <a href="mailto:{{ entreprise?.courriel }}" class="btn btn-success">
       Contactez</a
     >
   </div>

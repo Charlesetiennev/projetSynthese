@@ -71,7 +71,7 @@ export class ApiProjetSyntheseService {
   // ENTREPRISES
   // **********
   // Récupération Entreprises
-  getEntreprises(): Observable<Entreprise[]> {
+  recuperationEntreprises(): Observable<Entreprise[]> {
     return this.http.get<Entreprise[]>(this.entreprisesUrl);
   }
   // Ajout Entreprise

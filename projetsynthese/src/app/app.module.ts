@@ -20,7 +20,6 @@ import { AnnonceComponent } from './annonces/annonce/annonce.component';
 import { AProposComponent } from './pagesRouter/a-propos/a-propos.component';
 import { AnnonceLoremComponent } from './annonces/annonce-lorem/annonce-lorem.component';
 import { ConnexionInscriptionComponent } from './pagesRouter/connexion-inscription/connexion-inscription.component';
-import { FuturStagiaireComponent } from './futur-stagiaire/futur-stagiaire.component';
 import { TrouvezUnStageComponent } from './sectionLiens/trouvez-un-stage/trouvez-un-stage.component';
 import { SectionTrouvezStagiairesComponent } from './sectionLiens/section-trouvez-stagiaires/section-trouvez-stagiaires.component';
 import { CarteStagiaireMoyenComponent } from './carteStagiaires/carte-stagiaire-moyen/carte-stagiaire-moyen.component';
@@ -45,6 +44,7 @@ import { FormulaireOffreStageAdminComponent } from './administration/formulaires
 import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
 import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
+import { ListeEntreprisesComponent } from './administration/liste-entreprises/liste-entreprises.component';
 // MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -62,11 +62,13 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
 // Pipes
 import { OffreStageAccepterPipe } from './pipes/offre-stage-accepter.pipe';
 import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
+import { StagiaireAccepterPipe } from './pipes/stagiaire-accepter.pipe';
 // Français
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { OffresStageEntreprisePipe } from './pipes/offres-stage-entreprise.pipe';
+import { PetiteCarteEntreprisesAdminComponent } from './administration/cartes/petite-carte-entreprises-admin/petite-carte-entreprises-admin.component';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -87,7 +89,6 @@ registerLocaleData(localeFr, 'fr');
     AProposComponent,
     AnnonceLoremComponent,
     ConnexionInscriptionComponent,
-    FuturStagiaireComponent,
     TrouvezUnStageComponent,
     SectionTrouvezStagiairesComponent,
     CarteStagiaireMoyenComponent,
@@ -115,6 +116,9 @@ registerLocaleData(localeFr, 'fr');
     OffreStageAccepterPipe,
     DemandeStageAccepterPipe,
     OffresStageEntreprisePipe,
+    StagiaireAccepterPipe,
+    ListeEntreprisesComponent,
+    PetiteCarteEntreprisesAdminComponent,
   ],
   imports: [
     BrowserModule,

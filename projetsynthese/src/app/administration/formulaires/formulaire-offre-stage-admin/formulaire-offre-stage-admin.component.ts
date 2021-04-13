@@ -18,6 +18,8 @@ export class FormulaireOffreStageAdminComponent implements OnInit {
   // Formulaire
   offreStageAjoutForm: FormGroup;
   soumission = false;
+  // Date minimum
+  dateAujourdhui = new Date();
   // Secteurs d'activités
   secteursActivites: SecteursActivites[];
 

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PetiteCarteStagiairesAdminComponent } from './petite-carte-stagiaires-admin.component';
 
 describe('PetiteCarteStagiairesAdminComponent', () => {

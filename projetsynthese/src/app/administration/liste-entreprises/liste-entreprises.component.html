@@ -1,6 +1,6 @@
 <!-- liste-candidats-admin.html -->
 <!-- Par Charles-Etienne Villemure -->
-<!-- Le 12 Avril 2021 -->
+<!-- Le 9 Avril 2021 -->
 <div class="conteneur pl-0 bg-light" style="min-height: 100vh">
   <div class="row m-0" style="margin-right: 0 !important">
     <app-navigation-admin class="col-xs-12 col-lg-2 p-0"></app-navigation-admin>
@@ -46,14 +46,11 @@
         </svg>
       </div>
       <div class="row w-85">
-        <!-- Carte des stagiaires -->
-        <div
-          class="col-6 col-lg-4"
-          *ngFor="let stagiaire of stagiaires | stagiaireAccepter"
-        >
-          <app-petite-carte-stagiaires-admin
-            [stagiaire]="stagiaire"
-          ></app-petite-carte-stagiaires-admin>
+        <!-- Carte des entreprises -->
+        <div class="col-6 col-lg-4" *ngFor="let entreprise of entreprises">
+          <app-petite-carte-entreprises-admin
+            [entreprise]="entreprise"
+          ></app-petite-carte-entreprises-admin>
         </div>
       </div>
     </div>
