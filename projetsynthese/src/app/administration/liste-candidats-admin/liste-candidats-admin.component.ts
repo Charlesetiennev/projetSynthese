@@ -19,7 +19,7 @@ export class ListeCandidatsAdminComponent implements OnInit {
   //Récuperation des stagiaires
   getStagiaires(): void {
     this.apiProjetSyntheseService
-      .getStagiaires()
+      .recuperationStagiaires()
       .subscribe((resultat) => (this.stagiaires = resultat));
   }
 }

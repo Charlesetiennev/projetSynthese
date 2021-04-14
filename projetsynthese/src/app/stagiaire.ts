@@ -1,3 +1,6 @@
+// Stagiaire.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 export interface Stagiaire {
   _id: string | null;
   nom: string;

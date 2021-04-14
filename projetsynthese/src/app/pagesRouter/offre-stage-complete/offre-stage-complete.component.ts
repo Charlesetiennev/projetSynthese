@@ -1,3 +1,6 @@
+// offre-stage-complet.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';

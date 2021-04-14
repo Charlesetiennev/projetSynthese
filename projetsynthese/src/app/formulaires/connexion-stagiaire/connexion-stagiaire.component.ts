@@ -1,3 +1,6 @@
+// connexion-stagiaire.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { environement } from '../../environement';

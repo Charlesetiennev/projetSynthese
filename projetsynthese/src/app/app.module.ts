@@ -1,11 +1,16 @@
+// app.module.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PiedDePageComponent } from './pied-de-page/pied-de-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// accueil
+import { AppComponent } from './app.component';
+// public
+import { PiedDePageComponent } from './pied-de-page/pied-de-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TrouvezStageComponent } from './pagesRouter/trouvez-stage/trouvez-stage.component';
 import { TrouvezStagiaireComponent } from './pagesRouter/trouvez-stagiaire/trouvez-stagiaire.component';
@@ -26,6 +31,10 @@ import { CarteStagiaireMoyenComponent } from './carteStagiaires/carte-stagiaire-
 import { RechercheEnteteComponent } from './recherche-entete/recherche-entete.component';
 import { FormulaireStagiaireComponent } from './formulaires/formulaire-stagiaire/formulaire-stagiaire.component';
 import { FormulaireEntrepriseComponent } from './formulaires/formulaire-entreprise/formulaire-entreprise.component';
+import { ConnexionStagiaireComponent } from './formulaires/connexion-stagiaire/connexion-stagiaire.component';
+import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise/connexion-entreprise.component';
+import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
+// administration
 import { NavigationAdminComponent } from './administration/navigation-admin/navigation-admin.component';
 import { AccueilAdminComponent } from './administration/accueil-admin/accueil-admin.component';
 import { DemandeStageAdminComponent } from './administration/demande-stage-admin/demande-stage-admin.component';
@@ -35,16 +44,14 @@ import { AttenteOffreStageComponent } from './administration/cartes/attente-offr
 import { DemandeStageDetailComponent } from './administration/cartes/demande-stage-detail/demande-stage-detail.component';
 import { ActionHautAdminComponent } from './administration/action-haut-admin/action-haut-admin.component';
 import { OffreStageDetailComponent } from './administration/cartes/offre-stage-detail/offre-stage-detail.component';
-import { ConnexionStagiaireComponent } from './formulaires/connexion-stagiaire/connexion-stagiaire.component';
-import { ConnexionEntrepriseComponent } from './formulaires/connexion-entreprise/connexion-entreprise.component';
 import { FicheCandidatAdminComponent } from './administration/fiche-candidat-admin/fiche-candidat-admin.component';
 import { ListeCandidatsAdminComponent } from './administration/liste-candidats-admin/liste-candidats-admin.component';
 import { PetiteCarteStagiairesAdminComponent } from './administration/cartes/petite-carte-stagiaires-admin/petite-carte-stagiaires-admin.component';
 import { FormulaireOffreStageAdminComponent } from './administration/formulaires/formulaire-offre-stage-admin/formulaire-offre-stage-admin.component';
-import { OffreStageCompleteComponent } from './pagesRouter/offre-stage-complete/offre-stage-complete.component';
 import { FormulaireDemandeStageAdmninistrationComponent } from './administration/formulaires/formulaire-demande-stage-admninistration/formulaire-demande-stage-admninistration.component';
 import { DemandeStageCompletComponent } from './pagesRouter/demande-stage-complet/demande-stage-complet.component';
 import { ListeEntreprisesComponent } from './administration/liste-entreprises/liste-entreprises.component';
+import { PetiteCarteEntreprisesAdminComponent } from './administration/cartes/petite-carte-entreprises-admin/petite-carte-entreprises-admin.component';
 // MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -63,12 +70,13 @@ import { ApiProjetSyntheseService } from './api-projet-synthese.service';
 import { OffreStageAccepterPipe } from './pipes/offre-stage-accepter.pipe';
 import { DemandeStageAccepterPipe } from './pipes/demande-stage-accepter.pipe';
 import { StagiaireAccepterPipe } from './pipes/stagiaire-accepter.pipe';
+import { EntrepriseAccepterPipe } from './pipes/entreprise-accepter.pipe';
+import { OffresStageEntreprisePipe } from './pipes/offres-stage-entreprise.pipe';
 // Français
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { OffresStageEntreprisePipe } from './pipes/offres-stage-entreprise.pipe';
-import { PetiteCarteEntreprisesAdminComponent } from './administration/cartes/petite-carte-entreprises-admin/petite-carte-entreprises-admin.component';
+
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -119,6 +127,7 @@ registerLocaleData(localeFr, 'fr');
     StagiaireAccepterPipe,
     ListeEntreprisesComponent,
     PetiteCarteEntreprisesAdminComponent,
+    EntrepriseAccepterPipe,
   ],
   imports: [
     BrowserModule,

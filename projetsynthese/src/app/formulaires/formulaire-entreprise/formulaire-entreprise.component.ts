@@ -1,7 +1,10 @@
+// formulaire-entreprise.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { SecteursActivites } from '../../secteurs-activites';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
-
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Entreprise } from 'src/app/entreprise';
 
@@ -16,6 +19,7 @@ export class FormulaireEntrepriseComponent implements OnInit {
   nouvelleEntreprise: Entreprise;
   secteursActivites: SecteursActivites[];
   constructor(
+    private router: Router,
     private apiProjetSyntheseService: ApiProjetSyntheseService,
     private formBuilder: FormBuilder
   ) {}
@@ -100,7 +104,7 @@ export class FormulaireEntrepriseComponent implements OnInit {
         adresse: this.entrepriseAjoutForm.get('adresse')?.value,
         courriel: this.entrepriseAjoutForm.get('courriel')?.value,
         logo: this.entrepriseAjoutForm.get('logo')?.value,
-        nomEntreprise: this.entrepriseAjoutForm.get('nomResponsable')?.value,
+        nomEntreprise: this.entrepriseAjoutForm.get('nomEntreprise')?.value,
         nomResponsable: this.entrepriseAjoutForm.get('nomResponsable')?.value,
         numeroTel: this.entrepriseAjoutForm.get('numeroTel')?.value,
         prenomResponsable: this.entrepriseAjoutForm.get('prenomResponsable')
@@ -112,13 +116,15 @@ export class FormulaireEntrepriseComponent implements OnInit {
         accepter: false,
         niveauAcces: 333,
       };
-      this.entrepriseAjoutForm.reset();
       console.log(this.nouvelleEntreprise);
       this.apiProjetSyntheseService
         .ajoutEntreprise(this.nouvelleEntreprise)
         .subscribe(
           (nouvelleEntreprise) => (this.nouvelleEntreprise._id = null)
         );
+      this.router.navigate([
+        '/administration/ficheEntreprise/6076017fdd6fe400157e232a',
+      ]);
     } else {
       console.log('invalide');
     }

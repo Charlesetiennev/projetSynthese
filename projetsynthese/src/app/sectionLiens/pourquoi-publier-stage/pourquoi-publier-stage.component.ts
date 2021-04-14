@@ -1,3 +1,6 @@
+// pourquoi-publier-stage.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { environement } from '../../environement';
 

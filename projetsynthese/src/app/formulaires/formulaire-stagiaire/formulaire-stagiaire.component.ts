@@ -1,5 +1,9 @@
+// formulaire-stagiaire.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { Stagiaire } from 'src/app/stagiaire';
+import { Router } from '@angular/router';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,10 +19,12 @@ export class FormulaireStagiaireComponent implements OnInit {
   stagiaires: Stagiaire[];
 
   constructor(
+    private router: Router,
     private apiProjetSyntheseService: ApiProjetSyntheseService,
     private formBuilder: FormBuilder
   ) {}
   ngOnInit(): void {
+    // Formulaire validation
     this.stagiaireAjoutForm = this.formBuilder.group({
       formations: ['', Validators.required],
       prenom: [
@@ -94,16 +100,16 @@ export class FormulaireStagiaireComponent implements OnInit {
         motDePasse: this.stagiaireAjoutForm.get('motDePasse')?.value,
         niveauAcces: 111,
       };
-      console.log('valide');
       this.apiProjetSyntheseService
         .ajoutStagiaire(this.nouveauStagiaire)
         .subscribe((nouveauStagiaire) => {
           this.nouveauStagiaire._id = null;
         });
 
-      this.stagiaireAjoutForm.reset();
+      this.router.navigate([
+        '/administration/ficheCandidat/605a31da6caff70015917aa4',
+      ]);
     } else {
-      console.log('non valide');
     }
   }
 

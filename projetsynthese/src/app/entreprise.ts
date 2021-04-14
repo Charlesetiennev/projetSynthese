@@ -1,3 +1,6 @@
+// Entreprise.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 export interface Entreprise {
   _id: string | null;
   nomEntreprise: string;

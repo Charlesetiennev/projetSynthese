@@ -1,6 +1,6 @@
 // api-projet-synthese.service.ts
 // Par Charles-Etienne Villemure
-// Le 7 Avril 2021
+// Le 13 Avril 2021
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SecteursActivites } from './secteurs-activites';
@@ -39,11 +39,11 @@ export class ApiProjetSyntheseService {
   // STAGIAIRES
   // **********
   // Récupération Stagiaires
-  getStagiaires(): Observable<Stagiaire[]> {
+  recuperationStagiaires(): Observable<Stagiaire[]> {
     return this.http.get<Stagiaire[]>(this.stagiairesUrl);
   }
   // Récupération Stagiaire par ID
-  getStagiaireavecId(_id: string | null): Observable<Stagiaire> {
+  recuperationStagiaireavecId(_id: string | null): Observable<Stagiaire> {
     return this.http.get<Stagiaire>(this.stagiairesUrl + _id, httpOptions);
   }
   // Ajout Stagiaire

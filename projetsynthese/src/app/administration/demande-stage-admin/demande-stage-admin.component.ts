@@ -1,3 +1,6 @@
+// demande-stage-admin.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit } from '@angular/core';
 import { DemandeStage } from '../../demande-stage';
 import { ApiProjetSyntheseService } from '../../api-projet-synthese.service';

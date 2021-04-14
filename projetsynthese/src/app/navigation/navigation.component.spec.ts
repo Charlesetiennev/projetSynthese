@@ -1,3 +1,6 @@
+// navigation.spec.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation.component';

@@ -1,3 +1,6 @@
+// Offre-stage.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Entreprise } from './entreprise';
 export interface OffreStage {
   _id: string | null;

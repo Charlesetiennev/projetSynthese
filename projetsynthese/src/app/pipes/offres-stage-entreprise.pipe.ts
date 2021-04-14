@@ -1,3 +1,6 @@
+// offre-stage-entreprise.pipe
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Pipe, PipeTransform } from '@angular/core';
 import { OffreStage } from '../offre-stage';
 

@@ -1,3 +1,6 @@
+// navigation-admin.spec.ts
+// Par Charles-Etienne Villemure
+// Le 9 Avril 2021
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavigationAdminComponent } from './navigation-admin.component';

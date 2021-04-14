@@ -8,18 +8,13 @@ describe('PetiteCarteEntreprisesAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PetiteCarteEntreprisesAdminComponent ]
-    })
-    .compileComponents();
+      declarations: [PetiteCarteEntreprisesAdminComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PetiteCarteEntreprisesAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

@@ -1,3 +1,6 @@
+// app.component.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component } from '@angular/core';
 import { environement } from './environement';
 

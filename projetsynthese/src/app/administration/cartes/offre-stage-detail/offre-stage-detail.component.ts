@@ -6,6 +6,7 @@ import { ApiProjetSyntheseService } from '../../../api-projet-synthese.service';
 import { OffreStage } from '../../../offre-stage';
 import { SecteursActivites } from '../../../secteurs-activites';
 import { NgForm } from '@angular/forms';
+import { environement } from '../../../environement';
 
 @Component({
   selector: 'app-offre-stage-detail',
@@ -43,6 +44,8 @@ export class OffreStageDetailComponent implements OnInit {
       .suppressionOffreDeStage(this.offreStage._id)
       .subscribe((result) => this.offreStage);
     window.location.reload();
+    environement.connecter = true;
+    environement.statusDeConnexion = 'entreprise';
   }
   ouvrirFormulaire(): void {
     this.modification = true;

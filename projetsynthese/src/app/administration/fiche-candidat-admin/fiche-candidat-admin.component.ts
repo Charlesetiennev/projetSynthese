@@ -1,6 +1,6 @@
 // fiche-candidat-admin.ts
 // Par Charles-Etienne Villemure
-// Le 9 Avril 2021
+// Le 13 Avril 2021
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -45,7 +45,7 @@ export class FicheCandidatAdminComponent implements OnInit {
   // Récupération d'un stagiaire par son ID
   stagiaireAvecId(): void {
     this.apiProjetSyntheseService
-      .getStagiaireavecId(this._id)
+      .recuperationStagiaireavecId(this._id)
       .subscribe((resultat) => console.log((this.stagiaire = resultat)));
   }
   // Action du formulaire

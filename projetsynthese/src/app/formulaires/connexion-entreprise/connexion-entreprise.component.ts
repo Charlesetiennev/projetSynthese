@@ -1,3 +1,6 @@
+// connexion-entreprise.ts
+// Par Charles-Etienne Villemure
+// Le 13 Avril 2021
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { environement } from '../../environement';
@@ -38,7 +41,7 @@ export class ConnexionEntrepriseComponent implements OnInit {
       this.env.connecter = true;
       this.env.statusDeConnexion = 'entreprise';
       this.router.navigate([
-        '/administration/ficheEntreprise/606dfadb1f69fe001501319f',
+        '/administration/ficheEntreprise/6076017fdd6fe400157e232a',
       ]);
     } else {
       console.log('non valide');
