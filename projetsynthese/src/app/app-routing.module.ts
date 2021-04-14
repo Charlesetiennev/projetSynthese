@@ -21,7 +21,6 @@ import { ListeEntreprisesComponent } from './administration/liste-entreprises/li
 import { fromEventPattern } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  { path: '**', redirectTo: 'accueil' },
   // Public
   { path: 'accueil', component: AccueilComponent },
   { path: 'trouvezStage', component: TrouvezStageComponent },
